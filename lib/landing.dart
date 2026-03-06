@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 import 'package:nexusmuseum/uikit/footerApp.dart';
 import 'package:nexusmuseum/globals.dart';
@@ -50,7 +51,8 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                       ),
                       Spacer(),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                        },
                         child: Text(
                           'О музее',
                           style: GoogleFonts.playfairDisplay(
@@ -62,7 +64,9 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                       ),
                       SizedBox(height: 20),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
+                        },
                         child: Text(
                           'Выставки',
                           style: GoogleFonts.playfairDisplay(
@@ -118,7 +122,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/images/image_landing.png'),
+                      image: AssetImage('assets/images/landing.png'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -297,7 +301,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                             child: Text(
                               'Бесплатный вход в рамках UNIQLO Nights',
                               style: GoogleFonts.inter(
-                                fontSize: 10,
+                                fontSize: 11,
                                 color: background,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -442,7 +446,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                             child: Text(
                               'Бесплатный вход в рамках UNIQLO Nights',
                               style: GoogleFonts.inter(
-                                fontSize: 10,
+                                fontSize: 11,
                                 color: background,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -531,12 +535,15 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                                 right: 8,
                                 bottom: 12,
                                 left: 8,
-                                child: Text(
-                                  titleCollectionList[index],
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.inter(
-                                    fontSize: 7,
-                                    color: white,
+                                child: SizedBox(
+                                  width: 100,
+                                  child: Text(
+                                    titleCollectionList[index],
+                                    overflow: TextOverflow.ellipsis,
+                                    style: GoogleFonts.inter(
+                                      fontSize: 7,
+                                      color: white,
+                                    ),
                                   ),
                                 ),
                               ),
