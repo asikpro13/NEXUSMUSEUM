@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 import 'package:nexusmuseum/uikit/footerApp.dart';
 import 'package:nexusmuseum/globals.dart';
-
+import 'AboutMuseum.dart';
 // Экран Landing
 class Landing extends StatefulWidget {
   const Landing({super.key});
@@ -50,7 +50,11 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                       ),
                       Spacer(),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => AboutMuseumPage()
+                          )
+                          );
+                        },
                         child: Text(
                           'О музее',
                           style: GoogleFonts.playfairDisplay(
