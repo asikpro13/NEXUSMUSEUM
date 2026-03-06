@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'AboutMuseum.dart';
+import 'package:nexusmuseum/landing.dart';
+
 void main() {
-  runApp( MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,8 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'NEXUSMUSEUM',
       debugShowCheckedModeBanner: false,
-      home: AboutMuseumPage(),
+      home: Landing(),
     );
   }
 }
