@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nexusmuseum/aboutMuseum.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/landing.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 import 'package:nexusmuseum/uikit/footerApp.dart';
 
+// Экран Exhibitions
 class Exhibitions extends StatefulWidget {
   const Exhibitions({super.key});
 
@@ -50,7 +52,13 @@ class _ExhibitionsState extends State<Exhibitions>
                       ),
                       Spacer(),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => AboutMuseum(),
+                            ),
+                          );
+                        },
                         child: Text(
                           'О музее',
                           style: GoogleFonts.playfairDisplay(
