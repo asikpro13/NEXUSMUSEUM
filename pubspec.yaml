@@ -14,8 +14,7 @@ dependencies:
   google_fonts: ^8.0.2
   flutter_svg: ^2.2.3
   carousel_slider: ^5.1.2
-  hovering: ^1.0.4
-  animated_flutter_widgets: any
+  flutter_slidable: ^4.0.3
 
 dev_dependencies:
   flutter_test:
