@@ -4,12 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/landing.dart';
+import 'package:nexusmuseum/tickets.dart';
 import 'package:nexusmuseum/uikit/footerApp.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 import 'globals.dart';
 import 'aboutMuseum.dart';
 
-// Экран Exhibition
+// Экран Выставка
 class ExhibitionPage extends StatefulWidget {
   const ExhibitionPage({super.key});
 
@@ -90,7 +91,13 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                           ),
                           SizedBox(height: 20),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                  builder: (context) => TicketsPage(),
+                                ),
+                              );
+                            },
                             child: Text(
                               'Билеты',
                               style: GoogleFonts.playfairDisplay(
@@ -406,7 +413,13 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                           SizedBox(height: 40,),
                           Center(
                             child: ElevatedButton(
-                              onPressed: () {},
+                                onPressed: () {
+                                  Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                      builder: (context) => TicketsPage(),
+                                    ),
+                                  );
+                                },
                               style: ElevatedButton.styleFrom(
                                 minimumSize: Size(200, 45),
                                 backgroundColor: error,

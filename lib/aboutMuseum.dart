@@ -7,7 +7,9 @@ import 'package:nexusmuseum/landing.dart';
 import 'package:nexusmuseum/uikit/footerApp.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 
-// Экран AboutMuseum
+import 'tickets.dart';
+
+// Экран О музее
 class AboutMuseum extends StatefulWidget {
   const AboutMuseum({super.key});
 
@@ -87,7 +89,14 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                       ),
                       SizedBox(height: 20),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => TicketsPage(),
+                            ),
+                          );
+                        },
                         child: Text(
                           'Билеты',
                           style: GoogleFonts.playfairDisplay(

@@ -4,10 +4,13 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/aboutMuseum.dart';
+import 'package:nexusmuseum/exhibition.dart';
 import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 import 'package:nexusmuseum/uikit/footerApp.dart';
 import 'package:nexusmuseum/globals.dart';
+
+import 'tickets.dart';
 
 // Экран Landing
 class Landing extends StatefulWidget {
@@ -88,7 +91,13 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                       ),
                       SizedBox(height: 20),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => TicketsPage(),
+                            ),
+                          );
+                        },
                         child: Text(
                           'Билеты',
                           style: GoogleFonts.playfairDisplay(
@@ -169,7 +178,13 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                       ),
                       Spacer(),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => TicketsPage(),
+                            ),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           minimumSize: Size(200, 45),
                           backgroundColor: error,
@@ -398,29 +413,38 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(6),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(exhibitionList[index]),
-                              fit: BoxFit.cover,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (context) => ExhibitionPage(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(exhibitionList[index]),
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                right: 8,
-                                bottom: 12,
-                                left: 8,
-                                child: Text(
-                                  titleExhibitionList[index],
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.inter(
-                                    fontSize: 7,
-                                    color: white,
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  right: 8,
+                                  bottom: 12,
+                                  left: 8,
+                                  child: Text(
+                                    titleExhibitionList[index],
+                                    overflow: TextOverflow.ellipsis,
+                                    style: GoogleFonts.inter(
+                                      fontSize: 7,
+                                      color: white,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       );
