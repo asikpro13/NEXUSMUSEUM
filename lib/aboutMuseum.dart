@@ -162,7 +162,7 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                               );
                             },
                             child: Text(
-                              'NEXUSMUSEUM',
+                              '        NEXUSMUSEUM',
                               style: GoogleFonts.playfairDisplay(
                                 fontSize: 17,
                                 color: background,
@@ -269,8 +269,8 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                             children: [
                               Image.asset(
                                 'assets/images/circle.png',
-                                height: 20,
-                                width: 20,
+                                height: 15,
+                                width: 15,
                               ),
                               SizedBox(width: 8),
                               Text(

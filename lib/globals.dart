@@ -15,6 +15,22 @@ List<String> exhibitionList = [
   'assets/images/exhibition_7.png',
   'assets/images/exhibition_8.png',
   'assets/images/exhibition_9.png',
+
+];
+
+List<String> exhibitionsList = [
+  'assets/images/exhibition_16.png',
+  'assets/images/exhibition_17.png',
+  'assets/images/exhibition_18.png',
+  'assets/images/exhibition_19.png',
+
+];
+
+List<String> titleExhibitionsList = [
+  'Останки динозавра',
+  'Трицератопс',
+  'Тираннозавр Рекс',
+  'Птеродактель',
 ];
 
 List<String> titleExhibitionList = [

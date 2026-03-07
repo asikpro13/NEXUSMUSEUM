@@ -3,6 +3,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/aboutMuseum.dart';
+import 'package:nexusmuseum/exhibition.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/landing.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
@@ -402,32 +403,42 @@ class _ExhibitionsState extends State<Exhibitions>
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(6),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(exhibitionList[index]),
-                              fit: BoxFit.cover,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => ExhibitionPage(
+                                ),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(exhibitionList[index]),
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                right: 8,
-                                bottom: 12,
-                                left: 8,
-                                child: SizedBox(
-                                  width: 120,
-                                  child: Text(
-                                    titleExhibitionList[index],
-                                    overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.inter(
-                                      fontSize: 7,
-                                      color: white,
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  right: 8,
+                                  bottom: 12,
+                                  left: 8,
+                                  child: SizedBox(
+                                    width: 120,
+                                    child: Text(
+                                      titleExhibitionList[index],
+                                      overflow: TextOverflow.ellipsis,
+                                      style: GoogleFonts.inter(
+                                        fontSize: 7,
+                                        color: white,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       );
@@ -465,32 +476,42 @@ class _ExhibitionsState extends State<Exhibitions>
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(6),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(futureExhibitionList[index]),
-                              fit: BoxFit.cover,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => ExhibitionPage(
+                                ),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(futureExhibitionList[index]),
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                right: 8,
-                                bottom: 12,
-                                left: 8,
-                                child: SizedBox(
-                                  width: 120,
-                                  child: Text(
-                                    titleFutureExhibitionList[index],
-                                    overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.inter(
-                                      fontSize: 7,
-                                      color: white,
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  right: 8,
+                                  bottom: 12,
+                                  left: 8,
+                                  child: SizedBox(
+                                    width: 120,
+                                    child: Text(
+                                      titleFutureExhibitionList[index],
+                                      overflow: TextOverflow.ellipsis,
+                                      style: GoogleFonts.inter(
+                                        fontSize: 7,
+                                        color: white,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       );
