@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nexusmuseum/aboutMuseum.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 
 // Футер
@@ -68,7 +69,13 @@ class _FooterAppState extends State<FooterApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => AboutMuseum(),
+                        ),
+                      );
+                    },
                     child: Text(
                       'О МУЗЕЕ',
                       style: GoogleFonts.inter(fontSize: 12, color: background),
