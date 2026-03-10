@@ -1,6 +1,4 @@
-import 'package:flutter_slidable/flutter_slidable.dart';
-
-late final SlidableController slidableController;
+dynamic slidableController;
 
 List<String> programsList = ['assets/images/program_1.png', 'assets/images/program_2.png', 'assets/images/program_3.png'];
 

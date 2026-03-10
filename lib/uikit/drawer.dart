@@ -37,7 +37,7 @@ class _DrawerProjectState extends State<DrawerProject> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        slidableController.close();
+                        slidableController!.close();
                       },
                       child: SvgPicture.asset('assets/icons/close.svg', width: 20),
                     ),

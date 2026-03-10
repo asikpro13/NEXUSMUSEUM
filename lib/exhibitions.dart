@@ -28,267 +28,153 @@ class _ExhibitionsState extends State<Exhibitions>
       body: Slidable(
         controller: slidableController,
         startActionPane: ActionPane(extentRatio: 0.6, motion: const BehindMotion(), children: [DrawerProject()]),
-        child: SafeArea(
-          top: false,
-          bottom: false,
-          left: true,
-          right: true,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.all(21),
-                  height: MediaQuery.of(context).size.height * 1,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(image: AssetImage('assets/images/exhibitions.png'), fit: BoxFit.cover),
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 20),
-                      AppBarProject(isTitle: true),
-                      Spacer(),
-                      Row(
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 125,
-                                height: 25,
-                                decoration: BoxDecoration(color: background, borderRadius: BorderRadius.all(Radius.circular(10))),
-                                child: Center(
-                                  child: Text('СЕНТЯБРЬ 16', style: GoogleFonts.inter(fontSize: 15, color: black)),
-                                ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 21),
+                height: MediaQuery.of(context).size.height,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  image: DecorationImage(image: AssetImage('assets/images/exhibitions.png'), fit: BoxFit.cover),
+                ),
+                child: Column(
+                  children: [
+                    AppBarProject(isTitle: true),
+                    Spacer(),
+                    Row(
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: 125,
+                              height: 25,
+                              decoration: BoxDecoration(color: background, borderRadius: BorderRadius.all(Radius.circular(10))),
+                              child: Center(
+                                child: Text('СЕНТЯБРЬ 16', style: GoogleFonts.inter(fontSize: 15, color: black)),
                               ),
-                              SizedBox(height: 5),
-                              Text(
-                                'СОСУД ВЕЧНОСТИ:\nИСКУССТВО ВАЗЫ ЧЕРЕЗ ВЕКА',
-                                style: GoogleFonts.inter(fontSize: 15, color: background, fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(height: 10),
-                              Text('От античных амфор до современных\nарт-объектов', style: GoogleFonts.inter(fontSize: 13, color: background)),
-                              SizedBox(height: 35),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SocialNetworks()
-                    ],
-                  ),
-                ),
-                SizedBox(height: 27),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Выставки',
-                        style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 12),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Аудитория',
-                            style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
-                          ),
-                          SizedBox(height: 13),
-                          Text(
-                            'Место проведения',
-                            style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
-                          ),
-                          SizedBox(height: 13),
-                          Text(
-                            'Дата',
-                            style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
-                          ),
-                        ],
-                      ),
-                      SizedBox(width: 15),
-                      Column(
-                        children: [
-                          Text(
-                            '→',
-                            style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
-                          ),
-                          SizedBox(height: 13),
-                          Text(
-                            '→',
-                            style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
-                          ),
-                          SizedBox(height: 13),
-                          Text(
-                            '→',
-                            style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Сбросить фильтр',
-                        style: GoogleFonts.inter(fontSize: 15, color: error, fontWeight: FontWeight.w700),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 38),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Выставки в корпусах',
-                        style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 15),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 14),
-                  child: GridView.builder(
-                    padding: EdgeInsets.zero,
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                    itemCount: exhibitionList.length - 2,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(6),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => ExhibitionPage()));
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(image: AssetImage(exhibitionList[index]), fit: BoxFit.cover),
                             ),
-                            child: Stack(
-                              children: [
-                                Positioned(
-                                  right: 8,
-                                  bottom: 12,
-                                  left: 8,
-                                  child: SizedBox(
-                                    width: 90,
-                                    child: Text(
-                                      titleExhibitionList[index],
-                                      overflow: TextOverflow.ellipsis,
-                                      style: GoogleFonts.inter(fontSize: 9, color: white),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            SizedBox(height: 5),
+                            Text(
+                              'СОСУД ВЕЧНОСТИ:\nИСКУССТВО ВАЗЫ ЧЕРЕЗ ВЕКА',
+                              style: GoogleFonts.inter(fontSize: 15, color: background, fontWeight: FontWeight.bold),
                             ),
-                          ),
+                            SizedBox(height: 10),
+                            Text('От античных амфор до современных\nарт-объектов', style: GoogleFonts.inter(fontSize: 13, color: background)),
+                            SizedBox(height: 35),
+                          ],
                         ),
-                      );
-                    },
-                  ),
+                      ],
+                    ),
+                    SocialNetworks()
+                  ],
                 ),
-                SizedBox(height: 36),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Будущие выставки',
-                        style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
+              ),
+              SizedBox(height: 27),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Text(
+                      'Выставки',
+                      style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
-                SizedBox(height: 15),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 14),
-                  child: GridView.builder(
-                    padding: EdgeInsets.zero,
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                    itemCount: futureExhibitionList.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(6),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => ExhibitionPage()));
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(image: AssetImage(futureExhibitionList[index]), fit: BoxFit.cover),
-                            ),
-                            child: Stack(
-                              children: [
-                                Positioned(
-                                  right: 8,
-                                  bottom: 12,
-                                  left: 8,
-                                  child: SizedBox(
-                                    width: 120,
-                                    child: Text(
-                                      titleFutureExhibitionList[index],
-                                      overflow: TextOverflow.ellipsis,
-                                      style: GoogleFonts.inter(fontSize: 7, color: white),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+              ),
+              SizedBox(height: 12),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Аудитория',
+                          style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
                         ),
-                      );
-                    },
-                  ),
+                        SizedBox(height: 13),
+                        Text(
+                          'Место проведения',
+                          style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
+                        ),
+                        SizedBox(height: 13),
+                        Text(
+                          'Дата',
+                          style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
+                        ),
+                      ],
+                    ),
+                    SizedBox(width: 15),
+                    Column(
+                      children: [
+                        Text(
+                          '→',
+                          style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
+                        ),
+                        SizedBox(height: 13),
+                        Text(
+                          '→',
+                          style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
+                        ),
+                        SizedBox(height: 13),
+                        Text(
+                          '→',
+                          style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                SizedBox(height: 36),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Будущие коллекции',
-                        style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
+              ),
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Text(
+                      'Сбросить фильтр',
+                      style: GoogleFonts.inter(fontSize: 15, color: error, fontWeight: FontWeight.w700),
+                    ),
+                  ],
                 ),
-                SizedBox(height: 15),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 14),
-                  child: GridView.builder(
-                    padding: EdgeInsets.zero,
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                    itemCount: futureExhibition2List.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(6),
+              ),
+              SizedBox(height: 38),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Text(
+                      'Выставки в корпусах',
+                      style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 15),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 14),
+                child: GridView.builder(
+                  padding: EdgeInsets.zero,
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                  itemCount: exhibitionList.length - 2,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(6),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ExhibitionPage()));
+                        },
                         child: Container(
                           decoration: BoxDecoration(
-                            image: DecorationImage(image: AssetImage(futureExhibition2List[index]), fit: BoxFit.cover),
+                            image: DecorationImage(image: AssetImage(exhibitionList[index]), fit: BoxFit.cover),
                           ),
                           child: Stack(
                             children: [
@@ -297,9 +183,65 @@ class _ExhibitionsState extends State<Exhibitions>
                                 bottom: 12,
                                 left: 8,
                                 child: SizedBox(
-                                  width: 100,
+                                  width: 90,
                                   child: Text(
-                                    titleFutureExhibition2List[index],
+                                    titleExhibitionList[index],
+                                    overflow: TextOverflow.ellipsis,
+                                    style: GoogleFonts.inter(fontSize: 9, color: white),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(height: 36),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Text(
+                      'Будущие выставки',
+                      style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 15),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 14),
+                child: GridView.builder(
+                  padding: EdgeInsets.zero,
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                  itemCount: futureExhibitionList.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(6),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ExhibitionPage()));
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(image: AssetImage(futureExhibitionList[index]), fit: BoxFit.cover),
+                          ),
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                right: 8,
+                                bottom: 12,
+                                left: 8,
+                                child: SizedBox(
+                                  width: 120,
+                                  child: Text(
+                                    titleFutureExhibitionList[index],
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.inter(fontSize: 7, color: white),
                                   ),
@@ -308,14 +250,65 @@ class _ExhibitionsState extends State<Exhibitions>
                             ],
                           ),
                         ),
-                      );
-                    },
-                  ),
+                      ),
+                    );
+                  },
                 ),
-                SizedBox(height: 50),
-                FooterProject(),
-              ],
-            ),
+              ),
+              SizedBox(height: 36),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Text(
+                      'Будущие коллекции',
+                      style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 15),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 14),
+                child: GridView.builder(
+                  padding: EdgeInsets.zero,
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                  itemCount: futureExhibition2List.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(6),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(image: AssetImage(futureExhibition2List[index]), fit: BoxFit.cover),
+                        ),
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              right: 8,
+                              bottom: 12,
+                              left: 8,
+                              child: SizedBox(
+                                width: 100,
+                                child: Text(
+                                  titleFutureExhibition2List[index],
+                                  overflow: TextOverflow.ellipsis,
+                                  style: GoogleFonts.inter(fontSize: 7, color: white),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(height: 50),
+              FooterProject(),
+            ],
           ),
         ),
       ),

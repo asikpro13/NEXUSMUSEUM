@@ -18,25 +18,27 @@ class AppBarProject extends StatefulWidget {
 class _AppBarProjectState extends State<AppBarProject> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        GestureDetector(
-          onTap: () {
-            slidableController.openStartActionPane();
-          },
-          child: SvgPicture.asset('assets/icons/driver.svg', width: 25),
-        ),
-        Spacer(),
-        if (widget.isTitle)
+    return SafeArea(
+      top: true,
+      child: Row(
+        children: [
+          GestureDetector(
+            onTap: () {
+              slidableController!.openStartActionPane();
+            },
+            child: SvgPicture.asset('assets/icons/driver.svg', width: 28),
+          ),
+          Spacer(),
           GestureDetector(
             onTap: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Landing()));
             },
-            child: Text('NEXUSMUSEUM', style: GoogleFonts.playfairDisplay(fontSize: 20, color: background)),
+            child: Text('NEXUSMUSEUM', style: GoogleFonts.playfairDisplay(fontSize: 26, color: widget.isTitle ? background : Colors.transparent)),
           ),
-        Spacer(),
-        GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/profile.svg', width: 20)),
-      ],
+          Spacer(),
+          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/profile.svg', width: 22)),
+        ],
+      ),
     );
   }
 }

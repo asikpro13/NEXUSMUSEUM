@@ -17,42 +17,27 @@ class Landing extends StatefulWidget {
   State<Landing> createState() => _LandingState();
 }
 
-class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
-  @override
-  void initState() {
-    super.initState();
-    slidableController = SlidableController(this);
-  }
-
+class _LandingState extends State<Landing> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: background,
       body: Slidable(
         controller: slidableController,
-        startActionPane: ActionPane(
-          extentRatio: 0.6,
-          motion: const BehindMotion(),
-          children: [
-            DrawerProject(),
-          ],
-        ),
+        startActionPane: ActionPane(extentRatio: 0.6, motion: const BehindMotion(), children: [DrawerProject()]),
         child: SingleChildScrollView(
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.all(21),
-                height: MediaQuery.of(context).size.height * 1,
-                width: double.infinity,
+                padding: EdgeInsets.symmetric(horizontal: 21),
+                height: MediaQuery.of(context).size.height,
                 decoration: BoxDecoration(
                   image: DecorationImage(image: AssetImage('assets/images/landing.png'), fit: BoxFit.cover),
                 ),
                 child: Column(
                   children: [
-                    SizedBox(height: 20),
                     AppBarProject(isTitle: false),
-                    SizedBox(height: 46),
-                    Text('NEXUSMUSEUM', style: GoogleFonts.playfairDisplay(fontSize: 38, color: background)),
+                    Text('NEXUSMUSEUM', style: GoogleFonts.playfairDisplay(fontSize: 40, color: background)),
                     Spacer(),
                     ElevatedButton(
                       onPressed: () {
@@ -67,7 +52,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                       child: Text('Купить билеты', style: GoogleFonts.inter(fontSize: 16, color: white)),
                     ),
                     SizedBox(height: 20),
-                    SocialNetworks()
+                    SocialNetworks(),
                   ],
                 ),
               ),
