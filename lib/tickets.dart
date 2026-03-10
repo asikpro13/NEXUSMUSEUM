@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:nexusmuseum/exhibitions.dart';
+import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/landing.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
@@ -17,7 +18,9 @@ class TicketsPage extends StatefulWidget {
   State<TicketsPage> createState() => _TicketsPageState();
 }
 
-class _TicketsPageState extends State<TicketsPage> with SingleTickerProviderStateMixin {
+class _TicketsPageState extends State<TicketsPage>
+
+    with SingleTickerProviderStateMixin {
   late final SlidableController slidableController = SlidableController(this);
   int quantity = 1; //
 
@@ -41,32 +44,17 @@ class _TicketsPageState extends State<TicketsPage> with SingleTickerProviderStat
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 1,
                   decoration: BoxDecoration(
-                    image: DecorationImage(image: AssetImage('assets/images/tickets.png'), fit: BoxFit.cover),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/tickets.png'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 20),
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              slidableController.openStartActionPane();
-                            },
-                            child: SvgPicture.asset('assets/icons/driver.svg', width: 25),
-                          ),
-                          Spacer(),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Landing()));
-                            },
-                            child: Text('NEXUSMUSEUM', style: GoogleFonts.playfairDisplay(fontSize: 20, color: background)),
-                          ),
-                          Spacer(),
-                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/profile.svg', width: 20)),
-                        ],
-                      ),
+                      AppBarProject(isTitle: true),
                       Spacer(),
                       Row(
                         children: [

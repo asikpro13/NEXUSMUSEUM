@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:nexusmuseum/exhibitions.dart';
-import 'package:nexusmuseum/landing.dart';
 import 'package:nexusmuseum/tickets.dart';
+import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
@@ -21,7 +21,8 @@ class ExhibitionPage extends StatefulWidget {
   State<ExhibitionPage> createState() => _ExhibitionPageState();
 }
 
-class _ExhibitionPageState extends State<ExhibitionPage> with SingleTickerProviderStateMixin {
+class _ExhibitionPageState extends State<ExhibitionPage>
+    with SingleTickerProviderStateMixin {
   late final SlidableController slidableController = SlidableController(this);
 
   @override
@@ -49,25 +50,7 @@ class _ExhibitionPageState extends State<ExhibitionPage> with SingleTickerProvid
                   child: Column(
                     children: [
                       SizedBox(height: 20),
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              slidableController.openStartActionPane();
-                            },
-                            child: SvgPicture.asset('assets/icons/driver.svg', width: 25),
-                          ),
-                          Spacer(),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Landing()));
-                            },
-                            child: Text('NEXUSMUSEUM', style: GoogleFonts.playfairDisplay(fontSize: 20, color: background)),
-                          ),
-                          Spacer(),
-                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/profile.svg', width: 20)),
-                        ],
-                      ),
+                      AppBarProject(isTitle: true),
                       Spacer(),
                       Row(
                         children: [
