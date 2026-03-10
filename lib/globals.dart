@@ -1,9 +1,6 @@
+dynamic slidableController;
 
-List<String> programsList = [
-  'assets/images/program_1.png',
-  'assets/images/program_2.png',
-  'assets/images/program_3.png',
-];
+List<String> programsList = ['assets/images/program_1.png', 'assets/images/program_2.png', 'assets/images/program_3.png'];
 
 List<String> exhibitionList = [
   'assets/images/exhibition_1.png',
@@ -15,23 +12,11 @@ List<String> exhibitionList = [
   'assets/images/exhibition_7.png',
   'assets/images/exhibition_8.png',
   'assets/images/exhibition_9.png',
-
 ];
 
-List<String> exhibitionsList = [
-  'assets/images/exhibition_16.png',
-  'assets/images/exhibition_17.png',
-  'assets/images/exhibition_18.png',
-  'assets/images/exhibition_19.png',
+List<String> exhibitionsList = ['assets/images/exhibition_16.png', 'assets/images/exhibition_17.png', 'assets/images/exhibition_18.png', 'assets/images/exhibition_19.png'];
 
-];
-
-List<String> titleExhibitionsList = [
-  'Останки динозавра',
-  'Трицератопс',
-  'Тираннозавр Рекс',
-  'Птеродактель',
-];
+List<String> titleExhibitionsList = ['Останки динозавра', 'Трицератопс', 'Тираннозавр Рекс', 'Птеродактель'];
 
 List<String> titleExhibitionList = [
   'Метафизика тишины —\nСвет пустота созерцание',
@@ -45,13 +30,7 @@ List<String> titleExhibitionList = [
   'Городские симфонии —\nАрхитектура ритм движение',
 ];
 
-List<String> futureExhibitionList = [
-  'assets/images/exhibition_5.png',
-  'assets/images/exhibition_9.png',
-  'assets/images/exhibition_4.png',
-  'assets/images/exhibition_8.png',
-  'assets/images/exhibition_7.png',
-];
+List<String> futureExhibitionList = ['assets/images/exhibition_5.png', 'assets/images/exhibition_9.png', 'assets/images/exhibition_4.png', 'assets/images/exhibition_8.png', 'assets/images/exhibition_7.png'];
 
 List<String> titleFutureExhibitionList = [
   'Тактильность воспоминаний —\nТекстура форма память',
@@ -70,33 +49,11 @@ List<String> futureExhibition2List = [
   'assets/images/exhibition_15.png',
 ];
 
-List<String> titleFutureExhibition2List = [
-  'Симфония для ветра и\nпроводов',
-  'Интерьер с уходящим ухом',
-  'Танцующие с тишиной',
-  'Сон лунного геолога',
-  'Последний корабль к\nПолярной звезде',
-  'Шёпот забытых улиц',
-];
+List<String> titleFutureExhibition2List = ['Симфония для ветра и\nпроводов', 'Интерьер с уходящим ухом', 'Танцующие с тишиной', 'Сон лунного геолога', 'Последний корабль к\nПолярной звезде', 'Шёпот забытых улиц'];
 
-List<String> collectionList = [
-  'assets/images/collection_1.png',
-  'assets/images/collection_2.png',
-  'assets/images/collection_3.png',
-  'assets/images/collection_4.png',
-  'assets/images/collection_5.png',
-  'assets/images/collection_6.png',
-];
+List<String> collectionList = ['assets/images/collection_1.png', 'assets/images/collection_2.png', 'assets/images/collection_3.png', 'assets/images/collection_4.png', 'assets/images/collection_5.png', 'assets/images/collection_6.png'];
 
-List<String> titleCollectionList = [
-  'Симфония для ветра и\nпроводов',
-  'Интерьер с уходящим ухом',
-  'Танцующие с тишиной',
-  'Сон лунного геолога',
-  'Последний корабль к\nПолярной звезде',
-  'Шёпот забытых улиц',
-];
+List<String> titleCollectionList = ['Симфония для ветра и\nпроводов', 'Интерьер с уходящим ухом', 'Танцующие с тишиной', 'Сон лунного геолога', 'Последний корабль к\nПолярной звезде', 'Шёпот забытых улиц'];
 
 final String phoneNumber = '+7 (999) 123-45-67';
 final String phoneUrl = 'tel:+79991234567';
-
