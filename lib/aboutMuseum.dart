@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/landing.dart';
+import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 
@@ -31,97 +32,7 @@ class _AboutMuseumPageState extends State<AboutMuseum>
           extentRatio: 0.6,
           motion: BehindMotion(),
           children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.6,
-              child: Material(
-                color: yellow,
-                child: Padding(
-                  padding: EdgeInsets.all(24),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 16),
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              slidableController.close();
-                            },
-                            child: SvgPicture.asset('assets/icons/close.svg',  width: 16),
-                          ),
-                        ],
-                      ),
-                      Spacer(),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => AboutMuseum(),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          'О музее',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => Exhibitions(),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          'Выставки',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => TicketsPage(),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          'Билеты',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Text(
-                          'Карта',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            DrawerProject(),
           ],
         ),
         child: SafeArea(

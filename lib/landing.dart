@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nexusmuseum/aboutMuseum.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/exhibition.dart';
-import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/tickets.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
+import 'package:nexusmuseum/uikit/const.dart';
+import 'package:nexusmuseum/uikit/drawer.dart';
 
 class Landing extends StatefulWidget {
   const Landing({super.key});
@@ -35,70 +35,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
           extentRatio: 0.6,
           motion: const BehindMotion(),
           children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.6,
-              child: Material(
-                color: yellow,
-                child: Padding(
-                  padding: const EdgeInsets.all(24),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 16),
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              slidableController.close();
-                            },
-                            child: SvgPicture.asset('assets/icons/close.svg', width: 16),
-                          ),
-                        ],
-                      ),
-                      Spacer(),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AboutMuseum()));
-                        },
-                        child: Text(
-                          'О музее',
-                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: white),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
-                        },
-                        child: Text(
-                          'Выставки',
-                          style: GoogleFonts.playfairDisplay(fontSize: 20, color: white, fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
-                        },
-                        child: Text(
-                          'Билеты',
-                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: white),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Text(
-                          'Карта',
-                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: white),
-                        ),
-                      ),
-                      SizedBox(height: 24),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            DrawerProject(),
           ],
         ),
         child: SingleChildScrollView(
