@@ -21,7 +21,6 @@ class AboutMuseum extends StatefulWidget {
 }
 
 class _AboutMuseumPageState extends State<AboutMuseum> with SingleTickerProviderStateMixin {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
