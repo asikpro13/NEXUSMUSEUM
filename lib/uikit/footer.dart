@@ -23,84 +23,40 @@ class _FooterAppState extends State<Footer> {
       child: Column(
         children: [
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {},
-                    child: SvgPicture.asset(
-                      'assets/icons/vk.svg',
-                      width: 20,
-                      height: 20,
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => AboutMuseum(),
                     ),
-                  ),
-                  SizedBox(width: 20),
-                  GestureDetector(
-                    onTap: () {},
-                    child: SvgPicture.asset(
-                      'assets/icons/classmates.svg',
-                      width: 20,
-                      height: 25,
-                    ),
-                  ),
-                  SizedBox(width: 20),
-                  GestureDetector(
-                    onTap: () {},
-                    child: SvgPicture.asset(
-                      'assets/icons/telegram.svg',
-                      width: 20,
-                      height: 22,
-                    ),
-                  ),
-                  SizedBox(width: 20),
-                  GestureDetector(
-                    onTap: () {},
-                    child: SvgPicture.asset(
-                      'assets/icons/rutube.svg',
-                      width: 30,
-                      height: 30,
-                    ),
-                  ),
-                ],
+                  );
+                },
+                child: Text(
+                  'О МУЗЕЕ',
+                  style: GoogleFonts.inter(fontSize: 12, color: background),
+                ),
               ),
-              Spacer(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                          builder: (context) => AboutMuseum(),
-                        ),
-                      );
-                    },
-                    child: Text(
-                      'О МУЗЕЕ',
-                      style: GoogleFonts.inter(fontSize: 12, color: background),
-                    ),
-                  ),
-                  SizedBox(height: 5),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      'ДЛЯ СМИ',
-                      style: GoogleFonts.inter(fontSize: 12, color: background),
-                    ),
-                  ),
-                  SizedBox(height: 5),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      'КОНТАКТЫ',
-                      style: GoogleFonts.inter(fontSize: 12, color: background),
-                    ),
-                  ),
-                ],
+              SizedBox(height: 5),
+              GestureDetector(
+                onTap: () {},
+                child: Text(
+                  'ДЛЯ СМИ',
+                  style: GoogleFonts.inter(fontSize: 12, color: background),
+                ),
+              ),
+              SizedBox(height: 5),
+              GestureDetector(
+                onTap: () {},
+                child: Text(
+                  'КОНТАКТЫ',
+                  style: GoogleFonts.inter(fontSize: 12, color: background),
+                ),
               ),
             ],
           ),
+          SizedBox(height: 40,),
           Row(
             children: [
               Text(
@@ -109,6 +65,42 @@ class _FooterAppState extends State<Footer> {
                   fontSize: 18,
                   color: background,
                   fontWeight: FontWeight.w500,
+                ),
+              ),
+              Spacer(),
+              GestureDetector(
+                onTap: () {},
+                child: SvgPicture.asset(
+                  'assets/icons/vk.svg',
+                  width: 20,
+                  height: 20,
+                ),
+              ),
+              SizedBox(width: 20),
+              GestureDetector(
+                onTap: () {},
+                child: SvgPicture.asset(
+                  'assets/icons/classmates.svg',
+                  width: 20,
+                  height: 25,
+                ),
+              ),
+              SizedBox(width: 20),
+              GestureDetector(
+                onTap: () {},
+                child: SvgPicture.asset(
+                  'assets/icons/telegram.svg',
+                  width: 20,
+                  height: 22,
+                ),
+              ),
+              SizedBox(width: 20),
+              GestureDetector(
+                onTap: () {},
+                child: SvgPicture.asset(
+                  'assets/icons/rutube.svg',
+                  width: 30,
+                  height: 30,
                 ),
               ),
             ],
