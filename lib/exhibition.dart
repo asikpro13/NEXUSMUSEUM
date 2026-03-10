@@ -87,29 +87,47 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                         SizedBox(height: 10),
                         Row(
                           children: [
-                            SvgPicture.asset('assets/icons/geo.svg'),
-                            SizedBox(width: 8),
+                            SvgPicture.asset('assets/icons/geo.svg', width: 15,),
+                            SizedBox(width: 12),
                             Text('Корпус «Античность»', style: GoogleFonts.inter(fontSize: 16)),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 13),
                         Row(
                           children: [
-                            Image.asset('assets/images/circle.png', height: 15, width: 15),
-                            SizedBox(width: 8),
-                            Text('Метро Новокузнецкая', style: GoogleFonts.inter(fontSize: 16)),
+                            Image.asset('assets/images/circle.png', height: 13, width: 13),
+                            SizedBox(width: 12),
+                            Text('метро Новокузнецкая', style: GoogleFonts.inter(fontSize: 16)),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 13),
                         Row(
                           children: [
-                            SvgPicture.asset('assets/icons/phone.svg'),
+                            SvgPicture.asset('assets/icons/phone.svg', width: 15),
                             SizedBox(width: 8),
                             GestureDetector(
                               onTap: () {
                                 launchUrlString(phoneUrl, mode: LaunchMode.externalApplication);
                               },
                               child: Text(phoneNumber, style: GoogleFonts.inter(fontSize: 16)),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 13),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 4),
+                              child: SvgPicture.asset('assets/icons/clock.svg',  width: 15),
+                            ),
+                            const SizedBox(width: 10),
+                            SizedBox(
+                              width: 300,
+                              child: Text(
+                                'ВС, ВТ, СР: 10:00 — 18:00 (кассы и вход до 17:00)\nПН: выходной\nЧТ, ПТ, СБ: 10:00 — 21:00 (кассы и вход до 20:00)',
+                                style: GoogleFonts.inter(fontSize: 16),
+                              ),
                             ),
                           ],
                         ),
