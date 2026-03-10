@@ -96,3 +96,7 @@ List<String> titleCollectionList = [
   'Последний корабль к\nПолярной звезде',
   'Шёпот забытых улиц',
 ];
+
+final String phoneNumber = '+7 (999) 123-45-67';
+final String phoneUrl = 'tel:+79991234567';
+

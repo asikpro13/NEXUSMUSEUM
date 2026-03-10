@@ -5,14 +5,14 @@ import 'package:nexusmuseum/aboutMuseum.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 
 // Футер
-class FooterApp extends StatefulWidget {
-  const FooterApp({super.key});
+class Footer extends StatefulWidget {
+  const Footer({super.key});
 
   @override
-  State<FooterApp> createState() => _FooterAppState();
+  State<Footer> createState() => _FooterAppState();
 }
 
-class _FooterAppState extends State<FooterApp> {
+class _FooterAppState extends State<Footer> {
   @override
   Widget build(BuildContext context) {
     return Container(

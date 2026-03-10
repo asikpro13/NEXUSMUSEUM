@@ -7,8 +7,7 @@ import 'package:nexusmuseum/exhibition.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/landing.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
-import 'package:nexusmuseum/uikit/footerApp.dart';
-
+import 'package:nexusmuseum/uikit/footer.dart';
 import 'tickets.dart';
 
 // Экран Exhibitions
@@ -49,7 +48,7 @@ class _ExhibitionsState extends State<Exhibitions>
                             onTap: () {
                               slidableController.close();
                             },
-                            child: SvgPicture.asset('assets/icons/close.svg'),
+                            child: SvgPicture.asset('assets/icons/close.svg', width: 16),
                           ),
                         ],
                       ),
@@ -92,7 +91,6 @@ class _ExhibitionsState extends State<Exhibitions>
                       SizedBox(height: 20),
                       GestureDetector(
                         onTap: () {
-
                           Navigator.of(context).pushReplacement(
                             MaterialPageRoute(
                               builder: (context) => TicketsPage(),
@@ -155,14 +153,12 @@ class _ExhibitionsState extends State<Exhibitions>
                             onTap: () {
                               slidableController.openStartActionPane();
                             },
-                            child: SvgPicture.asset('assets/icons/driver.svg'),
+                            child: SvgPicture.asset(
+                              'assets/icons/driver.svg',
+                              width: 25,
+                            ),
                           ),
-                          SizedBox(width: 25),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset('assets/icons/search.svg'),
-                          ),
-                          SizedBox(width: 27),
+                          Spacer(),
                           GestureDetector(
                             onTap: () {
                               Navigator.of(context).pushReplacement(
@@ -174,7 +170,7 @@ class _ExhibitionsState extends State<Exhibitions>
                             child: Text(
                               'NEXUSMUSEUM',
                               style: GoogleFonts.playfairDisplay(
-                                fontSize: 17,
+                                fontSize: 20,
                                 color: background,
                               ),
                             ),
@@ -182,7 +178,10 @@ class _ExhibitionsState extends State<Exhibitions>
                           Spacer(),
                           GestureDetector(
                             onTap: () {},
-                            child: SvgPicture.asset('assets/icons/profile.svg'),
+                            child: SvgPicture.asset(
+                              'assets/icons/profile.svg',
+                              width: 20,
+                            ),
                           ),
                         ],
                       ),
@@ -416,8 +415,7 @@ class _ExhibitionsState extends State<Exhibitions>
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => ExhibitionPage(
-                                ),
+                                builder: (context) => ExhibitionPage(),
                               ),
                             );
                           },
@@ -435,12 +433,12 @@ class _ExhibitionsState extends State<Exhibitions>
                                   bottom: 12,
                                   left: 8,
                                   child: SizedBox(
-                                    width: 120,
+                                    width: 90,
                                     child: Text(
                                       titleExhibitionList[index],
                                       overflow: TextOverflow.ellipsis,
                                       style: GoogleFonts.inter(
-                                        fontSize: 7,
+                                        fontSize: 9,
                                         color: white,
                                       ),
                                     ),
@@ -489,8 +487,7 @@ class _ExhibitionsState extends State<Exhibitions>
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => ExhibitionPage(
-                                ),
+                                builder: (context) => ExhibitionPage(),
                               ),
                             );
                           },
@@ -533,7 +530,7 @@ class _ExhibitionsState extends State<Exhibitions>
                   child: Row(
                     children: [
                       Text(
-                        'Будущие выставки',
+                        'Будущие коллекции',
                         style: GoogleFonts.inter(
                           fontSize: 20,
                           color: black,
@@ -591,7 +588,7 @@ class _ExhibitionsState extends State<Exhibitions>
                   ),
                 ),
                 SizedBox(height: 50),
-                FooterApp(),
+                Footer(),
               ],
             ),
           ),
