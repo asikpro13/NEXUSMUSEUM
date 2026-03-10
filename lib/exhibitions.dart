@@ -18,8 +18,7 @@ class Exhibitions extends StatefulWidget {
   State<Exhibitions> createState() => _ExhibitionsState();
 }
 
-class _ExhibitionsState extends State<Exhibitions>
-    with SingleTickerProviderStateMixin {
+class _ExhibitionsState extends State<Exhibitions> with SingleTickerProviderStateMixin {
   late final SlidableController slidableController = SlidableController(this);
 
   @override
@@ -48,65 +47,38 @@ class _ExhibitionsState extends State<Exhibitions>
                             onTap: () {
                               slidableController.close();
                             },
-                            child: SvgPicture.asset(
-                              'assets/icons/close.svg',
-                              width: 16,
-                            ),
+                            child: SvgPicture.asset('assets/icons/close.svg', width: 16),
                           ),
                         ],
                       ),
                       Spacer(),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => AboutMuseum(),
-                            ),
-                          );
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AboutMuseum()));
                         },
                         child: Text(
                           'О музее',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: white,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: white),
                         ),
                       ),
                       SizedBox(height: 20),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => Exhibitions(),
-                            ),
-                          );
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
                         },
                         child: Text(
                           'Выставки',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            color: white,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, color: white, fontWeight: FontWeight.w500),
                         ),
                       ),
                       SizedBox(height: 20),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => TicketsPage(),
-                            ),
-                          );
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
                         },
                         child: Text(
                           'Билеты',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: white,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: white),
                         ),
                       ),
                       SizedBox(height: 20),
@@ -114,11 +86,7 @@ class _ExhibitionsState extends State<Exhibitions>
                         onTap: () {},
                         child: Text(
                           'Карта',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: white,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: white),
                         ),
                       ),
                       SizedBox(height: 24),
@@ -142,10 +110,7 @@ class _ExhibitionsState extends State<Exhibitions>
                   height: MediaQuery.of(context).size.height * 1,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/exhibitions.png'),
-                      fit: BoxFit.cover,
-                    ),
+                    image: DecorationImage(image: AssetImage('assets/images/exhibitions.png'), fit: BoxFit.cover),
                   ),
                   child: Column(
                     children: [
@@ -161,39 +126,18 @@ class _ExhibitionsState extends State<Exhibitions>
                               Container(
                                 width: 125,
                                 height: 25,
-                                decoration: BoxDecoration(
-                                  color: background,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10),
-                                  ),
-                                ),
+                                decoration: BoxDecoration(color: background, borderRadius: BorderRadius.all(Radius.circular(10))),
                                 child: Center(
-                                  child: Text(
-                                    'СЕНТЯБРЬ 16',
-                                    style: GoogleFonts.inter(
-                                      fontSize: 15,
-                                      color: black,
-                                    ),
-                                  ),
+                                  child: Text('СЕНТЯБРЬ 16', style: GoogleFonts.inter(fontSize: 15, color: black)),
                                 ),
                               ),
                               SizedBox(height: 5),
                               Text(
                                 'СОСУД ВЕЧНОСТИ:\nИСКУССТВО ВАЗЫ ЧЕРЕЗ ВЕКА',
-                                style: GoogleFonts.inter(
-                                  fontSize: 15,
-                                  color: background,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                style: GoogleFonts.inter(fontSize: 15, color: background, fontWeight: FontWeight.bold),
                               ),
                               SizedBox(height: 10),
-                              Text(
-                                'От античных амфор до современных\nарт-объектов',
-                                style: GoogleFonts.inter(
-                                  fontSize: 13,
-                                  color: background,
-                                ),
-                              ),
+                              Text('От античных амфор до современных\nарт-объектов', style: GoogleFonts.inter(fontSize: 13, color: background)),
                               SizedBox(height: 35),
                             ],
                           ),
@@ -202,41 +146,13 @@ class _ExhibitionsState extends State<Exhibitions>
                       Row(
                         children: [
                           Spacer(),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset(
-                              'assets/icons/vk.svg',
-                              width: 20,
-                              height: 20,
-                            ),
-                          ),
+                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/vk.svg', width: 20, height: 20)),
                           SizedBox(width: 20),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset(
-                              'assets/icons/classmates.svg',
-                              width: 20,
-                              height: 25,
-                            ),
-                          ),
+                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/classmates.svg', width: 20, height: 25)),
                           SizedBox(width: 20),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset(
-                              'assets/icons/telegram.svg',
-                              width: 20,
-                              height: 22,
-                            ),
-                          ),
+                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/telegram.svg', width: 20, height: 22)),
                           SizedBox(width: 20),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset(
-                              'assets/icons/rutube.svg',
-                              width: 30,
-                              height: 30,
-                            ),
-                          ),
+                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/rutube.svg', width: 30, height: 30)),
                           Spacer(),
                         ],
                       ),
@@ -250,11 +166,7 @@ class _ExhibitionsState extends State<Exhibitions>
                     children: [
                       Text(
                         'Выставки',
-                        style: GoogleFonts.inter(
-                          fontSize: 20,
-                          color: black,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -270,29 +182,17 @@ class _ExhibitionsState extends State<Exhibitions>
                         children: [
                           Text(
                             'Аудитория',
-                            style: GoogleFonts.inter(
-                              fontSize: 14,
-                              color: black,
-                              fontWeight: FontWeight.w700,
-                            ),
+                            style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
                           ),
                           SizedBox(height: 13),
                           Text(
                             'Место проведения',
-                            style: GoogleFonts.inter(
-                              fontSize: 14,
-                              color: black,
-                              fontWeight: FontWeight.w700,
-                            ),
+                            style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
                           ),
                           SizedBox(height: 13),
                           Text(
                             'Дата',
-                            style: GoogleFonts.inter(
-                              fontSize: 14,
-                              color: black,
-                              fontWeight: FontWeight.w700,
-                            ),
+                            style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
                           ),
                         ],
                       ),
@@ -301,29 +201,17 @@ class _ExhibitionsState extends State<Exhibitions>
                         children: [
                           Text(
                             '→',
-                            style: GoogleFonts.inter(
-                              fontSize: 15,
-                              color: black,
-                              fontWeight: FontWeight.w700,
-                            ),
+                            style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
                           ),
                           SizedBox(height: 13),
                           Text(
                             '→',
-                            style: GoogleFonts.inter(
-                              fontSize: 15,
-                              color: black,
-                              fontWeight: FontWeight.w700,
-                            ),
+                            style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
                           ),
                           SizedBox(height: 13),
                           Text(
                             '→',
-                            style: GoogleFonts.inter(
-                              fontSize: 15,
-                              color: black,
-                              fontWeight: FontWeight.w700,
-                            ),
+                            style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
                           ),
                         ],
                       ),
@@ -337,11 +225,7 @@ class _ExhibitionsState extends State<Exhibitions>
                     children: [
                       Text(
                         'Сбросить фильтр',
-                        style: GoogleFonts.inter(
-                          fontSize: 15,
-                          color: error,
-                          fontWeight: FontWeight.w700,
-                        ),
+                        style: GoogleFonts.inter(fontSize: 15, color: error, fontWeight: FontWeight.w700),
                       ),
                     ],
                   ),
@@ -353,11 +237,7 @@ class _ExhibitionsState extends State<Exhibitions>
                     children: [
                       Text(
                         'Выставки в корпусах',
-                        style: GoogleFonts.inter(
-                          fontSize: 20,
-                          color: black,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -370,27 +250,18 @@ class _ExhibitionsState extends State<Exhibitions>
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                    ),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                     itemCount: exhibitionList.length - 2,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(6),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => ExhibitionPage(),
-                              ),
-                            );
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => ExhibitionPage()));
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(exhibitionList[index]),
-                                fit: BoxFit.cover,
-                              ),
+                              image: DecorationImage(image: AssetImage(exhibitionList[index]), fit: BoxFit.cover),
                             ),
                             child: Stack(
                               children: [
@@ -403,10 +274,7 @@ class _ExhibitionsState extends State<Exhibitions>
                                     child: Text(
                                       titleExhibitionList[index],
                                       overflow: TextOverflow.ellipsis,
-                                      style: GoogleFonts.inter(
-                                        fontSize: 9,
-                                        color: white,
-                                      ),
+                                      style: GoogleFonts.inter(fontSize: 9, color: white),
                                     ),
                                   ),
                                 ),
@@ -425,11 +293,7 @@ class _ExhibitionsState extends State<Exhibitions>
                     children: [
                       Text(
                         'Будущие выставки',
-                        style: GoogleFonts.inter(
-                          fontSize: 20,
-                          color: black,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -442,27 +306,18 @@ class _ExhibitionsState extends State<Exhibitions>
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                    ),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                     itemCount: futureExhibitionList.length,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(6),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => ExhibitionPage(),
-                              ),
-                            );
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => ExhibitionPage()));
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(futureExhibitionList[index]),
-                                fit: BoxFit.cover,
-                              ),
+                              image: DecorationImage(image: AssetImage(futureExhibitionList[index]), fit: BoxFit.cover),
                             ),
                             child: Stack(
                               children: [
@@ -475,10 +330,7 @@ class _ExhibitionsState extends State<Exhibitions>
                                     child: Text(
                                       titleFutureExhibitionList[index],
                                       overflow: TextOverflow.ellipsis,
-                                      style: GoogleFonts.inter(
-                                        fontSize: 7,
-                                        color: white,
-                                      ),
+                                      style: GoogleFonts.inter(fontSize: 7, color: white),
                                     ),
                                   ),
                                 ),
@@ -497,11 +349,7 @@ class _ExhibitionsState extends State<Exhibitions>
                     children: [
                       Text(
                         'Будущие коллекции',
-                        style: GoogleFonts.inter(
-                          fontSize: 20,
-                          color: black,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -514,19 +362,14 @@ class _ExhibitionsState extends State<Exhibitions>
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                    ),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                     itemCount: futureExhibition2List.length,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(6),
                         child: Container(
                           decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(futureExhibition2List[index]),
-                              fit: BoxFit.cover,
-                            ),
+                            image: DecorationImage(image: AssetImage(futureExhibition2List[index]), fit: BoxFit.cover),
                           ),
                           child: Stack(
                             children: [
@@ -539,10 +382,7 @@ class _ExhibitionsState extends State<Exhibitions>
                                   child: Text(
                                     titleFutureExhibition2List[index],
                                     overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.inter(
-                                      fontSize: 7,
-                                      color: white,
-                                    ),
+                                    style: GoogleFonts.inter(fontSize: 7, color: white),
                                   ),
                                 ),
                               ),

@@ -17,8 +17,7 @@ class AboutMuseum extends StatefulWidget {
   State<AboutMuseum> createState() => _AboutMuseumPageState();
 }
 
-class _AboutMuseumPageState extends State<AboutMuseum>
-    with SingleTickerProviderStateMixin {
+class _AboutMuseumPageState extends State<AboutMuseum> with SingleTickerProviderStateMixin {
   late final SlidableController slidableController = SlidableController(this);
 
   @override
@@ -47,65 +46,38 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                             onTap: () {
                               slidableController.close();
                             },
-                            child: SvgPicture.asset(
-                              'assets/icons/close.svg',
-                              width: 16,
-                            ),
+                            child: SvgPicture.asset('assets/icons/close.svg', width: 16),
                           ),
                         ],
                       ),
                       Spacer(),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => AboutMuseum(),
-                            ),
-                          );
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AboutMuseum()));
                         },
                         child: Text(
                           'О музее',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.white),
                         ),
                       ),
                       SizedBox(height: 20),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => Exhibitions(),
-                            ),
-                          );
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
                         },
                         child: Text(
                           'Выставки',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
                         ),
                       ),
                       SizedBox(height: 20),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => TicketsPage(),
-                            ),
-                          );
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
                         },
                         child: Text(
                           'Билеты',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.white),
                         ),
                       ),
                       SizedBox(height: 20),
@@ -113,11 +85,7 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                         onTap: () {},
                         child: Text(
                           'Карта',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.white),
                         ),
                       ),
                     ],
@@ -140,10 +108,7 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 1,
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/aboutMuseum.png'),
-                      fit: BoxFit.cover,
-                    ),
+                    image: DecorationImage(image: AssetImage('assets/images/aboutMuseum.png'), fit: BoxFit.cover),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -154,58 +119,20 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                       Spacer(),
                       Text(
                         'О МУЗЕЕ',
-                        style: GoogleFonts.inter(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: GoogleFonts.inter(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                      Text(
-                        'NEXUSMUSEUM — Мост между временами и культуры',
-                        style: GoogleFonts.inter(
-                          color: Colors.white,
-                          fontSize: 11,
-                        ),
-                      ),
+                      Text('NEXUSMUSEUM — Мост между временами и культуры', style: GoogleFonts.inter(color: Colors.white, fontSize: 11)),
                       SizedBox(height: 20),
                       Row(
                         children: [
                           Spacer(),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset(
-                              'assets/icons/vk.svg',
-                              width: 20,
-                              height: 20,
-                            ),
-                          ),
+                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/vk.svg', width: 20, height: 20)),
                           SizedBox(width: 20),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset(
-                              'assets/icons/classmates.svg',
-                              width: 20,
-                              height: 25,
-                            ),
-                          ),
+                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/classmates.svg', width: 20, height: 25)),
                           SizedBox(width: 20),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset(
-                              'assets/icons/telegram.svg',
-                              width: 20,
-                              height: 22,
-                            ),
-                          ),
+                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/telegram.svg', width: 20, height: 22)),
                           SizedBox(width: 20),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset(
-                              'assets/icons/rutube.svg',
-                              width: 30,
-                              height: 30,
-                            ),
-                          ),
+                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/rutube.svg', width: 30, height: 30)),
                           Spacer(),
                         ],
                       ),
@@ -221,37 +148,21 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Адрес и часы работы',
-                            style: GoogleFonts.inter(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          Text('Адрес и часы работы', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
                           SizedBox(height: 10),
                           Row(
                             children: [
                               Icon(Icons.location_pin, size: 20),
                               SizedBox(width: 8),
-                              Text(
-                                'Корпус «Античность»',
-                                style: GoogleFonts.inter(fontSize: 16),
-                              ),
+                              Text('Корпус «Античность»', style: GoogleFonts.inter(fontSize: 16)),
                             ],
                           ),
                           SizedBox(height: 10),
                           Row(
                             children: [
-                              Image.asset(
-                                'assets/images/circle.png',
-                                height: 15,
-                                width: 15,
-                              ),
+                              Image.asset('assets/images/circle.png', height: 15, width: 15),
                               SizedBox(width: 8),
-                              Text(
-                                'Метро Новокузнецкая',
-                                style: GoogleFonts.inter(fontSize: 16),
-                              ),
+                              Text('Метро Новокузнецкая', style: GoogleFonts.inter(fontSize: 16)),
                             ],
                           ),
                           SizedBox(height: 10),
@@ -259,74 +170,29 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                             children: [
                               Icon(Icons.call_outlined, size: 18),
                               SizedBox(width: 5),
-                              Text(
-                                ' 8 (495) 957-456-07',
-                                style: GoogleFonts.inter(fontSize: 16),
-                              ),
+                              Text(' 8 (495) 957-456-07', style: GoogleFonts.inter(fontSize: 16)),
                             ],
                           ),
                           SizedBox(height: 30),
-                          Text(
-                            'Как добраться',
-                            style: GoogleFonts.inter(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          Text('Как добраться', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
                           SizedBox(height: 20),
-                          Text(
-                            'На общественном транспорте',
-                            style: GoogleFonts.inter(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          Text('На общественном транспорте', style: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.bold)),
                           SizedBox(height: 20),
-                          Text(
-                            'Станции метро "Лубянка" (Сокольническая линия) и "Кузнецкий Мост" (Таганско-Краснопресненская линия) — 5 минут пешком',
-                            style: GoogleFonts.inter(fontSize: 16),
-                          ),
+                          Text('Станции метро "Лубянка" (Сокольническая линия) и "Кузнецкий Мост" (Таганско-Краснопресненская линия) — 5 минут пешком', style: GoogleFonts.inter(fontSize: 16)),
                           SizedBox(height: 20),
-                          Text(
-                            'Автобусы: м1, м2, м3, м6, м7, м9 до остановки "Метро Лубянка"',
-                            style: GoogleFonts.inter(fontSize: 16),
-                          ),
+                          Text('Автобусы: м1, м2, м3, м6, м7, м9 до остановки "Метро Лубянка"', style: GoogleFonts.inter(fontSize: 16)),
                           SizedBox(height: 20),
-                          Text(
-                            'Пригородные поезда: до станции "Москва-Каланчёвская", затем 15 минут на метро',
-                            style: GoogleFonts.inter(fontSize: 16),
-                          ),
+                          Text('Пригородные поезда: до станции "Москва-Каланчёвская", затем 15 минут на метро', style: GoogleFonts.inter(fontSize: 16)),
                           SizedBox(height: 20),
-                          Text(
-                            'На автомобиле',
-                            style: GoogleFonts.inter(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          Text('На автомобиле', style: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.bold)),
                           SizedBox(height: 20),
-                          Text(
-                            'Удобный подъезд с Лубянского проезда',
-                            style: GoogleFonts.inter(fontSize: 16),
-                          ),
+                          Text('Удобный подъезд с Лубянского проезда', style: GoogleFonts.inter(fontSize: 16)),
                           SizedBox(height: 20),
-                          Text(
-                            'Парковка: многоуровневый паркинг на 200 мест (вход с Театрального проезда)',
-                            style: GoogleFonts.inter(fontSize: 16),
-                          ),
+                          Text('Парковка: многоуровневый паркинг на 200 мест (вход с Театрального проезда)', style: GoogleFonts.inter(fontSize: 16)),
                           SizedBox(height: 20),
-                          Text(
-                            'Стоимость парковки: 100 рублей/час, для посетителей музея — первые 2 часа бесплатно',
-                            style: GoogleFonts.inter(fontSize: 16),
-                          ),
+                          Text('Стоимость парковки: 100 рублей/час, для посетителей музея — первые 2 часа бесплатно', style: GoogleFonts.inter(fontSize: 16)),
                           SizedBox(height: 30),
-                          Text(
-                            'Где мы находимся',
-                            style: GoogleFonts.inter(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          Text('Где мы находимся', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
                           SizedBox(height: 10),
                         ],
                       ),
@@ -337,10 +203,7 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                           width: MediaQuery.of(context).size.width * 1,
                           height: 300,
                           decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage('assets/images/map.png'),
-                              fit: BoxFit.cover,
-                            ),
+                            image: DecorationImage(image: AssetImage('assets/images/map.png'), fit: BoxFit.cover),
                           ),
                         ),
                       ],
@@ -351,21 +214,9 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'История музея',
-                            style: GoogleFonts.inter(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          Text('История музея', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
                           SizedBox(height: 10),
-                          Text(
-                            'ПРОЛОГ: РОЖДЕНИЕ ЗАМЫСЛА (2010-2014)',
-                            style: GoogleFonts.inter(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
+                          Text('ПРОЛОГ: РОЖДЕНИЕ ЗАМЫСЛА (2010-2014)', style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600)),
                           SizedBox(height: 10),
                           Text(
                             'История Nexusmuseum началась не с закладки фундамента или сбора первой коллекции, а со смелой философской концепции, которую разрабатывали три энтузиаста: искусствовед Анна Городецкая, архитектор-визионер Дмитрий Волков и технолог-новатор Алексей Семёнов. Их объединила идея создания принципиально нового культурного пространства — "музея без границ", где эпохи и художественные языки вступали бы в прямой диалог.',
@@ -377,13 +228,7 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                             style: GoogleFonts.inter(fontSize: 16),
                           ),
                           SizedBox(height: 10),
-                          Text(
-                            'ЭПОХА СТАНОВЛЕНИЯ (2015-2017)',
-                            style: GoogleFonts.inter(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
+                          Text('ЭПОХА СТАНОВЛЕНИЯ (2015-2017)', style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600)),
                           SizedBox(height: 10),
                           Text(
                             'Торжественное открытие Nexusmuseum состоялось 15 сентября 2015 года. Первой экспозицией стала "Археология будущего" — провокационный проект, где цифровые инсталляции соседствовали с античными артефактами. Выставка вызвала оживлённые дискуссии в профессиональной среде, но именно этот синтез старого и нового стал визитной карточкой музея.',
@@ -400,13 +245,7 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                             style: GoogleFonts.inter(fontSize: 16),
                           ),
                           SizedBox(height: 10),
-                          Text(
-                            'ПЕРИОД РАСШИРЕНИЯ (2018-2020)',
-                            style: GoogleFonts.inter(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
+                          Text('ПЕРИОД РАСШИРЕНИЯ (2018-2020)', style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600)),
                           SizedBox(height: 10),
                           Text(
                             '2018 год ознаменовался масштабной реконструкцией и расширением площадей. Под руководством Дмитрия Волкова был достроен современный корпус с "умными" фасадами, меняющими прозрачность в зависимости от освещения. Технологические решения Алексея Семёнова позволили создать интерактивные залы с дополненной реальностью и иммерсивными инсталляциями.',

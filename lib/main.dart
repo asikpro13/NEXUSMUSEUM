@@ -4,9 +4,7 @@ import 'package:flutter/services.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((
-    _,
-  ) {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
     runApp(MyApp());
   });
 }
@@ -16,10 +14,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'NEXUSMUSEUM',
-      debugShowCheckedModeBanner: false,
-      home: Landing(),
-    );
+    return MaterialApp(title: 'NEXUSMUSEUM', debugShowCheckedModeBanner: false, home: Landing());
   }
 }

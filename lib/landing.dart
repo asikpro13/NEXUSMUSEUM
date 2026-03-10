@@ -51,65 +51,38 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                             onTap: () {
                               slidableController.close();
                             },
-                            child: SvgPicture.asset(
-                              'assets/icons/close.svg',
-                              width: 16,
-                            ),
+                            child: SvgPicture.asset('assets/icons/close.svg', width: 16),
                           ),
                         ],
                       ),
                       Spacer(),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => AboutMuseum(),
-                            ),
-                          );
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AboutMuseum()));
                         },
                         child: Text(
                           'О музее',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: white,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: white),
                         ),
                       ),
                       SizedBox(height: 20),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => Exhibitions(),
-                            ),
-                          );
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
                         },
                         child: Text(
                           'Выставки',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            color: white,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, color: white, fontWeight: FontWeight.w500),
                         ),
                       ),
                       SizedBox(height: 20),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => TicketsPage(),
-                            ),
-                          );
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
                         },
                         child: Text(
                           'Билеты',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: white,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: white),
                         ),
                       ),
                       SizedBox(height: 20),
@@ -117,11 +90,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                         onTap: () {},
                         child: Text(
                           'Карта',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: white,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: white),
                         ),
                       ),
                       SizedBox(height: 24),
@@ -140,84 +109,38 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                 height: MediaQuery.of(context).size.height * 1,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/landing.png'),
-                    fit: BoxFit.cover,
-                  ),
+                  image: DecorationImage(image: AssetImage('assets/images/landing.png'), fit: BoxFit.cover),
                 ),
                 child: Column(
                   children: [
                     SizedBox(height: 20),
                     AppBarProject(isTitle: false),
                     SizedBox(height: 46),
-                    Text(
-                      'NEXUSMUSEUM',
-                      style: GoogleFonts.playfairDisplay(
-                        fontSize: 38,
-                        color: background,
-                      ),
-                    ),
+                    Text('NEXUSMUSEUM', style: GoogleFonts.playfairDisplay(fontSize: 38, color: background)),
                     Spacer(),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                            builder: (context) => TicketsPage(),
-                          ),
-                        );
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
                       },
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size(200, 45),
                         backgroundColor: error,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                        ),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
                         elevation: 5,
                       ),
-                      child: Text(
-                        'Купить билеты',
-                        style: GoogleFonts.inter(fontSize: 16, color: white),
-                      ),
+                      child: Text('Купить билеты', style: GoogleFonts.inter(fontSize: 16, color: white)),
                     ),
                     SizedBox(height: 20),
                     Row(
                       children: [
                         Spacer(),
-                        GestureDetector(
-                          onTap: () {},
-                          child: SvgPicture.asset(
-                            'assets/icons/vk.svg',
-                            width: 20,
-                            height: 20,
-                          ),
-                        ),
+                        GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/vk.svg', width: 20, height: 20)),
                         SizedBox(width: 20),
-                        GestureDetector(
-                          onTap: () {},
-                          child: SvgPicture.asset(
-                            'assets/icons/classmates.svg',
-                            width: 20,
-                            height: 25,
-                          ),
-                        ),
+                        GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/classmates.svg', width: 20, height: 25)),
                         SizedBox(width: 20),
-                        GestureDetector(
-                          onTap: () {},
-                          child: SvgPicture.asset(
-                            'assets/icons/telegram.svg',
-                            width: 20,
-                            height: 22,
-                          ),
-                        ),
+                        GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/telegram.svg', width: 20, height: 22)),
                         SizedBox(width: 20),
-                        GestureDetector(
-                          onTap: () {},
-                          child: SvgPicture.asset(
-                            'assets/icons/rutube.svg',
-                            width: 30,
-                            height: 30,
-                          ),
-                        ),
+                        GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/rutube.svg', width: 30, height: 30)),
                         Spacer(),
                       ],
                     ),
@@ -225,19 +148,12 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 36,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 36),
                 child: Row(
                   children: [
                     Text(
                       'События и программы',
-                      style: GoogleFonts.inter(
-                        fontSize: 20,
-                        color: black,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -263,10 +179,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                         height: 140,
                         width: 300,
                         decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(imagePath),
-                            fit: BoxFit.cover,
-                          ),
+                          image: DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover),
                         ),
                       );
                     },
@@ -279,15 +192,10 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(135, 40),
                   backgroundColor: grey,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                  ),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
                   foregroundColor: white,
                 ),
-                child: Text(
-                  'Посмотреть',
-                  style: GoogleFonts.inter(fontSize: 13, color: white),
-                ),
+                child: Text('Посмотреть', style: GoogleFonts.inter(fontSize: 13, color: white)),
               ),
               Container(
                 width: double.infinity,
@@ -306,11 +214,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                           width: 170,
                           child: Text(
                             'Бесплатный вход в рамках UNIQLO Nights',
-                            style: GoogleFonts.inter(
-                              fontSize: 11,
-                              color: background,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: GoogleFonts.inter(fontSize: 11, color: background, fontWeight: FontWeight.bold),
                           ),
                         ),
                         SizedBox(height: 12),
@@ -318,11 +222,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                           onTap: () {},
                           child: Text(
                             'Получить билеты  →',
-                            style: GoogleFonts.inter(
-                              fontSize: 13,
-                              color: background,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: GoogleFonts.inter(fontSize: 13, color: background, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
@@ -330,13 +230,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                     Spacer(),
                     SizedBox(
                       width: 130,
-                      child: Text(
-                        'Музей Nexus работает допоздна каждую пятницу и открыт бесплатно. Присоединяйтесь к нам вечером!',
-                        style: GoogleFonts.inter(
-                          fontSize: 9,
-                          color: background,
-                        ),
-                      ),
+                      child: Text('Музей Nexus работает допоздна каждую пятницу и открыт бесплатно. Присоединяйтесь к нам вечером!', style: GoogleFonts.inter(fontSize: 9, color: background)),
                     ),
                   ],
                 ),
@@ -349,31 +243,19 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                   children: [
                     Text(
                       'Выставки',
-                      style: GoogleFonts.inter(
-                        fontSize: 20,
-                        color: black,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
                     Text(
                       'Показы фильмов, выступления, мастер-классах, лекции и не только.',
-                      style: GoogleFonts.inter(
-                        fontSize: 13,
-                        color: black,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: GoogleFonts.inter(fontSize: 13, color: black, fontWeight: FontWeight.w500),
                     ),
                     SizedBox(height: 8),
                     GestureDetector(
                       onTap: () {},
                       child: Text(
                         'Посмотреть календарь  →',
-                        style: GoogleFonts.inter(
-                          fontSize: 14,
-                          color: black,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
@@ -387,27 +269,18 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                  ),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                   itemCount: exhibitionList.length,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(6),
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => ExhibitionPage(),
-                            ),
-                          );
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ExhibitionPage()));
                         },
                         child: Container(
                           decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(exhibitionList[index]),
-                              fit: BoxFit.cover,
-                            ),
+                            image: DecorationImage(image: AssetImage(exhibitionList[index]), fit: BoxFit.cover),
                           ),
                           child: Stack(
                             children: [
@@ -418,10 +291,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                                 child: Text(
                                   titleExhibitionList[index],
                                   overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.inter(
-                                    fontSize: 7,
-                                    color: white,
-                                  ),
+                                  style: GoogleFonts.inter(fontSize: 7, color: white),
                                 ),
                               ),
                             ],
@@ -443,13 +313,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                   children: [
                     SizedBox(
                       width: 130,
-                      child: Text(
-                        'Музей Nexus работает допоздна каждую пятницу и открыт бесплатно. Присоединяйтесь к нам вечером!',
-                        style: GoogleFonts.inter(
-                          fontSize: 9,
-                          color: background,
-                        ),
-                      ),
+                      child: Text('Музей Nexus работает допоздна каждую пятницу и открыт бесплатно. Присоединяйтесь к нам вечером!', style: GoogleFonts.inter(fontSize: 9, color: background)),
                     ),
                     Spacer(),
                     Column(
@@ -460,11 +324,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                           width: 170,
                           child: Text(
                             'Бесплатный вход в рамках UNIQLO Nights',
-                            style: GoogleFonts.inter(
-                              fontSize: 11,
-                              color: background,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: GoogleFonts.inter(fontSize: 11, color: background, fontWeight: FontWeight.bold),
                           ),
                         ),
                         SizedBox(height: 12),
@@ -472,11 +332,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                           onTap: () {},
                           child: Text(
                             'Получить билеты  →',
-                            style: GoogleFonts.inter(
-                              fontSize: 13,
-                              color: background,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: GoogleFonts.inter(fontSize: 13, color: background, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
@@ -492,31 +348,19 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                   children: [
                     Text(
                       'Коллекции',
-                      style: GoogleFonts.inter(
-                        fontSize: 20,
-                        color: black,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
                     Text(
                       'Фильмы, выступления, мастер-классы, лекции и многое другое.',
-                      style: GoogleFonts.inter(
-                        fontSize: 13,
-                        color: black,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: GoogleFonts.inter(fontSize: 13, color: black, fontWeight: FontWeight.w500),
                     ),
                     SizedBox(height: 8),
                     GestureDetector(
                       onTap: () {},
                       child: Text(
                         'Посмотреть календарь  →',
-                        style: GoogleFonts.inter(
-                          fontSize: 14,
-                          color: black,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
@@ -530,19 +374,14 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                  ),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                   itemCount: collectionList.length,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(6),
                       child: Container(
                         decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(collectionList[index]),
-                            fit: BoxFit.cover,
-                          ),
+                          image: DecorationImage(image: AssetImage(collectionList[index]), fit: BoxFit.cover),
                         ),
                         child: Stack(
                           children: [
@@ -555,10 +394,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                                 child: Text(
                                   titleCollectionList[index],
                                   overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.inter(
-                                    fontSize: 7,
-                                    color: white,
-                                  ),
+                                  style: GoogleFonts.inter(fontSize: 7, color: white),
                                 ),
                               ),
                             ),

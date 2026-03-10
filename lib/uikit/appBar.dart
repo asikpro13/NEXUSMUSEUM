@@ -30,23 +30,12 @@ class _AppBarProjectState extends State<AppBarProject> {
         if (widget.isTitle)
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => Landing()),
-              );
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Landing()));
             },
-            child: Text(
-              'NEXUSMUSEUM',
-              style: GoogleFonts.playfairDisplay(
-                fontSize: 20,
-                color: background,
-              ),
-            ),
+            child: Text('NEXUSMUSEUM', style: GoogleFonts.playfairDisplay(fontSize: 20, color: background)),
           ),
         Spacer(),
-        GestureDetector(
-          onTap: () {},
-          child: SvgPicture.asset('assets/icons/profile.svg', width: 20),
-        ),
+        GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/profile.svg', width: 20)),
       ],
     );
   }

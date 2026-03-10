@@ -16,8 +16,7 @@ class TicketsPage extends StatefulWidget {
   State<TicketsPage> createState() => _TicketsPageState();
 }
 
-class _TicketsPageState extends State<TicketsPage>
-    with SingleTickerProviderStateMixin {
+class _TicketsPageState extends State<TicketsPage> with SingleTickerProviderStateMixin {
   late final SlidableController slidableController = SlidableController(this);
   int quantity = 1; //
 
@@ -47,65 +46,38 @@ class _TicketsPageState extends State<TicketsPage>
                             onTap: () {
                               slidableController.close();
                             },
-                            child: SvgPicture.asset(
-                              'assets/icons/close.svg',
-                              width: 16,
-                            ),
+                            child: SvgPicture.asset('assets/icons/close.svg', width: 16),
                           ),
                         ],
                       ),
                       Spacer(),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => AboutMuseum(),
-                            ),
-                          );
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AboutMuseum()));
                         },
                         child: Text(
                           'О музее',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.white),
                         ),
                       ),
                       SizedBox(height: 20),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => Exhibitions(),
-                            ),
-                          );
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
                         },
                         child: Text(
                           'Выставки',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
                         ),
                       ),
                       SizedBox(height: 20),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => TicketsPage(),
-                            ),
-                          );
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
                         },
                         child: Text(
                           'Билеты',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.white),
                         ),
                       ),
                       SizedBox(height: 20),
@@ -113,11 +85,7 @@ class _TicketsPageState extends State<TicketsPage>
                         onTap: () {},
                         child: Text(
                           'Карта',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
+                          style: GoogleFonts.playfairDisplay(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.white),
                         ),
                       ),
                     ],
@@ -140,10 +108,7 @@ class _TicketsPageState extends State<TicketsPage>
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 1,
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/tickets.png'),
-                      fit: BoxFit.cover,
-                    ),
+                    image: DecorationImage(image: AssetImage('assets/images/tickets.png'), fit: BoxFit.cover),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -155,41 +120,13 @@ class _TicketsPageState extends State<TicketsPage>
                       Row(
                         children: [
                           Spacer(),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset(
-                              'assets/icons/vk.svg',
-                              width: 20,
-                              height: 20,
-                            ),
-                          ),
+                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/vk.svg', width: 20, height: 20)),
                           SizedBox(width: 20),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset(
-                              'assets/icons/classmates.svg',
-                              width: 20,
-                              height: 25,
-                            ),
-                          ),
+                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/classmates.svg', width: 20, height: 25)),
                           SizedBox(width: 20),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset(
-                              'assets/icons/telegram.svg',
-                              width: 20,
-                              height: 22,
-                            ),
-                          ),
+                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/telegram.svg', width: 20, height: 22)),
                           SizedBox(width: 20),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset(
-                              'assets/icons/rutube.svg',
-                              width: 30,
-                              height: 30,
-                            ),
-                          ),
+                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/rutube.svg', width: 30, height: 30)),
                           Spacer(),
                         ],
                       ),
@@ -205,21 +142,11 @@ class _TicketsPageState extends State<TicketsPage>
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Билеты',
-                            style: GoogleFonts.inter(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          Text('Билеты', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
                           SizedBox(height: 20),
                           Text(
                             'Категории',
-                            style: GoogleFonts.inter(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey,
-                            ),
+                            style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
                           ),
                           SizedBox(height: 10),
                           ElevatedButton(
@@ -228,20 +155,10 @@ class _TicketsPageState extends State<TicketsPage>
                               minimumSize: Size(200, 45),
                               backgroundColor: Colors.white,
                               side: BorderSide(color: Colors.grey, width: 1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(1),
-                                ),
-                              ),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(1))),
                               elevation: 5,
                             ),
-                            child: Text(
-                              'Постоянные экспозиции',
-                              style: GoogleFonts.inter(
-                                fontSize: 16,
-                                color: Colors.grey,
-                              ),
-                            ),
+                            child: Text('Постоянные экспозиции', style: GoogleFonts.inter(fontSize: 16, color: Colors.grey)),
                           ),
                           SizedBox(height: 10),
                           ElevatedButton(
@@ -250,20 +167,10 @@ class _TicketsPageState extends State<TicketsPage>
                               minimumSize: Size(100, 45),
                               backgroundColor: Colors.white,
                               side: BorderSide(color: Colors.grey, width: 1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(1),
-                                ),
-                              ),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(1))),
                               elevation: 5,
                             ),
-                            child: Text(
-                              'Выставки',
-                              style: GoogleFonts.inter(
-                                fontSize: 16,
-                                color: Colors.grey,
-                              ),
-                            ),
+                            child: Text('Выставки', style: GoogleFonts.inter(fontSize: 16, color: Colors.grey)),
                           ),
                           SizedBox(height: 10),
                           ElevatedButton(
@@ -272,20 +179,10 @@ class _TicketsPageState extends State<TicketsPage>
                               minimumSize: Size(100, 45),
                               backgroundColor: Colors.white,
                               side: BorderSide(color: Colors.grey, width: 1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(1),
-                                ),
-                              ),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(1))),
                               elevation: 5,
                             ),
-                            child: Text(
-                              'События',
-                              style: GoogleFonts.inter(
-                                fontSize: 16,
-                                color: Colors.grey,
-                              ),
-                            ),
+                            child: Text('События', style: GoogleFonts.inter(fontSize: 16, color: Colors.grey)),
                           ),
                           SizedBox(height: 10),
                           ElevatedButton(
@@ -294,20 +191,10 @@ class _TicketsPageState extends State<TicketsPage>
                               minimumSize: Size(110, 45),
                               backgroundColor: Colors.white,
                               side: BorderSide(color: Colors.grey, width: 1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(1),
-                                ),
-                              ),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(1))),
                               elevation: 5,
                             ),
-                            child: Text(
-                              'Экскурсии',
-                              style: GoogleFonts.inter(
-                                fontSize: 16,
-                                color: Colors.grey,
-                              ),
-                            ),
+                            child: Text('Экскурсии', style: GoogleFonts.inter(fontSize: 16, color: Colors.grey)),
                           ),
                         ],
                       ),
@@ -323,29 +210,17 @@ class _TicketsPageState extends State<TicketsPage>
                             children: [
                               Text(
                                 'Аудитория',
-                                style: GoogleFonts.inter(
-                                  fontSize: 14,
-                                  color: black,
-                                  fontWeight: FontWeight.w700,
-                                ),
+                                style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
                               ),
                               SizedBox(height: 13),
                               Text(
                                 'Место проведения',
-                                style: GoogleFonts.inter(
-                                  fontSize: 14,
-                                  color: black,
-                                  fontWeight: FontWeight.w700,
-                                ),
+                                style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
                               ),
                               SizedBox(height: 13),
                               Text(
                                 'Дата',
-                                style: GoogleFonts.inter(
-                                  fontSize: 14,
-                                  color: black,
-                                  fontWeight: FontWeight.w700,
-                                ),
+                                style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
                               ),
                             ],
                           ),
@@ -354,29 +229,17 @@ class _TicketsPageState extends State<TicketsPage>
                             children: [
                               Text(
                                 '→',
-                                style: GoogleFonts.inter(
-                                  fontSize: 15,
-                                  color: black,
-                                  fontWeight: FontWeight.w700,
-                                ),
+                                style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
                               ),
                               SizedBox(height: 13),
                               Text(
                                 '→',
-                                style: GoogleFonts.inter(
-                                  fontSize: 15,
-                                  color: black,
-                                  fontWeight: FontWeight.w700,
-                                ),
+                                style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
                               ),
                               SizedBox(height: 13),
                               Text(
                                 '→',
-                                style: GoogleFonts.inter(
-                                  fontSize: 15,
-                                  color: black,
-                                  fontWeight: FontWeight.w700,
-                                ),
+                                style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
                               ),
                             ],
                           ),
@@ -394,50 +257,28 @@ class _TicketsPageState extends State<TicketsPage>
                             children: [
                               Text(
                                 '5 октября 2025 г., 19:30',
-                                style: GoogleFonts.inter(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.grey,
-                                ),
+                                style: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.grey),
                               ),
                               Spacer(),
                               Text(
                                 'Третьяковская галерея, Новая\nТретьяковка, Крымский Вал, 10  ',
-                                style: GoogleFonts.inter(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.grey,
-                                ),
+                                style: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.grey),
                               ),
                             ],
                           ),
                           SizedBox(height: 10),
-                          Text(
-                            'Корзина',
-                            style: GoogleFonts.inter(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          Text('Корзина', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
                           SizedBox(height: 10),
                           Row(
                             children: [
                               Text(
                                 'Количество',
-                                style: GoogleFonts.inter(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.grey,
-                                ),
+                                style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
                               ),
                               Spacer(),
                               Text(
                                 'Стоимость',
-                                style: GoogleFonts.inter(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.grey,
-                                ),
+                                style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
                               ),
                             ],
                           ),
@@ -446,53 +287,27 @@ class _TicketsPageState extends State<TicketsPage>
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.grey,
-                                    width: 1,
-                                  ),
+                                  border: Border.all(color: Colors.grey, width: 1),
                                   borderRadius: BorderRadius.circular(5),
                                 ),
                                 child: Row(
                                   children: [
                                     GestureDetector(
-                                      onTap: () => setState(
-                                        () => quantity > 0 ? quantity-- : null,
-                                      ),
+                                      onTap: () => setState(() => quantity > 0 ? quantity-- : null),
                                       child: Padding(
                                         padding: EdgeInsets.all(8),
-                                        child: Text(
-                                          '-',
-                                          style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
+                                        child: Text('-', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: 12,
-                                        vertical: 8,
-                                      ),
-                                      child: Text(
-                                        '$quantity',
-                                        style: GoogleFonts.inter(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
+                                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                      child: Text('$quantity', style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold)),
                                     ),
                                     GestureDetector(
                                       onTap: () => setState(() => quantity++),
                                       child: Padding(
                                         padding: EdgeInsets.all(8),
-                                        child: Text(
-                                          '+',
-                                          style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
+                                        child: Text('+', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                                       ),
                                     ),
                                   ],
@@ -501,11 +316,7 @@ class _TicketsPageState extends State<TicketsPage>
                               Spacer(),
                               Text(
                                 '${900 * quantity} ₽',
-                                style: GoogleFonts.inter(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
+                                style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
                               ),
                             ],
                           ),
@@ -514,20 +325,12 @@ class _TicketsPageState extends State<TicketsPage>
                             children: [
                               Text(
                                 'Итого:',
-                                style: GoogleFonts.inter(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: error,
-                                ),
+                                style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold, color: error),
                               ),
                               Spacer(),
                               Text(
                                 '${900 * quantity} ₽',
-                                style: GoogleFonts.inter(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: error,
-                                ),
+                                style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold, color: error),
                               ),
                             ],
                           ),
@@ -542,20 +345,10 @@ class _TicketsPageState extends State<TicketsPage>
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.white,
                                       side: BorderSide(color: gold, width: 1),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(1),
-                                        ),
-                                      ),
+                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(1))),
                                       elevation: 5,
                                     ),
-                                    child: Text(
-                                      'Продолжить покупки',
-                                      style: GoogleFonts.inter(
-                                        fontSize: 16,
-                                        color: Colors.black,
-                                      ),
-                                    ),
+                                    child: Text('Продолжить покупки', style: GoogleFonts.inter(fontSize: 16, color: Colors.black)),
                                   ),
                                   SizedBox(height: 10),
                                   ElevatedButton(
@@ -563,20 +356,10 @@ class _TicketsPageState extends State<TicketsPage>
                                     style: ElevatedButton.styleFrom(
                                       minimumSize: Size(150, 45),
                                       backgroundColor: Colors.black,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(1),
-                                        ),
-                                      ),
+                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(1))),
                                       elevation: 5,
                                     ),
-                                    child: Text(
-                                      'Оформить покупки',
-                                      style: GoogleFonts.inter(
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                      ),
-                                    ),
+                                    child: Text('Оформить покупки', style: GoogleFonts.inter(fontSize: 16, color: Colors.white)),
                                   ),
                                 ],
                               ),
