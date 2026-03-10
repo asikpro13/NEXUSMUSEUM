@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
-
-import 'tickets.dart';
+import 'package:nexusmuseum/uikit/social.dart';
 
 // Экран О музее
 class AboutMuseum extends StatefulWidget {
@@ -63,19 +60,7 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                       ),
                       Text('NEXUSMUSEUM — Мост между временами и культуры', style: GoogleFonts.inter(color: Colors.white, fontSize: 11)),
                       SizedBox(height: 20),
-                      Row(
-                        children: [
-                          Spacer(),
-                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/vk.svg', width: 20, height: 20)),
-                          SizedBox(width: 20),
-                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/classmates.svg', width: 20, height: 25)),
-                          SizedBox(width: 20),
-                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/telegram.svg', width: 20, height: 22)),
-                          SizedBox(width: 20),
-                          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/rutube.svg', width: 30, height: 30)),
-                          Spacer(),
-                        ],
-                      ),
+                      SocialNetworks()
                     ],
                   ),
                 ),

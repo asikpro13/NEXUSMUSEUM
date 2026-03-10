@@ -1,15 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/exhibition.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/tickets.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
-import 'package:nexusmuseum/uikit/const.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
+import 'package:nexusmuseum/uikit/social.dart';
 
 class Landing extends StatefulWidget {
   const Landing({super.key});
@@ -68,19 +67,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                       child: Text('Купить билеты', style: GoogleFonts.inter(fontSize: 16, color: white)),
                     ),
                     SizedBox(height: 20),
-                    Row(
-                      children: [
-                        Spacer(),
-                        GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/vk.svg', width: 20, height: 20)),
-                        SizedBox(width: 20),
-                        GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/classmates.svg', width: 20, height: 25)),
-                        SizedBox(width: 20),
-                        GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/telegram.svg', width: 20, height: 22)),
-                        SizedBox(width: 20),
-                        GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/rutube.svg', width: 30, height: 30)),
-                        Spacer(),
-                      ],
-                    ),
+                    SocialNetworks()
                   ],
                 ),
               ),
