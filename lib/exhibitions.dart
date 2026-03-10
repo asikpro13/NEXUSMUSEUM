@@ -184,10 +184,13 @@ class _ExhibitionsState extends State<Exhibitions>
                                 left: 8,
                                 child: SizedBox(
                                   width: 90,
-                                  child: Text(
-                                    titleExhibitionList[index],
-                                    overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.inter(fontSize: 9, color: white),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      titleExhibitionList[index],
+                                      overflow: TextOverflow.ellipsis,
+                                      style: GoogleFonts.inter(fontSize: 9, color: white),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -240,10 +243,13 @@ class _ExhibitionsState extends State<Exhibitions>
                                 left: 8,
                                 child: SizedBox(
                                   width: 120,
-                                  child: Text(
-                                    titleFutureExhibitionList[index],
-                                    overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.inter(fontSize: 7, color: white),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      titleFutureExhibitionList[index],
+                                      overflow: TextOverflow.ellipsis,
+                                      style: GoogleFonts.inter(fontSize: 9, color: white),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -292,10 +298,13 @@ class _ExhibitionsState extends State<Exhibitions>
                               left: 8,
                               child: SizedBox(
                                 width: 100,
-                                child: Text(
-                                  titleFutureExhibition2List[index],
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.inter(fontSize: 7, color: white),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    titleFutureExhibition2List[index],
+                                    overflow: TextOverflow.ellipsis,
+                                    style: GoogleFonts.inter(fontSize: 9, color: white),
+                                  ),
                                 ),
                               ),
                             ),
@@ -307,7 +316,7 @@ class _ExhibitionsState extends State<Exhibitions>
                 ),
               ),
               SizedBox(height: 50),
-              FooterProject(),
+              Footer(),
             ],
           ),
         ),

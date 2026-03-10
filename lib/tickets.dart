@@ -274,7 +274,7 @@ class _TicketsPageState extends State<TicketsPage> with SingleTickerProviderStat
                     ),
                   ),
                   SizedBox(height: 50),
-                  FooterProject(),
+                  Footer(),
                 ],
               ),
             ],
