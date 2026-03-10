@@ -7,7 +7,9 @@ import 'package:nexusmuseum/exhibition.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/tickets.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
+import 'package:nexusmuseum/uikit/const.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
+import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/social.dart';
 
 class Landing extends StatefulWidget {
@@ -44,12 +46,12 @@ class _LandingState extends State<Landing> {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
                       },
                       style: ElevatedButton.styleFrom(
-                        minimumSize: Size(200, 45),
+                        minimumSize: Size(210, 50),
                         backgroundColor: error,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
                         elevation: 5,
                       ),
-                      child: Text('Купить билеты', style: GoogleFonts.inter(fontSize: 16, color: white)),
+                      child: Text('Купить билеты', style: GoogleFonts.inter(fontSize: 18, color: white)),
                     ),
                     SizedBox(height: 20),
                     SocialNetworks(),
@@ -62,7 +64,7 @@ class _LandingState extends State<Landing> {
                   children: [
                     Text(
                       'События и программы',
-                      style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(fontSize: sizeTitleH1, color: black, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -104,7 +106,7 @@ class _LandingState extends State<Landing> {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
                   foregroundColor: white,
                 ),
-                child: Text('Посмотреть', style: GoogleFonts.inter(fontSize: 13, color: white)),
+                child: Text('Посмотреть', style: GoogleFonts.inter(fontSize: 16, color: white)),
               ),
               Container(
                 width: double.infinity,
@@ -123,7 +125,7 @@ class _LandingState extends State<Landing> {
                           width: 170,
                           child: Text(
                             'Бесплатный вход в рамках UNIQLO Nights',
-                            style: GoogleFonts.inter(fontSize: 11, color: background, fontWeight: FontWeight.bold),
+                            style: GoogleFonts.inter(fontSize: 14, color: background, fontWeight: FontWeight.bold),
                           ),
                         ),
                         SizedBox(height: 12),
@@ -131,7 +133,7 @@ class _LandingState extends State<Landing> {
                           onTap: () {},
                           child: Text(
                             'Получить билеты  →',
-                            style: GoogleFonts.inter(fontSize: 13, color: background, fontWeight: FontWeight.bold),
+                            style: GoogleFonts.inter(fontSize: 14, color: background, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
@@ -139,7 +141,7 @@ class _LandingState extends State<Landing> {
                     Spacer(),
                     SizedBox(
                       width: 130,
-                      child: Text('Музей Nexus работает допоздна каждую пятницу и открыт бесплатно. Присоединяйтесь к нам вечером!', style: GoogleFonts.inter(fontSize: 9, color: background)),
+                      child: Text(textPromo, style: GoogleFonts.inter(fontSize: sizeTextPromo, color: background)),
                     ),
                   ],
                 ),
@@ -152,19 +154,19 @@ class _LandingState extends State<Landing> {
                   children: [
                     Text(
                       'Выставки',
-                      style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(fontSize: sizeTitleH1, color: black, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
                     Text(
                       'Показы фильмов, выступления, мастер-классах, лекции и не только.',
-                      style: GoogleFonts.inter(fontSize: 13, color: black, fontWeight: FontWeight.w500),
+                      style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w500),
                     ),
                     SizedBox(height: 8),
                     GestureDetector(
                       onTap: () {},
                       child: Text(
                         'Посмотреть календарь  →',
-                        style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.bold),
+                        style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
@@ -200,7 +202,7 @@ class _LandingState extends State<Landing> {
                                 child: Text(
                                   titleExhibitionList[index],
                                   overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.inter(fontSize: 7, color: white),
+                                  style: GoogleFonts.inter(fontSize: 9, color: white),
                                 ),
                               ),
                             ],
@@ -222,7 +224,7 @@ class _LandingState extends State<Landing> {
                   children: [
                     SizedBox(
                       width: 130,
-                      child: Text('Музей Nexus работает допоздна каждую пятницу и открыт бесплатно. Присоединяйтесь к нам вечером!', style: GoogleFonts.inter(fontSize: 9, color: background)),
+                      child: Text(textPromo, style: GoogleFonts.inter(fontSize: 10, color: background)),
                     ),
                     Spacer(),
                     Column(
@@ -257,19 +259,19 @@ class _LandingState extends State<Landing> {
                   children: [
                     Text(
                       'Коллекции',
-                      style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(fontSize: sizeTitleH1, color: black, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
                     Text(
                       'Фильмы, выступления, мастер-классы, лекции и многое другое.',
-                      style: GoogleFonts.inter(fontSize: 13, color: black, fontWeight: FontWeight.w500),
+                      style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w500),
                     ),
                     SizedBox(height: 8),
                     GestureDetector(
                       onTap: () {},
                       child: Text(
                         'Посмотреть календарь  →',
-                        style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.bold),
+                        style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
@@ -303,7 +305,7 @@ class _LandingState extends State<Landing> {
                                 child: Text(
                                   titleCollectionList[index],
                                   overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.inter(fontSize: 7, color: white),
+                                  style: GoogleFonts.inter(fontSize: 10, color: white),
                                 ),
                               ),
                             ),
@@ -315,7 +317,7 @@ class _LandingState extends State<Landing> {
                 ),
               ),
               SizedBox(height: 50),
-              // FooterApp(),
+              FooterProject(),
             ],
           ),
         ),

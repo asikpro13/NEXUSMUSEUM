@@ -15,8 +15,7 @@ class AboutMuseum extends StatefulWidget {
   State<AboutMuseum> createState() => _AboutMuseumPageState();
 }
 
-class _AboutMuseumPageState extends State<AboutMuseum>
-    with SingleTickerProviderStateMixin {
+class _AboutMuseumPageState extends State<AboutMuseum> with SingleTickerProviderStateMixin {
   late final SlidableController slidableController = SlidableController(this);
 
   @override
@@ -25,13 +24,7 @@ class _AboutMuseumPageState extends State<AboutMuseum>
       backgroundColor: background,
       body: Slidable(
         controller: slidableController,
-        startActionPane: ActionPane(
-          extentRatio: 0.6,
-          motion: BehindMotion(),
-          children: [
-            DrawerProject(),
-          ],
-        ),
+        startActionPane: ActionPane(extentRatio: 0.6, motion: BehindMotion(), children: [DrawerProject()]),
         child: SingleChildScrollView(
           child: Column(
             children: [
