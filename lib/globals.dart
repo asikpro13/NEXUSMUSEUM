@@ -1,3 +1,6 @@
+import 'package:flutter_slidable/flutter_slidable.dart';
+
+late final SlidableController slidableController;
 
 List<String> programsList = [
   'assets/images/program_1.png',

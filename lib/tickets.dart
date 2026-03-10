@@ -555,7 +555,7 @@ class _TicketsPageState extends State<TicketsPage>
                     ),
                     ),
                     SizedBox(height: 50,),
-                    Footer(),
+                    FooterProject(),
                   ],
                 ),
               ],

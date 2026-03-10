@@ -503,7 +503,7 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                   ],
                 ),
                 SizedBox(height: 70),
-                Footer(),
+                FooterProject(),
               ],
             ),
           ),

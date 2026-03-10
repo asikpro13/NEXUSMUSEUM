@@ -588,7 +588,7 @@ class _ExhibitionsState extends State<Exhibitions>
                   ),
                 ),
                 SizedBox(height: 50),
-                Footer(),
+                FooterProject(),
               ],
             ),
           ),

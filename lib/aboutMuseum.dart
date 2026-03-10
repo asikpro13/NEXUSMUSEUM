@@ -454,7 +454,7 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                         ],
                       ),
                     ),
-                    Footer(),
+                    FooterProject(),
                   ],
                 ),
               ],
