@@ -218,10 +218,13 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                                       left: 8,
                                       child: SizedBox(
                                         width: 120,
-                                        child: Text(
-                                          titleExhibitionsList[index],
-                                          overflow: TextOverflow.ellipsis,
-                                          style: GoogleFonts.inter(fontSize: 7, color: white),
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(bottom: 20, right: 10),
+                                          child: Text(
+                                            titleExhibitionsList[index],
+                                            overflow: TextOverflow.ellipsis,
+                                            style: GoogleFonts.inter(fontSize: 9, color: white),
+                                          ),
                                         ),
                                       ),
                                     ),
