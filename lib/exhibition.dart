@@ -293,10 +293,13 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                               SizedBox(width: 8),
                               GestureDetector(
                                 onTap: () {
-                                  launchUrlString(phoneUrl, mode: LaunchMode.externalApplication);
+                                  launchUrlString(
+                                    phoneUrl,
+                                    mode: LaunchMode.externalApplication,
+                                  );
                                 },
                                 child: Text(
-                                 phoneNumber,
+                                  phoneNumber,
                                   style: GoogleFonts.inter(fontSize: 16),
                                 ),
                               ),

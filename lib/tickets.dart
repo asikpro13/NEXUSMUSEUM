@@ -17,7 +17,6 @@ class TicketsPage extends StatefulWidget {
 }
 
 class _TicketsPageState extends State<TicketsPage>
-
     with SingleTickerProviderStateMixin {
   late final SlidableController slidableController = SlidableController(this);
   int quantity = 1; //
@@ -48,7 +47,10 @@ class _TicketsPageState extends State<TicketsPage>
                             onTap: () {
                               slidableController.close();
                             },
-                            child: SvgPicture.asset('assets/icons/close.svg',  width: 16),
+                            child: SvgPicture.asset(
+                              'assets/icons/close.svg',
+                              width: 16,
+                            ),
                           ),
                         ],
                       ),
@@ -216,93 +218,101 @@ class _TicketsPageState extends State<TicketsPage>
                             style: GoogleFonts.inter(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: Colors.grey
+                              color: Colors.grey,
                             ),
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(height: 10),
                           ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(200, 45),
                               backgroundColor: Colors.white,
-                              side: BorderSide(
-                                color: Colors.grey,
-                                width: 1
-                              ),
+                              side: BorderSide(color: Colors.grey, width: 1),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(1)),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(1),
+                                ),
                               ),
                               elevation: 5,
                             ),
                             child: Text(
                               'Постоянные экспозиции',
-                              style: GoogleFonts.inter(fontSize: 16, color: Colors.grey),
+                              style: GoogleFonts.inter(
+                                fontSize: 16,
+                                color: Colors.grey,
+                              ),
                             ),
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(height: 10),
                           ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(100, 45),
                               backgroundColor: Colors.white,
-                              side: BorderSide(
-                                  color: Colors.grey,
-                                  width: 1
-                              ),
+                              side: BorderSide(color: Colors.grey, width: 1),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(1)),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(1),
+                                ),
                               ),
                               elevation: 5,
                             ),
                             child: Text(
                               'Выставки',
-                              style: GoogleFonts.inter(fontSize: 16, color: Colors.grey),
+                              style: GoogleFonts.inter(
+                                fontSize: 16,
+                                color: Colors.grey,
+                              ),
                             ),
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(height: 10),
                           ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(100, 45),
                               backgroundColor: Colors.white,
-                              side: BorderSide(
-                                  color: Colors.grey,
-                                  width: 1
-                              ),
+                              side: BorderSide(color: Colors.grey, width: 1),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(1)),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(1),
+                                ),
                               ),
                               elevation: 5,
                             ),
                             child: Text(
                               'События',
-                              style: GoogleFonts.inter(fontSize: 16, color: Colors.grey),
+                              style: GoogleFonts.inter(
+                                fontSize: 16,
+                                color: Colors.grey,
+                              ),
                             ),
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(height: 10),
                           ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(110, 45),
                               backgroundColor: Colors.white,
-                              side: BorderSide(
-                                  color: Colors.grey,
-                                  width: 1
-                              ),
+                              side: BorderSide(color: Colors.grey, width: 1),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(1)),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(1),
+                                ),
                               ),
                               elevation: 5,
                             ),
                             child: Text(
                               'Экскурсии',
-                              style: GoogleFonts.inter(fontSize: 16, color: Colors.grey),
+                              style: GoogleFonts.inter(
+                                fontSize: 16,
+                                color: Colors.grey,
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(height: 60,),
+                    SizedBox(height: 60),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
@@ -373,157 +383,209 @@ class _TicketsPageState extends State<TicketsPage>
                         ],
                       ),
                     ),
-                    SizedBox(height: 60,),
-                    Padding(padding: EdgeInsets.all(20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [Text('5 октября 2025 г., 19:30', style: GoogleFonts.inter(
-                            fontSize: 10, fontWeight: FontWeight.bold, color: Colors.grey
-                          ),),
-                            Spacer(),
-                            Text('Третьяковская галерея, Новая\nТретьяковка, Крымский Вал, 10  ', style: GoogleFonts.inter(
-                                fontSize: 10, fontWeight: FontWeight.bold, color: Colors.grey
-                            ),)
-                          ],
-                        ),
-                        SizedBox(height: 10,),
-                        Text(
-                          'Корзина',
-                          style: GoogleFonts.inter(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                    SizedBox(height: 60),
+                    Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                '5 октября 2025 г., 19:30',
+                                style: GoogleFonts.inter(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              Spacer(),
+                              Text(
+                                'Третьяковская галерея, Новая\nТретьяковка, Крымский Вал, 10  ',
+                                style: GoogleFonts.inter(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        SizedBox(height: 10,),
-                        Row(
-                          children: [
-                            Text('Количество',
-                              style: GoogleFonts.inter(
+                          SizedBox(height: 10),
+                          Text(
+                            'Корзина',
+                            style: GoogleFonts.inter(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            children: [
+                              Text(
+                                'Количество',
+                                style: GoogleFonts.inter(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.grey
+                                  color: Colors.grey,
+                                ),
                               ),
-                            ),
-                            Spacer(),
-                            Text('Стоимость',
-                              style: GoogleFonts.inter(
+                              Spacer(),
+                              Text(
+                                'Стоимость',
+                                style: GoogleFonts.inter(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.grey
+                                  color: Colors.grey,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 8),
-                        Row(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.grey, width: 1),
-                                borderRadius: BorderRadius.circular(5),
+                            ],
+                          ),
+                          SizedBox(height: 8),
+                          Row(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.grey,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Row(
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () => setState(
+                                        () => quantity > 0 ? quantity-- : null,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(8),
+                                        child: Text(
+                                          '-',
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 12,
+                                        vertical: 8,
+                                      ),
+                                      child: Text(
+                                        '$quantity',
+                                        style: GoogleFonts.inter(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () => setState(() => quantity++),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(8),
+                                        child: Text(
+                                          '+',
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              child: Row(
+                              Spacer(),
+                              Text(
+                                '${900 * quantity} ₽',
+                                style: GoogleFonts.inter(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 30),
+                          Row(
+                            children: [
+                              Text(
+                                'Итого:',
+                                style: GoogleFonts.inter(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: error,
+                                ),
+                              ),
+                              Spacer(),
+                              Text(
+                                '${900 * quantity} ₽',
+                                style: GoogleFonts.inter(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: error,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 20),
+                          Row(
+                            children: [
+                              Spacer(),
+                              Column(
                                 children: [
-                                  GestureDetector(
-                                    onTap: () => setState(() => quantity > 0 ? quantity-- : null),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(8),
-                                      child: Text('-', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                                  ElevatedButton(
+                                    onPressed: () {},
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.white,
+                                      side: BorderSide(color: gold, width: 1),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(1),
+                                        ),
+                                      ),
+                                      elevation: 5,
+                                    ),
+                                    child: Text(
+                                      'Продолжить покупки',
+                                      style: GoogleFonts.inter(
+                                        fontSize: 16,
+                                        color: Colors.black,
+                                      ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                                    child: Text('$quantity', style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold)),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () => setState(() => quantity++),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(8),
-                                      child: Text('+', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                                  SizedBox(height: 10),
+                                  ElevatedButton(
+                                    onPressed: () {},
+                                    style: ElevatedButton.styleFrom(
+                                      minimumSize: Size(150, 45),
+                                      backgroundColor: Colors.black,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(1),
+                                        ),
+                                      ),
+                                      elevation: 5,
+                                    ),
+                                    child: Text(
+                                      'Оформить покупки',
+                                      style: GoogleFonts.inter(
+                                        fontSize: 16,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
-                            Spacer(),
-                            Text('${900 * quantity} ₽',
-                              style: GoogleFonts.inter(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 30,),
-                        Row(
-                          children: [
-                            Text('Итого:',
-                                style: GoogleFonts.inter(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: error),),
-                            Spacer(),
-                            Text('${900 * quantity} ₽',
-                              style: GoogleFonts.inter(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: error,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 20,),
-                        Row(
-                          children: [
-                            Spacer(),
-                            Column(
-                              children: [
-                                ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.white,
-                                    side: BorderSide(
-                                        color: gold,
-                                        width: 1
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(1)),
-                                    ),
-                                    elevation: 5,
-                                  ),
-                                  child: Text(
-                                    'Продолжить покупки',
-                                    style: GoogleFonts.inter(fontSize: 16, color: Colors.black),
-                                  ),
-                                ),
-                                SizedBox(height: 10,),
-                                ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    minimumSize: Size(150, 45),
-                                    backgroundColor: Colors.black,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(1)),
-                                    ),
-                                    elevation: 5,
-                                  ),
-                                  child: Text(
-                                    'Оформить покупки',
-                                    style: GoogleFonts.inter(fontSize: 16, color: Colors.white),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                    ),
-                    SizedBox(height: 50,),
+                    SizedBox(height: 50),
                     FooterProject(),
                   ],
                 ),

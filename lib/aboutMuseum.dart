@@ -47,7 +47,10 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                             onTap: () {
                               slidableController.close();
                             },
-                            child: SvgPicture.asset('assets/icons/close.svg',  width: 16),
+                            child: SvgPicture.asset(
+                              'assets/icons/close.svg',
+                              width: 16,
+                            ),
                           ),
                         ],
                       ),

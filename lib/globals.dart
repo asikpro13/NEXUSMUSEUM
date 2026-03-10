@@ -18,7 +18,6 @@ List<String> exhibitionList = [
   'assets/images/exhibition_7.png',
   'assets/images/exhibition_8.png',
   'assets/images/exhibition_9.png',
-
 ];
 
 List<String> exhibitionsList = [
@@ -26,7 +25,6 @@ List<String> exhibitionsList = [
   'assets/images/exhibition_17.png',
   'assets/images/exhibition_18.png',
   'assets/images/exhibition_19.png',
-
 ];
 
 List<String> titleExhibitionsList = [
@@ -102,4 +100,3 @@ List<String> titleCollectionList = [
 
 final String phoneNumber = '+7 (999) 123-45-67';
 final String phoneUrl = 'tel:+79991234567';
-
