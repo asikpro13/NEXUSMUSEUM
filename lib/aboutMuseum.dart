@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/landing.dart';
-import 'package:nexusmuseum/uikit/footerApp.dart';
+import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 
 import 'tickets.dart';
@@ -47,7 +47,7 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                             onTap: () {
                               slidableController.close();
                             },
-                            child: SvgPicture.asset('assets/icons/close.svg'),
+                            child: SvgPicture.asset('assets/icons/close.svg',  width: 16),
                           ),
                         ],
                       ),
@@ -90,7 +90,6 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                       SizedBox(height: 20),
                       GestureDetector(
                         onTap: () {
-
                           Navigator.of(context).pushReplacement(
                             MaterialPageRoute(
                               builder: (context) => TicketsPage(),
@@ -154,14 +153,9 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                             onTap: () {
                               slidableController.openStartActionPane();
                             },
-                            child: SvgPicture.asset('assets/icons/driver.svg'),
+                            child: SvgPicture.asset('assets/icons/driver.svg',  width: 25),
                           ),
-                          SizedBox(width: 25),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset('assets/icons/search.svg'),
-                          ),
-                          SizedBox(width: 27),
+                         Spacer(),
                           GestureDetector(
                             onTap: () {
                               Navigator.of(context).pushReplacement(
@@ -171,9 +165,9 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                               );
                             },
                             child: Text(
-                              '        NEXUSMUSEUM',
+                              'NEXUSMUSEUM',
                               style: GoogleFonts.playfairDisplay(
-                                fontSize: 17,
+                                fontSize: 20,
                                 color: background,
                               ),
                             ),
@@ -181,7 +175,7 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                           Spacer(),
                           GestureDetector(
                             onTap: () {},
-                            child: SvgPicture.asset('assets/icons/profile.svg'),
+                            child: SvgPicture.asset('assets/icons/profile.svg',  width: 20),
                           ),
                         ],
                       ),
@@ -460,7 +454,7 @@ class _AboutMuseumPageState extends State<AboutMuseum>
                         ],
                       ),
                     ),
-                    FooterApp(),
+                    Footer(),
                   ],
                 ),
               ],

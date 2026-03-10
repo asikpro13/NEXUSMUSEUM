@@ -7,7 +7,7 @@ import 'package:nexusmuseum/aboutMuseum.dart';
 import 'package:nexusmuseum/exhibition.dart';
 import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
-import 'package:nexusmuseum/uikit/footerApp.dart';
+import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/globals.dart';
 
 import 'tickets.dart';
@@ -49,7 +49,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                             onTap: () {
                               slidableController.close();
                             },
-                            child: SvgPicture.asset('assets/icons/close.svg'),
+                            child: SvgPicture.asset('assets/icons/close.svg', width: 16),
                           ),
                         ],
                       ),
@@ -154,17 +154,12 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                             onTap: () {
                               slidableController.openStartActionPane();
                             },
-                            child: SvgPicture.asset('assets/icons/driver.svg'),
-                          ),
-                          SizedBox(width: 25),
-                          GestureDetector(
-                            onTap: () {},
-                            child: SvgPicture.asset('assets/icons/search.svg'),
+                            child: SvgPicture.asset('assets/icons/driver.svg', width: 25),
                           ),
                           Spacer(),
                           GestureDetector(
                             onTap: () {},
-                            child: SvgPicture.asset('assets/icons/profile.svg'),
+                            child: SvgPicture.asset('assets/icons/profile.svg', width: 20),
                           ),
                         ],
                       ),
@@ -589,7 +584,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                   ),
                 ),
                 SizedBox(height: 50),
-                FooterApp(),
+                Footer(),
               ],
             ),
           ),
