@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
@@ -16,8 +17,7 @@ class TicketsPage extends StatefulWidget {
 }
 
 class _TicketsPageState extends State<TicketsPage> with SingleTickerProviderStateMixin {
-  late final SlidableController slidableController = SlidableController(this);
-  int quantity = 1; //
+  int quantity = 1;
 
   @override
   Widget build(BuildContext context) {

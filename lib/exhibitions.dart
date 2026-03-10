@@ -19,7 +19,6 @@ class Exhibitions extends StatefulWidget {
 
 class _ExhibitionsState extends State<Exhibitions>
     with SingleTickerProviderStateMixin {
-  late final SlidableController slidableController = SlidableController(this);
 
   @override
   Widget build(BuildContext context) {
