@@ -114,7 +114,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                 child: Column(
                   children: [
                     SizedBox(height: 20),
-                    AppBarProject(),
+                    AppBarProject(isTitle: false),
                     SizedBox(height: 46),
                     Text('NEXUSMUSEUM', style: GoogleFonts.playfairDisplay(fontSize: 38, color: background)),
                     Spacer(),
