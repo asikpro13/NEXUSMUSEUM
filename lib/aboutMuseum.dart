@@ -177,7 +177,7 @@ class _AboutMuseumPageState extends State<AboutMuseum> with SingleTickerProvider
                       ],
                     ),
                   ),
-                  Footer(),
+                  FooterProject(),
                 ],
               ),
             ],
