@@ -5,20 +5,19 @@ import 'package:nexusmuseum/aboutMuseum.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 
 // Футер
-class Footer extends StatefulWidget {
-  const Footer({super.key});
+class FooterProject extends StatefulWidget {
+  const FooterProject({super.key});
 
   @override
-  State<Footer> createState() => _FooterAppState();
+  State<FooterProject> createState() => _FooterProjectAppState();
 }
 
-class _FooterAppState extends State<Footer> {
+class _FooterProjectAppState extends State<FooterProject> {
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.only(top: 15, bottom: 30, left: 20, right: 20),
-
       color: grey,
       child: Column(
         children: [

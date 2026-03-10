@@ -9,6 +9,7 @@ import 'package:nexusmuseum/tickets.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 import 'package:nexusmuseum/uikit/const.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
+import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/social.dart';
 
 class Landing extends StatefulWidget {
@@ -316,7 +317,7 @@ class _LandingState extends State<Landing> {
                 ),
               ),
               SizedBox(height: 50),
-              // FooterApp(),
+              FooterProject(),
             ],
           ),
         ),
