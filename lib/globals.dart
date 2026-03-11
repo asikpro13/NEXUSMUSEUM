@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
+import 'package:photo_view/photo_view.dart';
+import 'package:photo_view/photo_view_gallery.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 dynamic slidableController;
@@ -124,4 +126,94 @@ Future<void> launchURL(String url) async {
   if (await canLaunchUrl(uri)) {
     await launchUrl(uri);
   }
+}
+
+//
+void openPhotoViewGallery({
+  required BuildContext context,
+  required List<String> imageList,
+  required List<String> titleList,
+  required int initialIndex,
+}) {
+  final PageController pageController = PageController(initialPage: initialIndex);
+  ValueNotifier<int> currentIndexNotifier = ValueNotifier(initialIndex);
+
+  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (context) => Scaffold(
+        backgroundColor: black,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: SvgPicture.asset('assets/icons/close.svg'),
+            onPressed: () => Navigator.pop(context),
+          ),
+        ),
+        body: Stack(
+          children: [
+            PhotoViewGallery.builder(
+              scrollPhysics: const BouncingScrollPhysics(),
+              builder: (BuildContext context, int index) {
+                return PhotoViewGalleryPageOptions(
+                  imageProvider: AssetImage(imageList[index]),
+                  minScale: PhotoViewComputedScale.contained * 0.8,
+                  maxScale: PhotoViewComputedScale.covered * 3,
+                  initialScale: PhotoViewComputedScale.contained,
+                  heroAttributes: PhotoViewHeroAttributes(tag: index),
+                );
+              },
+              itemCount: imageList.length,
+              loadingBuilder: (context, event) => const Center(
+                child: CircularProgressIndicator(),
+              ),
+              backgroundDecoration: const BoxDecoration(color: Colors.black),
+              pageController: pageController,
+              onPageChanged: (index) {
+                currentIndexNotifier.value = index;
+              },
+            ),
+            Positioned(
+              bottom: 40,
+              left: 20,
+              right: 20,
+              child: ValueListenableBuilder<int>(
+                valueListenable: currentIndexNotifier,
+                builder: (context, currentIndex, child) {
+                  return Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          titleList[currentIndex],
+                          style: GoogleFonts.inter(
+                            color: white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          '${currentIndex + 1} / ${imageList.length}',
+                          style: GoogleFonts.inter(
+                            color: Colors.white70,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
 }

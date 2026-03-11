@@ -191,6 +191,9 @@ class _LandingState extends State<Landing> {
                       padding: const EdgeInsets.all(6),
                       child: GestureDetector(
                         onTap: () {
+                          openPhotoViewGallery(context: context, imageList: exhibitionList, titleList: titleExhibitionList, initialIndex: index);
+                        },
+                        onLongPress: () {
                           Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ExhibitionPage()));
                         },
                         child: Container(
@@ -295,23 +298,28 @@ class _LandingState extends State<Landing> {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(6),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(image: AssetImage(collectionList[index]), fit: BoxFit.cover),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(5),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                titleCollectionList[index],
-                                overflow: TextOverflow.ellipsis,
-                                style: GoogleFonts.inter(fontSize: 8.8, color: white),
-                              ),
-                              SizedBox(height: index == 0 || index == 4 ? 5 : 17),
-                            ],
+                      child: GestureDetector(
+                        onTap: () {
+                          openPhotoViewGallery(context: context, imageList: collectionList, titleList: titleCollectionList, initialIndex: index);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(image: AssetImage(collectionList[index]), fit: BoxFit.cover),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  titleCollectionList[index],
+                                  overflow: TextOverflow.ellipsis,
+                                  style: GoogleFonts.inter(fontSize: 8.8, color: white),
+                                ),
+                                SizedBox(height: index == 0 || index == 4 ? 5 : 17),
+                              ],
+                            ),
                           ),
                         ),
                       ),

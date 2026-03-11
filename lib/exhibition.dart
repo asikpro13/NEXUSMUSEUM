@@ -122,7 +122,7 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                             ),
                             const SizedBox(width: 10),
                             SizedBox(
-                              width: 300,
+                              width: MediaQuery.of(context).size.width * 0.8,
                               child: Text(
                                 'ВС, ВТ, СР: 10:00 — 18:00 (кассы и вход до 17:00)\nПН: выходной\nЧТ, ПТ, СБ: 10:00 — 21:00 (кассы и вход до 20:00)',
                                 style: GoogleFonts.inter(fontSize: 16),

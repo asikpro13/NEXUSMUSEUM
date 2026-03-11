@@ -18,6 +18,7 @@ dependencies:
   url_launcher: ^6.3.2     # Открытие ссылок: звонки, сайты, email, карты
   flutter_map: ^8.2.2      # Интерактивные карты
   latlong2: ^0.9.1         # Работа с координатами для карт
+  photo_view: ^0.15.0
 
 dev_dependencies:
   flutter_test:
