@@ -19,9 +19,7 @@ class ExhibitionPage extends StatefulWidget {
   State<ExhibitionPage> createState() => _ExhibitionPageState();
 }
 
-class _ExhibitionPageState extends State<ExhibitionPage>
-    with SingleTickerProviderStateMixin {
-
+class _ExhibitionPageState extends State<ExhibitionPage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +67,7 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                         ),
                       ],
                     ),
-                    SocialNetworks()
+                    SocialNetworks(),
                   ],
                 ),
               ),
@@ -86,7 +84,7 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                         SizedBox(height: 10),
                         Row(
                           children: [
-                            SvgPicture.asset('assets/icons/geo.svg', width: 15,),
+                            SvgPicture.asset('assets/icons/geo.svg', width: 15),
                             SizedBox(width: 12),
                             Text('Корпус «Античность»', style: GoogleFonts.inter(fontSize: 16)),
                           ],
@@ -116,17 +114,11 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 4),
-                              child: SvgPicture.asset('assets/icons/clock.svg',  width: 15),
-                            ),
+                            Padding(padding: const EdgeInsets.only(top: 4), child: SvgPicture.asset('assets/icons/clock.svg', width: 15)),
                             const SizedBox(width: 10),
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.8,
-                              child: Text(
-                                'ВС, ВТ, СР: 10:00 — 18:00 (кассы и вход до 17:00)\nПН: выходной\nЧТ, ПТ, СБ: 10:00 — 21:00 (кассы и вход до 20:00)',
-                                style: GoogleFonts.inter(fontSize: 16),
-                              ),
+                              child: Text('ВС, ВТ, СР: 10:00 — 18:00 (кассы и вход до 17:00)\nПН: выходной\nЧТ, ПТ, СБ: 10:00 — 21:00 (кассы и вход до 20:00)', style: GoogleFonts.inter(fontSize: 16)),
                             ),
                           ],
                         ),
@@ -202,30 +194,38 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                          itemCount: exhibitionList.length - 5,
+                          itemCount: exhibitionsList.length,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.all(6),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(image: AssetImage(exhibitionsList[index]), fit: BoxFit.cover),
-                                ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  openPhotoViewGallery(context: context, imageList: exhibitionsList, titleList: titleExhibitionsList, initialIndex: index);
+                                },
+                                onLongPress: () {},
                                 child: Stack(
                                   children: [
-                                    Positioned(
-                                      right: 8,
-                                      bottom: 12,
-                                      left: 8,
-                                      child: SizedBox(
-                                        width: 120,
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(bottom: 20, right: 10),
-                                          child: Text(
-                                            titleExhibitionsList[index],
-                                            overflow: TextOverflow.ellipsis,
-                                            style: GoogleFonts.inter(fontSize: 9, color: white),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(image: AssetImage(exhibitionsList[index]), fit: BoxFit.cover),
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: [
+                                          Stack(
+                                            children: [
+                                              Image.asset('assets/images/blur.png', fit: BoxFit.cover, width: double.infinity),
+                                              Padding(
+                                                padding: const EdgeInsets.all(8),
+                                                child: Text(
+                                                  titleExhibitionsList[index],
+                                                  overflow: TextOverflow.ellipsis,
+                                                  style: GoogleFonts.inter(fontSize: 8.4, color: white),
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                        ),
+                                        ],
                                       ),
                                     ),
                                   ],
