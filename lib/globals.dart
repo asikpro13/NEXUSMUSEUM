@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 dynamic slidableController;
 
@@ -56,7 +55,7 @@ List<String> futureExhibition2List = [
   'assets/images/exhibition_15.png',
 ];
 
-List<String> titleFutureExhibition2List = ['Симфония для ветра и\nпроводов', 'Интерьер с уходящим ухом', 'Танцующие с тишиной', 'Сон лунного геолога', 'Последний корабль к\nПолярной звезде', 'Шёпот забытых улиц'];
+List<String> titleFutureExhibition2List = ['Симфония для ветра и\nпроводов', 'Интерьер\nс уходящим ухом', 'Танцующие с тишиной\n', 'Сон лунного геолога\n', 'Последний корабль к\nПолярной звезде', 'Шёпот забытых улиц\n'];
 
 List<String> collectionList = ['assets/images/collection_1.png', 'assets/images/collection_2.png', 'assets/images/collection_3.png', 'assets/images/collection_4.png', 'assets/images/collection_5.png', 'assets/images/collection_6.png'];
 

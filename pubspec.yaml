@@ -10,14 +10,14 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.8
-  google_fonts: ^8.0.2
-  flutter_svg: ^2.2.3
-  carousel_slider: ^5.1.2
-  flutter_slidable: ^4.0.3
-  url_launcher: ^6.3.2
-  flutter_map: ^8.2.2
-  latlong2: ^0.9.1
+  cupertino_icons: ^1.0.8  # Иконки в стиле iOS для Material Design
+  google_fonts: ^8.0.2     # Доступ к шрифтам Google Fonts
+  flutter_svg: ^2.2.3      # Отображение SVG (векторных) изображений
+  carousel_slider: ^5.1.2  # Карусель/слайдер для изображений и виджетов
+  flutter_slidable: ^4.0.3 # Выдвижные панели для списков
+  url_launcher: ^6.3.2     # Открытие ссылок: звонки, сайты, email, карты
+  flutter_map: ^8.2.2      # Интерактивные карты
+  latlong2: ^0.9.1         # Работа с координатами для карт
 
 dev_dependencies:
   flutter_test:

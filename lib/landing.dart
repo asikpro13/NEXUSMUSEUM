@@ -49,7 +49,7 @@ class _LandingState extends State<Landing> {
                         minimumSize: Size(210, 50),
                         backgroundColor: error,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
-                        elevation: 5,
+                        elevation: 0,
                       ),
                       child: Text('Купить билеты', style: GoogleFonts.inter(fontSize: 18, color: white)),
                     ),
@@ -102,6 +102,7 @@ class _LandingState extends State<Landing> {
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(135, 40),
+                  elevation: 0,
                   backgroundColor: grey,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
                   foregroundColor: white,
@@ -141,7 +142,10 @@ class _LandingState extends State<Landing> {
                     Spacer(),
                     SizedBox(
                       width: 130,
-                      child: Text(textPromo, style: GoogleFonts.inter(fontSize: sizeTextPromo, color: background)),
+                      child: Text(
+                        textPromo,
+                        style: GoogleFonts.inter(fontSize: sizeTextPromo, color: background),
+                      ),
                     ),
                   ],
                 ),
@@ -195,14 +199,17 @@ class _LandingState extends State<Landing> {
                           ),
                           child: Stack(
                             children: [
-                              Positioned(
-                                right: 8,
-                                bottom: 12,
-                                left: 8,
-                                child: Text(
-                                  titleExhibitionList[index],
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.inter(fontSize: 9, color: white),
+                              Positioned.fill(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 6, bottom: 10),
+                                  child: Container(
+                                    alignment: Alignment.bottomLeft,
+                                    child: Text(
+                                      titleExhibitionList[index],
+                                      overflow: TextOverflow.ellipsis,
+                                      style: GoogleFonts.inter(fontSize: 9, color: white),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
@@ -296,16 +303,16 @@ class _LandingState extends State<Landing> {
                         ),
                         child: Stack(
                           children: [
-                            Positioned(
-                              right: 8,
-                              bottom: 12,
-                              left: 8,
-                              child: SizedBox(
-                                width: 100,
-                                child: Text(
-                                  titleCollectionList[index],
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.inter(fontSize: 10, color: white),
+                            Positioned.fill(
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 6, bottom: 10),
+                                child: Container(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Text(
+                                    titleCollectionList[index],
+                                    overflow: TextOverflow.ellipsis,
+                                    style: GoogleFonts.inter(fontSize: 9, color: white),
+                                  ),
                                 ),
                               ),
                             ),
