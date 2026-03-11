@@ -197,22 +197,20 @@ class _LandingState extends State<Landing> {
                           decoration: BoxDecoration(
                             image: DecorationImage(image: AssetImage(exhibitionList[index]), fit: BoxFit.cover),
                           ),
-                          child: Stack(
-                            children: [
-                              Positioned.fill(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 6, bottom: 10),
-                                  child: Container(
-                                    alignment: Alignment.bottomLeft,
-                                    child: Text(
-                                      titleExhibitionList[index],
-                                      overflow: TextOverflow.ellipsis,
-                                      style: GoogleFonts.inter(fontSize: 9, color: white),
-                                    ),
-                                  ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  titleExhibitionList[index],
+                                  overflow: TextOverflow.ellipsis,
+                                  style: GoogleFonts.inter(fontSize: 8.8, color: white),
                                 ),
-                              ),
-                            ],
+                                SizedBox(height: 5),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -301,22 +299,20 @@ class _LandingState extends State<Landing> {
                         decoration: BoxDecoration(
                           image: DecorationImage(image: AssetImage(collectionList[index]), fit: BoxFit.cover),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned.fill(
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 6, bottom: 10),
-                                child: Container(
-                                  alignment: Alignment.bottomLeft,
-                                  child: Text(
-                                    titleCollectionList[index],
-                                    overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.inter(fontSize: 9, color: white),
-                                  ),
-                                ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(5),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                titleCollectionList[index],
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.inter(fontSize: 8.8, color: white),
                               ),
-                            ),
-                          ],
+                              SizedBox(height: index == 0 || index == 4 ? 5 : 17),
+                            ],
+                          ),
                         ),
                       ),
                     );
