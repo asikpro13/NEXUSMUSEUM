@@ -142,14 +142,6 @@ void openPhotoViewGallery({
     MaterialPageRoute(
       builder: (context) => Scaffold(
         backgroundColor: black,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leading: IconButton(
-            icon: SvgPicture.asset('assets/icons/close.svg'),
-            onPressed: () => Navigator.pop(context),
-          ),
-        ),
         body: Stack(
           children: [
             PhotoViewGallery.builder(
@@ -172,6 +164,24 @@ void openPhotoViewGallery({
               onPageChanged: (index) {
                 currentIndexNotifier.value = index;
               },
+            ),
+            Positioned(
+              top: 40,
+              left: 15,
+              child: GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.5),
+                    shape: BoxShape.circle,
+                  ),
+                  child: SvgPicture.asset(
+                    'assets/icons/close.svg',
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ),
             Positioned(
               bottom: 40,
