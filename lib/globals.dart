@@ -128,7 +128,7 @@ Future<void> launchURL(String url) async {
   }
 }
 
-//
+// Функция показа фотографий
 void openPhotoViewGallery({
   required BuildContext context,
   required List<String> imageList,

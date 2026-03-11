@@ -131,7 +131,9 @@ class _LandingState extends State<Landing> {
                         ),
                         SizedBox(height: 12),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
+                          },
                           child: Text(
                             'Получить билеты  →',
                             style: GoogleFonts.inter(fontSize: 14, color: background, fontWeight: FontWeight.bold),
@@ -196,25 +198,32 @@ class _LandingState extends State<Landing> {
                         onLongPress: () {
                           Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ExhibitionPage()));
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(image: AssetImage(exhibitionList[index]), fit: BoxFit.cover),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(5),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  titleExhibitionList[index],
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.inter(fontSize: 8.8, color: white),
-                                ),
-                                SizedBox(height: 5),
-                              ],
+                        child: Stack(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(exhibitionList[index]), fit: BoxFit.cover),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Image.asset('assets/images/blur.png', fit: BoxFit.cover, width: double.infinity),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Text(
+                                          titleExhibitionList[index],
+                                          overflow: TextOverflow.ellipsis,
+                                          style: GoogleFonts.inter(fontSize: 8.4, color: white),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ),
                     );
@@ -248,7 +257,9 @@ class _LandingState extends State<Landing> {
                         ),
                         SizedBox(height: 12),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
+                          },
                           child: Text(
                             'Получить билеты  →',
                             style: GoogleFonts.inter(fontSize: 13, color: background, fontWeight: FontWeight.bold),
@@ -302,25 +313,32 @@ class _LandingState extends State<Landing> {
                         onTap: () {
                           openPhotoViewGallery(context: context, imageList: collectionList, titleList: titleCollectionList, initialIndex: index);
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(image: AssetImage(collectionList[index]), fit: BoxFit.cover),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(5),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  titleCollectionList[index],
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.inter(fontSize: 8.8, color: white),
-                                ),
-                                SizedBox(height: index == 0 || index == 4 ? 5 : 17),
-                              ],
+                        child: Stack(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(collectionList[index]), fit: BoxFit.cover),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Image.asset('assets/images/blur.png', fit: BoxFit.cover, width: double.infinity),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Text(
+                                          titleCollectionList[index],
+                                          overflow: TextOverflow.ellipsis,
+                                          style: GoogleFonts.inter(fontSize: 8.8, color: white),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ),
                     );
