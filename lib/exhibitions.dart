@@ -17,9 +17,7 @@ class Exhibitions extends StatefulWidget {
   State<Exhibitions> createState() => _ExhibitionsState();
 }
 
-class _ExhibitionsState extends State<Exhibitions>
-    with SingleTickerProviderStateMixin {
-
+class _ExhibitionsState extends State<Exhibitions> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +65,7 @@ class _ExhibitionsState extends State<Exhibitions>
                         ),
                       ],
                     ),
-                    SocialNetworks()
+                    SocialNetworks(),
                   ],
                 ),
               ),
@@ -169,32 +167,37 @@ class _ExhibitionsState extends State<Exhibitions>
                       padding: const EdgeInsets.all(6),
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ExhibitionPage()));
+                          openPhotoViewGallery(context: context, imageList: exhibitionList.sublist(0, exhibitionList.length - 2), titleList: titleExhibitionList.sublist(0, titleExhibitionList.length - 2), initialIndex: index);
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(image: AssetImage(exhibitionList[index]), fit: BoxFit.cover),
-                          ),
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                right: 8,
-                                bottom: 12,
-                                left: 8,
-                                child: SizedBox(
-                                  width: 90,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      titleExhibitionList[index],
-                                      overflow: TextOverflow.ellipsis,
-                                      style: GoogleFonts.inter(fontSize: 9, color: white),
-                                    ),
-                                  ),
-                                ),
+                        onLongPress: () {
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ExhibitionPage()));
+                        },
+                        child: Stack(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(exhibitionList[index]), fit: BoxFit.cover),
                               ),
-                            ],
-                          ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Image.asset('assets/images/blur.png', fit: BoxFit.cover, width: double.infinity),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Text(
+                                          titleExhibitionList[index],
+                                          overflow: TextOverflow.ellipsis,
+                                          style: GoogleFonts.inter(fontSize: 8.4, color: white),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     );
@@ -228,32 +231,37 @@ class _ExhibitionsState extends State<Exhibitions>
                       padding: const EdgeInsets.all(6),
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ExhibitionPage()));
+                          openPhotoViewGallery(context: context, imageList: futureExhibitionList, titleList: titleFutureExhibitionList, initialIndex: index);
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(image: AssetImage(futureExhibitionList[index]), fit: BoxFit.cover),
-                          ),
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                right: 8,
-                                bottom: 12,
-                                left: 8,
-                                child: SizedBox(
-                                  width: 120,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      titleFutureExhibitionList[index],
-                                      overflow: TextOverflow.ellipsis,
-                                      style: GoogleFonts.inter(fontSize: 9, color: white),
-                                    ),
-                                  ),
-                                ),
+                        onLongPress: () {
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ExhibitionPage()));
+                        },
+                        child: Stack(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(futureExhibitionList[index]), fit: BoxFit.cover),
                               ),
-                            ],
-                          ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Image.asset('assets/images/blur.png', fit: BoxFit.cover, width: double.infinity),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Text(
+                                          titleFutureExhibitionList[index],
+                                          overflow: TextOverflow.ellipsis,
+                                          style: GoogleFonts.inter(fontSize: 8.4, color: white),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     );
@@ -285,26 +293,35 @@ class _ExhibitionsState extends State<Exhibitions>
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(6),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(image: AssetImage(futureExhibition2List[index]), fit: BoxFit.cover),
-                        ),
+                      child: GestureDetector(
+                        onTap: () {
+                          openPhotoViewGallery(context: context, imageList: futureExhibition2List, titleList: titleFutureExhibition2List, initialIndex: index);
+                        },
+                        onLongPress: () {
+                        },
                         child: Stack(
                           children: [
-                            Positioned(
-                              right: 8,
-                              bottom: 12,
-                              left: 8,
-                              child: SizedBox(
-                                width: 100,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    titleFutureExhibition2List[index],
-                                    overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.inter(fontSize: 9, color: white),
+                            Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(futureExhibition2List[index]), fit: BoxFit.cover),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Image.asset('assets/images/blur.png', fit: BoxFit.cover, width: double.infinity),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Text(
+                                          titleFutureExhibition2List[index],
+                                          overflow: TextOverflow.ellipsis,
+                                          style: GoogleFonts.inter(fontSize: 8.4, color: white),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ),
+                                ],
                               ),
                             ),
                           ],
