@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
+import 'package:nexusmuseum/uikit/const.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
@@ -20,6 +23,8 @@ class AboutMuseum extends StatefulWidget {
 
 class _AboutMuseumPageState extends State<AboutMuseum> with SingleTickerProviderStateMixin {
   late final SlidableController slidableController = SlidableController(this);
+  final MapController mapController = MapController();
+  bool _isMapLoaded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -135,16 +140,50 @@ class _AboutMuseumPageState extends State<AboutMuseum> with SingleTickerProvider
                       ],
                     ),
                   ),
-                  Stack(
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * 1,
-                        height: 300,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(image: AssetImage('assets/images/map.png'), fit: BoxFit.cover),
+                  Container(
+                    height: 300,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 10, offset: const Offset(0, 4))],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: FlutterMap(
+                        mapController: mapController,
+                        options: MapOptions(
+                          initialZoom: 16,
+                          initialCenter: museumLocation,
+                          onMapReady: () {
+                            setState(() => isMapLoaded = true);
+                          },
                         ),
+                        children: [
+                          TileLayer(urlTemplate: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', subdomains: const ['a', 'b', 'c'], userAgentPackageName: 'nexusmuseum'),
+                          MarkerLayer(
+                            markers: [
+                              Marker(
+                                point: museumLocation,
+                                width: 50,
+                                height: 50,
+                                child: GestureDetector(
+                                  onTap: () => showMuseumInfo(context),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: error,
+                                      shape: BoxShape.circle,
+                                      border: Border.all(color: Colors.white, width: 3),
+                                      boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 8, offset: const Offset(0, 2))],
+                                    ),
+                                    child: const Icon(Icons.place, color: Colors.white, size: 30),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                   SizedBox(height: 30),
                   Padding(
