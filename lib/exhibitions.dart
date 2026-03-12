@@ -5,6 +5,7 @@ import 'package:nexusmuseum/exhibition.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
+import 'package:nexusmuseum/uikit/data.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/social.dart';
@@ -17,8 +18,61 @@ class Exhibitions extends StatefulWidget {
   State<Exhibitions> createState() => _ExhibitionsState();
 }
 
-class _ExhibitionsState extends State<Exhibitions>
-    with SingleTickerProviderStateMixin {
+class _ExhibitionsState extends State<Exhibitions> {
+  // Выбор аудитории
+  void _showAudienceSelector() {
+    showSelector<String>(
+      context: context,
+      title: 'Выберите аудиторию',
+      items: audiences,
+      selectedItem: selectedAudience,
+      onSelected: (item) {
+        setState(() {
+          selectedAudience = item;
+        });
+      },
+    );
+  }
+
+  // Выбор места проведения
+  void _showVenueSelector() {
+    showSelector<String>(
+      context: context,
+      title: 'Выберите место проведения',
+      items: venues,
+      selectedItem: selectedVenue,
+      onSelected: (item) {
+        setState(() {
+          selectedVenue = item;
+        });
+      },
+    );
+  }
+
+  // Выбор даты
+  void _showDatePicker() async {
+    final DateTime? pickedDate = await DateSelectorHelper.showSimpleDatePicker(context: context, initialDate: selectedDate, accentColor: gold);
+
+    if (pickedDate != null) {
+      _showTimeSelector(pickedDate);
+    }
+  }
+
+  // Выбор времени
+  void _showTimeSelector(DateTime date) {
+    showSelector<String>(
+      context: context,
+      title: 'Выберите время',
+      items: availableTimes,
+      selectedItem: selectedTime,
+      onSelected: (time) {
+        setState(() {
+          selectedDate = date;
+          selectedTime = time;
+        });
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,11 +121,11 @@ class _ExhibitionsState extends State<Exhibitions>
                         ),
                       ],
                     ),
-                    SocialNetworks()
+                    SocialNetworks(),
                   ],
                 ),
               ),
-              SizedBox(height: 27),
+              SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
@@ -83,61 +137,92 @@ class _ExhibitionsState extends State<Exhibitions>
                   ],
                 ),
               ),
-              SizedBox(height: 12),
+              SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
+                    Row(
                       children: [
                         Text(
                           'Аудитория',
-                          style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
+                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(height: 13),
-                        Text(
-                          'Место проведения',
-                          style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(height: 13),
-                        Text(
-                          'Дата',
-                          style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
+                        Spacer(),
+                        GestureDetector(
+                          onTap: _showAudienceSelector,
+                          child: Text(
+                            '→',
+                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ],
                     ),
-                    SizedBox(width: 15),
-                    Column(
+                    SizedBox(height: 10),
+                    if (selectedAudience != null && selectedAudience!.isNotEmpty)
+                      Text(
+                        selectedAudience!,
+                        style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold, height: 1.3),
+                      ),
+                    SizedBox(height: 10),
+                    Row(
                       children: [
                         Text(
-                          '→',
-                          style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
+                          'Дата',
+                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(height: 13),
-                        Text(
-                          '→',
-                          style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(height: 13),
-                        Text(
-                          '→',
-                          style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
+                        Spacer(),
+                        GestureDetector(
+                          onTap: _showDatePicker,
+                          child: Text(
+                            '→',
+                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ],
                     ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  children: [
-                    Text(
-                      'Сбросить фильтр',
-                      style: GoogleFonts.inter(fontSize: 15, color: error, fontWeight: FontWeight.w700),
+                    SizedBox(height: 10),
+                    if (selectedDate != null && selectedTime!.isNotEmpty)
+                      Text(
+                        formatSelectedDateTime(),
+                        style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold),
+                      ),
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Text(
+                          'Локация',
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
+                        ),
+                        Spacer(),
+                        GestureDetector(
+                          onTap: _showVenueSelector,
+                          child: Text(
+                            '→',
+                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    if (selectedVenue != null && selectedVenue!.isNotEmpty)
+                      Text(
+                        selectedVenue!,
+                        style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold, height: 1.3),
+                      ),
+                    SizedBox(height: 10),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          clearSelected();
+                        });
+                      },
+                      child: Text(
+                        'Сбросить фильтр',
+                        style: GoogleFonts.inter(fontSize: 15, color: error, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 ),
@@ -168,33 +253,38 @@ class _ExhibitionsState extends State<Exhibitions>
                     return Padding(
                       padding: const EdgeInsets.all(6),
                       child: GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ExhibitionPage()));
+                        onLongPress: () {
+                          openPhotoViewGallery(context: context, imageList: exhibitionList.sublist(0, exhibitionList.length - 2), titleList: titleExhibitionList.sublist(0, titleExhibitionList.length - 2), initialIndex: index);
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(image: AssetImage(exhibitionList[index]), fit: BoxFit.cover),
-                          ),
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                right: 8,
-                                bottom: 12,
-                                left: 8,
-                                child: SizedBox(
-                                  width: 90,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      titleExhibitionList[index],
-                                      overflow: TextOverflow.ellipsis,
-                                      style: GoogleFonts.inter(fontSize: 9, color: white),
-                                    ),
-                                  ),
-                                ),
+                        onTap: () {
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ExhibitionPage()));
+                        },
+                        child: Stack(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(exhibitionList[index]), fit: BoxFit.cover),
                               ),
-                            ],
-                          ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Image.asset('assets/images/blur.png', fit: BoxFit.cover, width: double.infinity),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Text(
+                                          titleExhibitionList[index],
+                                          overflow: TextOverflow.ellipsis,
+                                          style: GoogleFonts.inter(fontSize: 8.4, color: white),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     );
@@ -227,33 +317,38 @@ class _ExhibitionsState extends State<Exhibitions>
                     return Padding(
                       padding: const EdgeInsets.all(6),
                       child: GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ExhibitionPage()));
+                        onLongPress: () {
+                          openPhotoViewGallery(context: context, imageList: futureExhibitionList, titleList: titleFutureExhibitionList, initialIndex: index);
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(image: AssetImage(futureExhibitionList[index]), fit: BoxFit.cover),
-                          ),
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                right: 8,
-                                bottom: 12,
-                                left: 8,
-                                child: SizedBox(
-                                  width: 120,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      titleFutureExhibitionList[index],
-                                      overflow: TextOverflow.ellipsis,
-                                      style: GoogleFonts.inter(fontSize: 9, color: white),
-                                    ),
-                                  ),
-                                ),
+                        onTap: () {
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ExhibitionPage()));
+                        },
+                        child: Stack(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(futureExhibitionList[index]), fit: BoxFit.cover),
                               ),
-                            ],
-                          ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Image.asset('assets/images/blur.png', fit: BoxFit.cover, width: double.infinity),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Text(
+                                          titleFutureExhibitionList[index],
+                                          overflow: TextOverflow.ellipsis,
+                                          style: GoogleFonts.inter(fontSize: 8.4, color: white),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     );
@@ -285,26 +380,34 @@ class _ExhibitionsState extends State<Exhibitions>
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(6),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(image: AssetImage(futureExhibition2List[index]), fit: BoxFit.cover),
-                        ),
+                      child: GestureDetector(
+                        onLongPress: () {
+                          openPhotoViewGallery(context: context, imageList: futureExhibition2List, titleList: titleFutureExhibition2List, initialIndex: index);
+                        },
+                        onTap: () {},
                         child: Stack(
                           children: [
-                            Positioned(
-                              right: 8,
-                              bottom: 12,
-                              left: 8,
-                              child: SizedBox(
-                                width: 100,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    titleFutureExhibition2List[index],
-                                    overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.inter(fontSize: 9, color: white),
+                            Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(futureExhibition2List[index]), fit: BoxFit.cover),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Image.asset('assets/images/blur.png', fit: BoxFit.cover, width: double.infinity),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Text(
+                                          titleFutureExhibition2List[index],
+                                          overflow: TextOverflow.ellipsis,
+                                          style: GoogleFonts.inter(fontSize: 8.4, color: white),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ),
+                                ],
                               ),
                             ),
                           ],

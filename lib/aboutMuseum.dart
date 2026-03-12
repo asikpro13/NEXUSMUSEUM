@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
+import 'package:nexusmuseum/uikit/const.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 import 'package:nexusmuseum/uikit/social.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 // Экран О музее
 class AboutMuseum extends StatefulWidget {
@@ -15,9 +20,7 @@ class AboutMuseum extends StatefulWidget {
   State<AboutMuseum> createState() => _AboutMuseumPageState();
 }
 
-class _AboutMuseumPageState extends State<AboutMuseum> with SingleTickerProviderStateMixin {
-  late final SlidableController slidableController = SlidableController(this);
-
+class _AboutMuseumPageState extends State<AboutMuseum> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,25 +67,42 @@ class _AboutMuseumPageState extends State<AboutMuseum> with SingleTickerProvider
                         SizedBox(height: 10),
                         Row(
                           children: [
-                            Icon(Icons.location_pin, size: 20),
-                            SizedBox(width: 8),
+                            SvgPicture.asset('assets/icons/geo.svg', width: 15),
+                            SizedBox(width: 12),
                             Text('Корпус «Античность»', style: GoogleFonts.inter(fontSize: 16)),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 13),
                         Row(
                           children: [
-                            Image.asset('assets/images/circle.png', height: 15, width: 15),
-                            SizedBox(width: 8),
-                            Text('Метро Новокузнецкая', style: GoogleFonts.inter(fontSize: 16)),
+                            Image.asset('assets/images/circle.png', height: 13, width: 13),
+                            SizedBox(width: 12),
+                            Text('метро Новокузнецкая', style: GoogleFonts.inter(fontSize: 16)),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 13),
                         Row(
                           children: [
-                            Icon(Icons.call_outlined, size: 18),
-                            SizedBox(width: 5),
-                            Text(' 8 (495) 957-456-07', style: GoogleFonts.inter(fontSize: 16)),
+                            SvgPicture.asset('assets/icons/phone.svg', width: 15),
+                            SizedBox(width: 8),
+                            GestureDetector(
+                              onTap: () {
+                                launchUrlString(phoneUrl, mode: LaunchMode.externalApplication);
+                              },
+                              child: Text(phoneNumber, style: GoogleFonts.inter(fontSize: 16)),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 13),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(padding: const EdgeInsets.only(top: 4), child: SvgPicture.asset('assets/icons/clock.svg', width: 15)),
+                            const SizedBox(width: 10),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.8,
+                              child: Text('ВС, ВТ, СР: 10:00 — 18:00 (кассы и вход до 17:00)\nПН: выходной\nЧТ, ПТ, СБ: 10:00 — 21:00 (кассы и вход до 20:00)', style: GoogleFonts.inter(fontSize: 16)),
+                            ),
                           ],
                         ),
                         SizedBox(height: 30),
@@ -109,16 +129,50 @@ class _AboutMuseumPageState extends State<AboutMuseum> with SingleTickerProvider
                       ],
                     ),
                   ),
-                  Stack(
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * 1,
-                        height: 300,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(image: AssetImage('assets/images/map.png'), fit: BoxFit.cover),
+                  Container(
+                    height: 300,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 10, offset: const Offset(0, 4))],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: FlutterMap(
+                        mapController: mapController,
+                        options: MapOptions(
+                          initialZoom: 16,
+                          initialCenter: museumLocation,
+                          onMapReady: () {
+                            setState(() => isMapLoaded = true);
+                          },
                         ),
+                        children: [
+                          TileLayer(urlTemplate: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', subdomains: const ['a', 'b', 'c'], userAgentPackageName: 'nexusmuseum'),
+                          MarkerLayer(
+                            markers: [
+                              Marker(
+                                point: museumLocation,
+                                width: 50,
+                                height: 50,
+                                child: GestureDetector(
+                                  onTap: () => showMuseumInfo(context),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: error,
+                                      shape: BoxShape.circle,
+                                      border: Border.all(color: Colors.white, width: 3),
+                                      boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 8, offset: const Offset(0, 2))],
+                                    ),
+                                    child: const Icon(Icons.place, color: Colors.white, size: 30),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                   SizedBox(height: 30),
                   Padding(
@@ -173,7 +227,7 @@ class _AboutMuseumPageState extends State<AboutMuseum> with SingleTickerProvider
                           'Музей также укрепил свои исследовательские позиции, открыв Лабораторию цифровой гуманитаристики и Школу музейного кураторства. Ежегодная конференция "Nexus: искусство искусство в эпоху технологий" стала важной площадкой для профессионалов со всего мира.',
                           style: GoogleFonts.inter(fontSize: 16),
                         ),
-                        SizedBox(height: 50),
+                        SizedBox(height: 25),
                       ],
                     ),
                   ),

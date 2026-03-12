@@ -47,6 +47,7 @@ class _DrawerProjectState extends State<DrawerProject> {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AboutMuseum()));
+                    clearSelected();
                   },
                   child: Text(
                     'О музее',
@@ -57,6 +58,7 @@ class _DrawerProjectState extends State<DrawerProject> {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
+                    clearSelected();
                   },
                   child: Text(
                     'Выставки',
@@ -67,6 +69,7 @@ class _DrawerProjectState extends State<DrawerProject> {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
+                    clearSelected();
                   },
                   child: Text(
                     'Билеты',

@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
+import 'package:photo_view/photo_view.dart';
+import 'package:photo_view/photo_view_gallery.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
+// Контроллер для драйвера
 dynamic slidableController;
 
+// Списки
 List<String> programsList = ['assets/images/program_1.png', 'assets/images/program_2.png', 'assets/images/program_3.png'];
 
 List<String> exhibitionList = [
@@ -33,7 +36,7 @@ List<String> titleExhibitionList = [
   'Тактильность воспоминаний —\nТекстура форма память',
   'Рожденные электричеством —\nТехнологии цифра будущее',
   'Искусство против времени —\nПротест сопротивление голос',
-  'Цвет звука —\nСинтез синестезия гармония',
+  'Цвет звука — Синтез\nсинестезия гармония',
   'Городские симфонии —\nАрхитектура ритм движение',
 ];
 
@@ -43,7 +46,7 @@ List<String> titleFutureExhibitionList = [
   'Тактильность воспоминаний —\nТекстура форма память',
   'Рожденные электричеством —\nТехнологии цифра будущее',
   'Бессознательная геометрия —\nСны абстракция символы',
-  'Цвет звука —\nСинтез синестезия гармония',
+  'Цвет звука — Синтез\nсинестезия гармония',
   'Искусство против времени —\nПротест сопротивление голос',
 ];
 
@@ -62,9 +65,33 @@ List<String> collectionList = ['assets/images/collection_1.png', 'assets/images/
 
 List<String> titleCollectionList = ['Симфония для ветра и\nпроводов', 'Интерьер с уходящим ухом', 'Танцующие с тишиной', 'Сон лунного геолога', 'Последний корабль к\nПолярной звезде', 'Шёпот забытых улиц'];
 
+List<String> categoriesList = ['Постоянные экспозиции', 'Выставки', 'Экскурсии', 'События'];
+
+List<double> categoriesButtonWidthList = [200, 95, 110, 95];
+
+List<String> audiences = ['4-6 лет', '7-9 лет', '10-13 лет', '14-17 лет', 'Взрослые', 'Семьи', 'Студенты', 'Профессионалы'];
+
+List<String> venues = ['Корпус «Античность»', 'Корпус «Средневековье»', 'Корпус «Просвещение»', 'Корпус «Современность»'];
+
+final List<String> availableTimes = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:30', '20:00', '21:00'];
+
+// Выбранный элемент
+String? selectedAudience;
+String? selectedVenue;
+DateTime? selectedDate;
+String? selectedTime;
+
 // Переменные для звонка по номеру телефона
 final String phoneNumber = '+7 (999) 123-45-67';
 final String phoneUrl = 'tel:+79991234567';
+
+// Очистка выбранных элементов
+void clearSelected() {
+  selectedAudience = null;
+  selectedVenue = null;
+  selectedTime = null;
+  selectedDate = null;
+}
 
 // Функции для показа карты
 void showMuseumInfo(BuildContext context) {
@@ -86,7 +113,7 @@ void showMuseumInfo(BuildContext context) {
           Text('NEXUSMUSEUM', style: GoogleFonts.inter(fontSize: 22, fontWeight: FontWeight.bold)),
           const SizedBox(height: 16),
           ListTile(
-            leading: SvgPicture.asset('assets/icons/geo.svg', width: 20,),
+            leading: SvgPicture.asset('assets/icons/geo.svg', width: 20),
             title: Text('Лаврушинский переулок, 10', style: GoogleFonts.inter(fontSize: 16)),
           ),
           ListTile(
@@ -94,7 +121,7 @@ void showMuseumInfo(BuildContext context) {
             title: Text('Вт-Вс: 10:00-18:00', style: GoogleFonts.inter(fontSize: 16)),
           ),
           ListTile(
-            leading:  SvgPicture.asset('assets/icons/phone.svg', width: 20),
+            leading: SvgPicture.asset('assets/icons/phone.svg', width: 20),
             title: Text(phoneNumber, style: GoogleFonts.inter(fontSize: 16)),
           ),
           const SizedBox(height: 10),
@@ -111,7 +138,7 @@ void showMuseumInfo(BuildContext context) {
                 ),
                 child: Text('Закрыть', style: GoogleFonts.inter(fontSize: 16, color: white)),
               ),
-              Spacer()
+              Spacer(),
             ],
           ),
         ],
@@ -120,9 +147,199 @@ void showMuseumInfo(BuildContext context) {
   );
 }
 
-Future<void> launchURL(String url) async {
-  final uri = Uri.parse(url);
-  if (await canLaunchUrl(uri)) {
-    await launchUrl(uri);
-  }
+// Функция показа фотографий
+void openPhotoViewGallery({required BuildContext context, required List<String> imageList, required List<String> titleList, required int initialIndex}) {
+  final PageController pageController = PageController(initialPage: initialIndex);
+  ValueNotifier<int> currentIndexNotifier = ValueNotifier(initialIndex);
+
+  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (context) => Scaffold(
+        backgroundColor: black,
+        body: Stack(
+          children: [
+            PhotoViewGallery.builder(
+              scrollPhysics: const BouncingScrollPhysics(),
+              builder: (BuildContext context, int index) {
+                return PhotoViewGalleryPageOptions(
+                  imageProvider: AssetImage(imageList[index]),
+                  minScale: PhotoViewComputedScale.contained * 0.8,
+                  maxScale: PhotoViewComputedScale.covered * 3,
+                  initialScale: PhotoViewComputedScale.contained,
+                  heroAttributes: PhotoViewHeroAttributes(tag: index),
+                );
+              },
+              itemCount: imageList.length,
+              loadingBuilder: (context, event) => const Center(child: CircularProgressIndicator()),
+              backgroundDecoration: const BoxDecoration(color: Colors.black),
+              pageController: pageController,
+              onPageChanged: (index) {
+                currentIndexNotifier.value = index;
+              },
+            ),
+            Positioned(
+              top: 40,
+              left: 15,
+              child: GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(color: Colors.black.withOpacity(0.5), shape: BoxShape.circle),
+                  child: SvgPicture.asset('assets/icons/close.svg', color: Colors.white),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 40,
+              left: 20,
+              right: 20,
+              child: ValueListenableBuilder<int>(
+                valueListenable: currentIndexNotifier,
+                builder: (context, currentIndex, child) {
+                  return Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    decoration: BoxDecoration(color: Colors.black.withOpacity(0.5), borderRadius: BorderRadius.circular(8)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          titleList[currentIndex],
+                          style: GoogleFonts.inter(color: white, fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 4),
+                        Text('${currentIndex + 1} / ${imageList.length}', style: GoogleFonts.inter(color: Colors.white70, fontSize: 14)),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
+// Функция для показа модального окна
+void showDialogSuccess(BuildContext context, String title, String comment) {
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) {
+      return AlertDialog(
+        backgroundColor: background,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: GoogleFonts.inter(color: black, fontSize: 18, fontWeight: FontWeight.bold, height: 1.2),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              comment,
+              maxLines: 2,
+              softWrap: false,
+              overflow: TextOverflow.ellipsis,
+              style: GoogleFonts.inter(color: const Color(0xff8A8C90), fontSize: 14, height: 1.5),
+            ),
+            const SizedBox(height: 15),
+            Row(
+              children: [
+                Spacer(),
+                SizedBox(
+                  height: 35,
+                  width: 150,
+                  child: ElevatedButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: gold,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                    ),
+                    child: Text(
+                      'Закрыть',
+                      style: GoogleFonts.inter(color: white, fontSize: 14, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ),
+                Spacer(),
+              ],
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}
+
+// Тип функции для обработки выбора элемента из списка
+typedef void OnItemSelected<T>(T selectedItem);
+
+// Функция для показа списка
+void showSelector<T>({required BuildContext context, required String title, required List<T> items, required T? selectedItem, required OnItemSelected<T> onSelected, String Function(T)? itemToString}) {
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: Colors.transparent,
+    isScrollControlled: true,
+    builder: (context) {
+      return Container(
+        height: MediaQuery.of(context).size.height * 0.7,
+        decoration: BoxDecoration(
+          color: background,
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+        ),
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 12, bottom: 8),
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(color: light_gray, borderRadius: BorderRadius.circular(2)),
+            ),
+            Padding(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                title,
+                style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold, color: black),
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  final item = items[index];
+                  final displayText = itemToString != null ? itemToString(item) : item.toString();
+                  final isSelected = item == selectedItem;
+                  return GestureDetector(
+                    onTap: () {
+                      onSelected(item);
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                      decoration: BoxDecoration(color: isSelected ? gold.withOpacity(0.1) : Colors.transparent),
+                      child: Row(
+                        children: [
+                          Text(
+                            displayText,
+                            style: GoogleFonts.inter(fontSize: 16, color: isSelected ? gold : black, fontWeight: isSelected ? FontWeight.w700 : FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }

@@ -19,9 +19,7 @@ class ExhibitionPage extends StatefulWidget {
   State<ExhibitionPage> createState() => _ExhibitionPageState();
 }
 
-class _ExhibitionPageState extends State<ExhibitionPage>
-    with SingleTickerProviderStateMixin {
-
+class _ExhibitionPageState extends State<ExhibitionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +35,7 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                 height: MediaQuery.of(context).size.height,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage('assets/images/Exhibition.png'), fit: BoxFit.cover),
+                  image: DecorationImage(image: AssetImage('assets/images/exhibition.png'), fit: BoxFit.cover),
                 ),
                 child: Column(
                   children: [
@@ -69,7 +67,7 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                         ),
                       ],
                     ),
-                    SocialNetworks()
+                    SocialNetworks(),
                   ],
                 ),
               ),
@@ -86,7 +84,7 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                         SizedBox(height: 10),
                         Row(
                           children: [
-                            SvgPicture.asset('assets/icons/geo.svg', width: 15,),
+                            SvgPicture.asset('assets/icons/geo.svg', width: 15),
                             SizedBox(width: 12),
                             Text('Корпус «Античность»', style: GoogleFonts.inter(fontSize: 16)),
                           ],
@@ -116,57 +114,43 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 4),
-                              child: SvgPicture.asset('assets/icons/clock.svg',  width: 15),
-                            ),
+                            Padding(padding: const EdgeInsets.only(top: 4), child: SvgPicture.asset('assets/icons/clock.svg', width: 15)),
                             const SizedBox(width: 10),
                             SizedBox(
-                              width: 300,
-                              child: Text(
-                                'ВС, ВТ, СР: 10:00 — 18:00 (кассы и вход до 17:00)\nПН: выходной\nЧТ, ПТ, СБ: 10:00 — 21:00 (кассы и вход до 20:00)',
-                                style: GoogleFonts.inter(fontSize: 16),
-                              ),
+                              width: MediaQuery.of(context).size.width * 0.8,
+                              child: Text('ВС, ВТ, СР: 10:00 — 18:00 (кассы и вход до 17:00)\nПН: выходной\nЧТ, ПТ, СБ: 10:00 — 21:00 (кассы и вход до 20:00)', style: GoogleFonts.inter(fontSize: 16)),
                             ),
                           ],
                         ),
                         SizedBox(height: 30),
                         Text('Стоимость билетов', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
-                        SizedBox(height: 20),
-                        Text('Взрослый — 800 ₽', style: GoogleFonts.inter(fontSize: 16)),
+                        SizedBox(height: 15),
+                        Text('Взрослый — 800 ₽', style: GoogleFonts.inter(fontSize: 15.5)),
                         SizedBox(height: 10),
-                        Text('Льготные — 0, 350, 400 ₽', style: GoogleFonts.inter(fontSize: 16)),
+                        Text('Льготные — 0, 350, 400 ₽', style: GoogleFonts.inter(fontSize: 15.5)),
                         SizedBox(height: 10),
-                        Text('Последний вторник месяца — пенсионеры бесплатно, взрослый 400 ₽', style: GoogleFonts.inter(fontSize: 16)),
-                        SizedBox(height: 30),
+                        Text('Последний вторник месяца — пенсионеры бесплатно, взрослый 400 ₽', style: GoogleFonts.inter(fontSize: 15.5)),
+                        SizedBox(height: 15),
                       ],
                     ),
                   ),
                   Container(
-                    height: 100,
                     width: double.infinity,
                     color: gold,
-                    margin: EdgeInsets.symmetric(vertical: 18),
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    margin: EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 20),
-                            Text(
-                              'Описание',
-                              style: GoogleFonts.inter(fontSize: 20, color: background, fontWeight: FontWeight.w400),
-                            ),
-                          ],
+                        Text(
+                          'Описание',
+                          style: GoogleFonts.inter(fontSize: 18, color: background, fontWeight: FontWeight.w400),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 10),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
@@ -178,22 +162,23 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                           'Когда Земля была молодой, ими правили гиганты. Приготовьтесь встретиться лицом к лицу с самыми могущественными существами, когда-либо ходившими по планете! Наша масштабная выставка перенесёт вас на миллионы лет назад, в эпоху, когда воздух дрожал от рёва тираннозавра, а земля содрогалась под тяжестью шагов брахиозавров. Вас ждут полномасштабные скелеты и реконструкции легендарных динозавров в натуральную величину, интерактивные зоны где вы почувствуете себя палеонтологом проводя раскопки в специальной песочнице, дополненная реальность которая оживит древних гигантов с помощью вашего смартфона, а также уникальные экспонаты — череп трицератопса, когти велоцираптора и окаменелости найденные в нашем регионе. Это путешествие во времени которое перевернёт ваше представление о мире. Осмелитесь ли вы заглянуть в прошлое?',
                           style: GoogleFonts.inter(fontSize: 16),
                         ),
-                        SizedBox(height: 40),
+                        SizedBox(height: 20),
                         Center(
                           child: ElevatedButton(
                             onPressed: () {
                               Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
                             },
                             style: ElevatedButton.styleFrom(
-                              minimumSize: Size(200, 45),
+                              splashFactory: NoSplash.splashFactory,
+                              minimumSize: Size(210, 45),
                               backgroundColor: error,
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
-                              elevation: 5,
+                              elevation: 0,
                             ),
                             child: Text('Купить билеты', style: GoogleFonts.inter(fontSize: 16, color: white)),
                           ),
                         ),
-                        SizedBox(height: 40),
+                        SizedBox(height: 35),
                         Text('Фотогалерея', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
                         SizedBox(height: 20),
                         GridView.builder(
@@ -202,30 +187,38 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                          itemCount: exhibitionList.length - 5,
+                          itemCount: exhibitionsList.length,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.all(6),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(image: AssetImage(exhibitionsList[index]), fit: BoxFit.cover),
-                                ),
+                              child: GestureDetector(
+                                onLongPress: () {
+                                  openPhotoViewGallery(context: context, imageList: exhibitionsList, titleList: titleExhibitionsList, initialIndex: index);
+                                },
+                                onTap: () {},
                                 child: Stack(
                                   children: [
-                                    Positioned(
-                                      right: 8,
-                                      bottom: 12,
-                                      left: 8,
-                                      child: SizedBox(
-                                        width: 120,
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(bottom: 20, right: 10),
-                                          child: Text(
-                                            titleExhibitionsList[index],
-                                            overflow: TextOverflow.ellipsis,
-                                            style: GoogleFonts.inter(fontSize: 9, color: white),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(image: AssetImage(exhibitionsList[index]), fit: BoxFit.cover),
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: [
+                                          Stack(
+                                            children: [
+                                              Image.asset('assets/images/blur.png', fit: BoxFit.cover, width: double.infinity),
+                                              Padding(
+                                                padding: const EdgeInsets.all(8),
+                                                child: Text(
+                                                  titleExhibitionsList[index],
+                                                  overflow: TextOverflow.ellipsis,
+                                                  style: GoogleFonts.inter(fontSize: 8.4, color: white),
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                        ),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -239,7 +232,7 @@ class _ExhibitionPageState extends State<ExhibitionPage>
                   ),
                 ],
               ),
-              SizedBox(height: 70),
+              SizedBox(height: 40),
               FooterProject(),
             ],
           ),

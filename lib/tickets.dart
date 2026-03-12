@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
+import 'package:nexusmuseum/uikit/data.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
-import 'package:nexusmuseum/uikit/social.dart';
 
 // Экран Билеты
 class TicketsPage extends StatefulWidget {
@@ -16,8 +18,77 @@ class TicketsPage extends StatefulWidget {
   State<TicketsPage> createState() => _TicketsPageState();
 }
 
-class _TicketsPageState extends State<TicketsPage> with SingleTickerProviderStateMixin {
-  int quantity = 1;
+class _TicketsPageState extends State<TicketsPage> {
+  final ScrollController _scrollController = ScrollController(); // Контроллер для скролла
+  int quantity = 1; // Количество билетов
+  int count = 900; // Цена билета
+  int selectedCategory = 0; // Индекс категории
+
+  // Очищение контроллера
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  // Анимация скролла
+  void _scrollToBottom() {
+    _scrollController.animateTo(_scrollController.position.extentInside, duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+  }
+
+  // Выбор аудитории
+  void _showAudienceSelector() {
+    showSelector<String>(
+      context: context,
+      title: 'Выберите аудиторию',
+      items: audiences,
+      selectedItem: selectedAudience,
+      onSelected: (item) {
+        setState(() {
+          selectedAudience = item;
+        });
+      },
+    );
+  }
+
+  // Выбор места проведения
+  void _showVenueSelector() {
+    showSelector<String>(
+      context: context,
+      title: 'Выберите место проведения',
+      items: venues,
+      selectedItem: selectedVenue,
+      onSelected: (item) {
+        setState(() {
+          selectedVenue = item;
+        });
+      },
+    );
+  }
+
+  // Выбор даты
+  void _showDatePicker() async {
+    final DateTime? pickedDate = await DateSelectorHelper.showSimpleDatePicker(context: context, initialDate: selectedDate, accentColor: gold);
+
+    if (pickedDate != null) {
+      _showTimeSelector(pickedDate);
+    }
+  }
+
+  // Выбор времени
+  void _showTimeSelector(DateTime date) {
+    showSelector<String>(
+      context: context,
+      title: 'Выберите время',
+      items: availableTimes,
+      selectedItem: selectedTime,
+      onSelected: (time) {
+        setState(() {
+          selectedDate = date;
+          selectedTime = time;
+        });
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +98,7 @@ class _TicketsPageState extends State<TicketsPage> with SingleTickerProviderStat
         controller: slidableController,
         startActionPane: ActionPane(extentRatio: 0.6, motion: BehindMotion(), children: [DrawerProject()]),
         child: SingleChildScrollView(
+          controller: _scrollController,
           child: Column(
             children: [
               Container(
@@ -36,7 +108,32 @@ class _TicketsPageState extends State<TicketsPage> with SingleTickerProviderStat
                 decoration: BoxDecoration(
                   image: DecorationImage(image: AssetImage('assets/images/tickets.png'), fit: BoxFit.cover),
                 ),
-                child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [AppBarProject(isTitle: true), Spacer(), SocialNetworks()]),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AppBarProject(isTitle: true),
+                    Spacer(),
+                    GestureDetector(
+                      onTap: _scrollToBottom,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            'Билеты',
+                            style: GoogleFonts.inter(fontSize: 32, fontWeight: FontWeight.bold, color: white),
+                          ),
+                          SizedBox(width: 15),
+                          Text(
+                            '↓',
+                            style: GoogleFonts.inter(fontSize: 25, fontWeight: FontWeight.bold, color: white),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                  ],
+                ),
               ),
               SizedBox(height: 27),
               Column(
@@ -47,233 +144,191 @@ class _TicketsPageState extends State<TicketsPage> with SingleTickerProviderStat
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Билеты', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
-                        SizedBox(height: 20),
                         Text(
                           'Категории',
-                          style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
+                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 10),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: Size(200, 45),
-                            backgroundColor: Colors.white,
-                            side: BorderSide(color: Colors.grey, width: 1),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(1))),
-                            elevation: 5,
+                        SizedBox(
+                          height: 45,
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: categoriesList.length,
+                            itemBuilder: (context, index) {
+                              bool isSelected = selectedCategory == index;
+                              return Padding(
+                                padding: const EdgeInsets.only(right: 10),
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      selectedCategory = index;
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    splashFactory: NoSplash.splashFactory,
+                                    minimumSize: Size(categoriesButtonWidthList[index], 45),
+                                    backgroundColor: isSelected ? light_gray : background,
+                                    shape: RoundedRectangleBorder(side: isSelected ? BorderSide.none : BorderSide(color: light_gray)),
+                                    elevation: 0,
+                                  ),
+                                  child: Text(categoriesList[index], style: GoogleFonts.inter(fontSize: 16, color: isSelected ? white : light_gray)),
+                                ),
+                              );
+                            },
                           ),
-                          child: Text('Постоянные экспозиции', style: GoogleFonts.inter(fontSize: 16, color: Colors.grey)),
                         ),
-                        SizedBox(height: 10),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: Size(100, 45),
-                            backgroundColor: Colors.white,
-                            side: BorderSide(color: Colors.grey, width: 1),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(1))),
-                            elevation: 5,
-                          ),
-                          child: Text('Выставки', style: GoogleFonts.inter(fontSize: 16, color: Colors.grey)),
-                        ),
-                        SizedBox(height: 10),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: Size(100, 45),
-                            backgroundColor: Colors.white,
-                            side: BorderSide(color: Colors.grey, width: 1),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(1))),
-                            elevation: 5,
-                          ),
-                          child: Text('События', style: GoogleFonts.inter(fontSize: 16, color: Colors.grey)),
-                        ),
-                        SizedBox(height: 10),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: Size(110, 45),
-                            backgroundColor: Colors.white,
-                            side: BorderSide(color: Colors.grey, width: 1),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(1))),
-                            elevation: 5,
-                          ),
-                          child: Text('Экскурсии', style: GoogleFonts.inter(fontSize: 16, color: Colors.grey)),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 60),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Аудитория',
-                              style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
-                            ),
-                            SizedBox(height: 13),
-                            Text(
-                              'Место проведения',
-                              style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
-                            ),
-                            SizedBox(height: 13),
-                            Text(
-                              'Дата',
-                              style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
-                            ),
-                          ],
-                        ),
-                        SizedBox(width: 15),
-                        Column(
-                          children: [
-                            Text(
-                              '→',
-                              style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
-                            ),
-                            SizedBox(height: 13),
-                            Text(
-                              '→',
-                              style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
-                            ),
-                            SizedBox(height: 13),
-                            Text(
-                              '→',
-                              style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 60),
-                  Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                        SizedBox(height: 15),
                         Row(
                           children: [
                             Text(
-                              '5 октября 2025 г., 19:30',
-                              style: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.grey),
+                              'Аудитория',
+                              style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
                             ),
                             Spacer(),
-                            Text(
-                              'Третьяковская галерея, Новая\nТретьяковка, Крымский Вал, 10  ',
-                              style: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.grey),
+                            GestureDetector(
+                              onTap: _showAudienceSelector,
+                              child: Text(
+                                '→',
+                                style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
+                              ),
                             ),
                           ],
                         ),
                         SizedBox(height: 10),
-                        Text('Корзина', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
+                        if (selectedAudience != null && selectedAudience!.isNotEmpty)
+                          Text(
+                            selectedAudience!,
+                            style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold, height: 1.3),
+                          ),
+                        SizedBox(height: 10),
+                        Row(
+                          children: [
+                            Text(
+                              'Дата',
+                              style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
+                            ),
+                            Spacer(),
+                            GestureDetector(
+                              onTap: _showDatePicker,
+                              child: Text(
+                                '→',
+                                style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        if (selectedDate != null && selectedTime!.isNotEmpty)
+                          Text(
+                            formatSelectedDateTime(),
+                            style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold),
+                          ),
+                        SizedBox(height: 10),
+                        Row(
+                          children: [
+                            Text(
+                              'Локация',
+                              overflow: TextOverflow.ellipsis,
+                              style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
+                            ),
+                            Spacer(),
+                            GestureDetector(
+                              onTap: _showVenueSelector,
+                              child: Text(
+                                '→',
+                                style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        if (selectedVenue != null && selectedVenue!.isNotEmpty)
+                          Text(
+                            selectedVenue!,
+                            style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold, height: 1.3),
+                          ),
                         SizedBox(height: 10),
                         Row(
                           children: [
                             Text(
                               'Количество',
-                              style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
+                              style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
                             ),
                             Spacer(),
                             Text(
                               'Стоимость',
-                              style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
+                              style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
-                        SizedBox(height: 8),
+                        SizedBox(height: 15),
                         Row(
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.grey, width: 1),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Row(
-                                children: [
-                                  GestureDetector(
-                                    onTap: () => setState(() => quantity > 0 ? quantity-- : null),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(8),
-                                      child: Text('-', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                                    child: Text('$quantity', style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold)),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () => setState(() => quantity++),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(8),
-                                      child: Text('+', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                            Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () => setState(() {
+                                    if (quantity > 1) {
+                                      quantity--;
+                                    }
+                                  }),
+                                  child: SvgPicture.asset('assets/icons/minus.svg'),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 10),
+                                  child: Text(' $quantity' + ' шт', style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold)),
+                                ),
+                                GestureDetector(
+                                  onTap: () => setState(() => quantity++),
+                                  child: Padding(padding: EdgeInsets.all(8), child: SvgPicture.asset('assets/icons/plus.svg')),
+                                ),
+                              ],
                             ),
                             Spacer(),
                             Text(
-                              '${900 * quantity} ₽',
+                              '${count * quantity} ₽',
                               style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
                             ),
                           ],
                         ),
-                        SizedBox(height: 30),
+                        SizedBox(height: 10),
                         Row(
                           children: [
-                            Text(
-                              'Итого:',
-                              style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold, color: error),
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
+                                setState(() {
+                                  clearSelected();
+                                  selectedCategory = 0;
+                                  quantity = 1;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: Size(90, 40),
+                                padding: EdgeInsets.all(10),
+                                splashFactory: NoSplash.splashFactory,
+                                backgroundColor: background,
+                                side: BorderSide(color: gold, width: 1),
+                                shape: RoundedRectangleBorder(),
+                                elevation: 0,
+                              ),
+                              child: Text('Продолжить покупки', style: GoogleFonts.inter(fontSize: 14.5, color: Colors.black)),
                             ),
                             Spacer(),
-                            Text(
-                              '${900 * quantity} ₽',
-                              style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold, color: error),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 20),
-                        Row(
-                          children: [
-                            Spacer(),
-                            Column(
-                              children: [
-                                ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.white,
-                                    side: BorderSide(color: gold, width: 1),
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(1))),
-                                    elevation: 5,
-                                  ),
-                                  child: Text('Продолжить покупки', style: GoogleFonts.inter(fontSize: 16, color: Colors.black)),
-                                ),
-                                SizedBox(height: 10),
-                                ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    minimumSize: Size(150, 45),
-                                    backgroundColor: Colors.black,
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(1))),
-                                    elevation: 5,
-                                  ),
-                                  child: Text('Оформить покупки', style: GoogleFonts.inter(fontSize: 16, color: Colors.white)),
-                                ),
-                              ],
+                            ElevatedButton(
+                              onPressed: () {
+                                showDialogSuccess(context, 'Успешно', 'Вы успешно оформили заказ');
+                              },
+                              style: ElevatedButton.styleFrom(splashFactory: NoSplash.splashFactory, minimumSize: Size(120, 40), backgroundColor: black, shape: RoundedRectangleBorder(), elevation: 0),
+                              child: Text('Оформить', style: GoogleFonts.inter(fontSize: 14.5, color: Colors.white)),
                             ),
                           ],
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 50),
+                  SizedBox(height: 30),
                   FooterProject(),
                 ],
               ),

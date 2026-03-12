@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/exhibition.dart';
 import 'package:nexusmuseum/globals.dart';
@@ -12,6 +13,7 @@ import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/social.dart';
 
+// Экран Лендинг
 class Landing extends StatefulWidget {
   const Landing({super.key});
 
@@ -46,10 +48,11 @@ class _LandingState extends State<Landing> {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
                       },
                       style: ElevatedButton.styleFrom(
-                        minimumSize: Size(210, 50),
+                        splashFactory: NoSplash.splashFactory,
+                        minimumSize: Size(210, 45),
                         backgroundColor: error,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
-                        elevation: 5,
+                        elevation: 0,
                       ),
                       child: Text('Купить билеты', style: GoogleFonts.inter(fontSize: 18, color: white)),
                     ),
@@ -101,11 +104,14 @@ class _LandingState extends State<Landing> {
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
+                  splashFactory: NoSplash.splashFactory,
                   minimumSize: Size(135, 40),
-                  backgroundColor: grey,
+                  elevation: 0,
+                  backgroundColor: gray,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
                   foregroundColor: white,
                 ),
+
                 child: Text('Посмотреть', style: GoogleFonts.inter(fontSize: 16, color: white)),
               ),
               Container(
@@ -130,7 +136,9 @@ class _LandingState extends State<Landing> {
                         ),
                         SizedBox(height: 12),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
+                          },
                           child: Text(
                             'Получить билеты  →',
                             style: GoogleFonts.inter(fontSize: 14, color: background, fontWeight: FontWeight.bold),
@@ -141,7 +149,10 @@ class _LandingState extends State<Landing> {
                     Spacer(),
                     SizedBox(
                       width: 130,
-                      child: Text(textPromo, style: GoogleFonts.inter(fontSize: sizeTextPromo, color: background)),
+                      child: Text(
+                        textPromo,
+                        style: GoogleFonts.inter(fontSize: sizeTextPromo, color: background),
+                      ),
                     ),
                   ],
                 ),
@@ -163,7 +174,9 @@ class _LandingState extends State<Landing> {
                     ),
                     SizedBox(height: 8),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
+                      },
                       child: Text(
                         'Посмотреть календарь  →',
                         style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.bold),
@@ -186,27 +199,38 @@ class _LandingState extends State<Landing> {
                     return Padding(
                       padding: const EdgeInsets.all(6),
                       child: GestureDetector(
+                        onLongPress: () {
+                          openPhotoViewGallery(context: context, imageList: exhibitionList, titleList: titleExhibitionList, initialIndex: index);
+                        },
                         onTap: () {
                           Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ExhibitionPage()));
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(image: AssetImage(exhibitionList[index]), fit: BoxFit.cover),
-                          ),
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                right: 8,
-                                bottom: 12,
-                                left: 8,
-                                child: Text(
-                                  titleExhibitionList[index],
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.inter(fontSize: 9, color: white),
-                                ),
+                        child: Stack(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(exhibitionList[index]), fit: BoxFit.cover),
                               ),
-                            ],
-                          ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Image.asset('assets/images/blur.png', fit: BoxFit.cover, width: double.infinity),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Text(
+                                          titleExhibitionList[index],
+                                          overflow: TextOverflow.ellipsis,
+                                          style: GoogleFonts.inter(fontSize: 8.4, color: white),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     );
@@ -240,7 +264,9 @@ class _LandingState extends State<Landing> {
                         ),
                         SizedBox(height: 12),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
+                          },
                           child: Text(
                             'Получить билеты  →',
                             style: GoogleFonts.inter(fontSize: 13, color: background, fontWeight: FontWeight.bold),
@@ -268,7 +294,9 @@ class _LandingState extends State<Landing> {
                     ),
                     SizedBox(height: 8),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
+                      },
                       child: Text(
                         'Посмотреть календарь  →',
                         style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.bold),
@@ -290,23 +318,34 @@ class _LandingState extends State<Landing> {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(6),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(image: AssetImage(collectionList[index]), fit: BoxFit.cover),
-                        ),
+                      child: GestureDetector(
+                        onLongPress: () {
+                          openPhotoViewGallery(context: context, imageList: collectionList, titleList: titleCollectionList, initialIndex: index);
+                        },
+                        onTap: () {},
                         child: Stack(
                           children: [
-                            Positioned(
-                              right: 8,
-                              bottom: 12,
-                              left: 8,
-                              child: SizedBox(
-                                width: 100,
-                                child: Text(
-                                  titleCollectionList[index],
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.inter(fontSize: 10, color: white),
-                                ),
+                            Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(collectionList[index]), fit: BoxFit.cover),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Image.asset('assets/images/blur.png', fit: BoxFit.cover, width: double.infinity),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Text(
+                                          titleCollectionList[index],
+                                          overflow: TextOverflow.ellipsis,
+                                          style: GoogleFonts.inter(fontSize: 8.8, color: white),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
                           ],
