@@ -6,8 +6,10 @@ import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// Контроллер для драйвера
 dynamic slidableController;
 
+// Списки
 List<String> programsList = ['assets/images/program_1.png', 'assets/images/program_2.png', 'assets/images/program_3.png'];
 
 List<String> exhibitionList = [
@@ -62,6 +64,12 @@ List<String> titleFutureExhibition2List = ['Симфония для ветра �
 List<String> collectionList = ['assets/images/collection_1.png', 'assets/images/collection_2.png', 'assets/images/collection_3.png', 'assets/images/collection_4.png', 'assets/images/collection_5.png', 'assets/images/collection_6.png'];
 
 List<String> titleCollectionList = ['Симфония для ветра и\nпроводов', 'Интерьер с уходящим ухом', 'Танцующие с тишиной', 'Сон лунного геолога', 'Последний корабль к\nПолярной звезде', 'Шёпот забытых улиц'];
+
+List<String> categoriesList = ['Постоянные экспозиции', 'Выставки', 'Экскурсии', 'События'];
+
+List<double> categoriesButtonWidthList = [200, 95, 110, 95];
+
+
 
 // Переменные для звонка по номеру телефона
 final String phoneNumber = '+7 (999) 123-45-67';
@@ -225,5 +233,78 @@ void openPhotoViewGallery({
         ),
       ),
     ),
+  );
+}
+
+//
+void showDialogSuccess(BuildContext context, String title, String comment) {
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) {
+      return AlertDialog(
+        backgroundColor: background,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5),
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: GoogleFonts.inter(
+                color: black,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                height: 1.2,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              comment,
+              maxLines: 2,
+              softWrap: false,
+              overflow: TextOverflow.ellipsis,
+              style: GoogleFonts.inter(
+                color: const Color(0xff8A8C90),
+                fontSize: 14,
+                height: 1.5,
+              ),
+            ),
+            const SizedBox(height: 15),
+            Row(
+              children: [
+                Spacer(),
+                SizedBox(
+                  height: 35,
+                  width: 150,
+                  child: ElevatedButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: gold,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
+                    child: Text(
+                      'Закрыть',
+                      style: GoogleFonts.inter(
+                        color: white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+                Spacer()
+              ],
+            )
+          ],
+        ),
+      );
+    },
   );
 }

@@ -17,7 +17,7 @@ class Exhibitions extends StatefulWidget {
   State<Exhibitions> createState() => _ExhibitionsState();
 }
 
-class _ExhibitionsState extends State<Exhibitions> with SingleTickerProviderStateMixin {
+class _ExhibitionsState extends State<Exhibitions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

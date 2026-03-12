@@ -46,7 +46,8 @@ class _LandingState extends State<Landing> {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
                       },
                       style: ElevatedButton.styleFrom(
-                        minimumSize: Size(210, 50),
+                        splashFactory: NoSplash.splashFactory,
+                        minimumSize: Size(210, 45),
                         backgroundColor: error,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
                         elevation: 0,
@@ -101,9 +102,10 @@ class _LandingState extends State<Landing> {
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
+                  splashFactory: NoSplash.splashFactory,
                   minimumSize: Size(135, 40),
                   elevation: 0,
-                  backgroundColor: grey,
+                  backgroundColor: gray,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
                   foregroundColor: white,
                 ),

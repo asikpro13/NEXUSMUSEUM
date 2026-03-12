@@ -21,8 +21,7 @@ class AboutMuseum extends StatefulWidget {
   State<AboutMuseum> createState() => _AboutMuseumPageState();
 }
 
-class _AboutMuseumPageState extends State<AboutMuseum> with SingleTickerProviderStateMixin {
-  late final SlidableController slidableController = SlidableController(this);
+class _AboutMuseumPageState extends State<AboutMuseum> {
   final MapController mapController = MapController();
   bool _isMapLoaded = false;
 

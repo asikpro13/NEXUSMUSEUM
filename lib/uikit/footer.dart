@@ -18,7 +18,7 @@ class _FooterProjectAppState extends State<FooterProject> {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.only(top: 15, bottom: 30, left: 20, right: 20),
-      color: grey,
+      color: gray,
       child: Column(
         children: [
           Row(
