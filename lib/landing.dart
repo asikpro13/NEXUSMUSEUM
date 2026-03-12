@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/exhibition.dart';
 import 'package:nexusmuseum/globals.dart';
@@ -171,7 +172,9 @@ class _LandingState extends State<Landing> {
                     ),
                     SizedBox(height: 8),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
+                      },
                       child: Text(
                         'Посмотреть календарь  →',
                         style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.bold),
@@ -289,7 +292,9 @@ class _LandingState extends State<Landing> {
                     ),
                     SizedBox(height: 8),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
+                      },
                       child: Text(
                         'Посмотреть календарь  →',
                         style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.bold),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/globals.dart';
@@ -35,7 +36,18 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'NEXUSMUSEUM', debugShowCheckedModeBanner: false, home: SplashScreen());
+    return MaterialApp(title: 'NEXUSMUSEUM', debugShowCheckedModeBanner: false,
+        locale: const Locale('ru'),
+        supportedLocales: const [
+          Locale('ru', 'RU'),
+          Locale('en', 'US'),
+        ],
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        home: SplashScreen());
   }
 }
 

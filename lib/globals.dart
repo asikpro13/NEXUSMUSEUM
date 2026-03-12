@@ -1,3 +1,5 @@
+import 'package:calendar_date_picker2/calendar_date_picker2.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -69,9 +71,31 @@ List<String> categoriesList = ['Постоянные экспозиции', 'В�
 
 List<double> categoriesButtonWidthList = [200, 95, 110, 95];
 
+List<String> audiences = ['4-6 лет', '7-9 лет', '10-13 лет', '14-17 лет', 'Взрослые', 'Семьи', 'Студенты', 'Профессионалы'];
+
+List<String> venues = ['Корпус «Античность»', 'Корпус «Средневековье»', 'Корпус «Просвещение»', 'Корпус «Современность»'];
+
+final List<String> availableTimes = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:30', '20:00', '21:00'];
+
+// Выбранный элемент
+String? selectedAudience;
+String? selectedVenue;
+DateTime? selectedDate;
+String? selectedTime;
+
+var date = DateTime.now();
+
 // Переменные для звонка по номеру телефона
 final String phoneNumber = '+7 (999) 123-45-67';
 final String phoneUrl = 'tel:+79991234567';
+
+// Очистка выбранных элементов
+void clearSelected() {
+  selectedAudience = null;
+  selectedVenue = null;
+  selectedTime = null;
+  selectedDate = null;
+}
 
 // Функции для показа карты
 void showMuseumInfo(BuildContext context) {
@@ -263,3 +287,70 @@ void showDialogSuccess(BuildContext context, String title, String comment) {
     },
   );
 }
+
+// Функция для показа списка
+typedef void OnItemSelected<T>(T selectedItem);
+
+void showSelector<T>({required BuildContext context, required String title, required List<T> items, required T? selectedItem, required OnItemSelected<T> onSelected, String Function(T)? itemToString}) {
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: Colors.transparent,
+    isScrollControlled: true,
+    builder: (context) {
+      return Container(
+        height: MediaQuery.of(context).size.height * 0.7,
+        decoration: BoxDecoration(
+          color: background,
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+        ),
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 12, bottom: 8),
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(color: light_gray, borderRadius: BorderRadius.circular(2)),
+            ),
+            Padding(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                title,
+                style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold, color: black),
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  final item = items[index];
+                  final displayText = itemToString != null ? itemToString(item) : item.toString();
+                  final isSelected = item == selectedItem;
+                  return GestureDetector(
+                    onTap: () {
+                      onSelected(item);
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                      decoration: BoxDecoration(color: isSelected ? gold.withOpacity(0.1) : Colors.transparent),
+                      child: Row(
+                        children: [
+                          Text(
+                            displayText,
+                            style: GoogleFonts.inter(fontSize: 16, color: isSelected ? gold : black, fontWeight: isSelected ? FontWeight.w700 : FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}
+

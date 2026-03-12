@@ -5,6 +5,7 @@ import 'package:nexusmuseum/exhibition.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
+import 'package:nexusmuseum/uikit/data.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/social.dart';
@@ -18,6 +19,65 @@ class Exhibitions extends StatefulWidget {
 }
 
 class _ExhibitionsState extends State<Exhibitions> {
+  // Выбор аудитории
+  void _showAudienceSelector() {
+    showSelector<String>(
+      context: context,
+      title: 'Выберите аудиторию',
+      items: audiences,
+      selectedItem: selectedAudience,
+      onSelected: (item) {
+        setState(() {
+          selectedAudience = item;
+        });
+      },
+    );
+  }
+
+  // Выбор места проведения
+  void _showVenueSelector() {
+    showSelector<String>(
+      context: context,
+      title: 'Выберите место проведения',
+      items: venues,
+      selectedItem: selectedVenue,
+      onSelected: (item) {
+        setState(() {
+          selectedVenue = item;
+        });
+      },
+    );
+  }
+
+  // Выбор даты
+  void showDatePicker() async {
+    final DateTime? pickedDate = await DateSelectorHelper.showSimpleDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      accentColor: gold,
+    );
+
+    if (pickedDate != null) {
+      showTimeSelector(pickedDate);
+    }
+  }
+
+  // Выбор времени
+  void showTimeSelector(DateTime date) {
+    showSelector<String>(
+      context: context,
+      title: 'Выберите время',
+      items: availableTimes,
+      selectedItem: selectedTime,
+      onSelected: (time) {
+        setState(() {
+          selectedDate = date;
+          selectedTime = time;
+        });
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,66 +151,81 @@ class _ExhibitionsState extends State<Exhibitions> {
                       children: [
                         Text(
                           'Аудитория',
-                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.w700),
+                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
                         ),
                         Spacer(),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: _showAudienceSelector,
                           child: Text(
                             '→',
-                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.w700),
+                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(height: 10),
+                    if (selectedAudience != null && selectedAudience!.isNotEmpty)
+                      Text(
+                        selectedAudience!,
+                        style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold, height: 1.3),
+                      ),
+                    SizedBox(height: 10),
                     Row(
                       children: [
                         Text(
                           'Дата',
-                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.w700),
+                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
                         ),
                         Spacer(),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: showDatePicker,
                           child: Text(
                             '→',
-                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.w700),
+                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
                     ),
                     SizedBox(height: 10),
-                    Text(
-                      '5 октября 2025 г., 19:30',
-                      style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.w700),
+                    if (selectedDate != null && selectedTime!.isNotEmpty)  Text(
+                      formatSelectedDateTime(),
+                      style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(height: 10),
                     Row(
                       children: [
                         Text(
-                          'Место проведения',
-                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.w700),
+                          'Локация',
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
                         ),
                         Spacer(),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: _showVenueSelector,
                           child: Text(
                             '→',
-                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.w700),
+                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
                     ),
                     SizedBox(height: 10),
-                    Text(
-                      'Третьяковская галерея, Новая\nТретьяковка, Крымский Вал, 10',
-                      style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.w700, height: 1.3),
-                    ),
-                    SizedBox(height: 15),
-                    Text(
-                      'Сбросить фильтр',
-                      style: GoogleFonts.inter(fontSize: 15, color: error, fontWeight: FontWeight.bold),
+                    if (selectedVenue != null && selectedVenue!.isNotEmpty)
+                      Text(
+                        selectedVenue!,
+                        style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold, height: 1.3),
+                      ),
+                    SizedBox(height: 10),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          clearSelected();
+                        });
+                      },
+                      child: Text(
+                        'Сбросить фильтр',
+                        style: GoogleFonts.inter(fontSize: 15, color: error, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 ),
