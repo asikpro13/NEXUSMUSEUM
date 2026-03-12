@@ -35,7 +35,7 @@ class _ExhibitionPageState extends State<ExhibitionPage> {
                 height: MediaQuery.of(context).size.height,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage('assets/images/Exhibition.png'), fit: BoxFit.cover),
+                  image: DecorationImage(image: AssetImage('assets/images/exhibition.png'), fit: BoxFit.cover),
                 ),
                 child: Column(
                   children: [

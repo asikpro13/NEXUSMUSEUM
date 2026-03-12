@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/aboutMuseum.dart';
+import 'package:nexusmuseum/landing.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 
 // Футер
@@ -45,9 +46,14 @@ class _FooterProjectAppState extends State<FooterProject> {
           SizedBox(height: 40),
           Row(
             children: [
-              Text(
-                'NEXUSMUSEUM',
-                style: GoogleFonts.playfairDisplay(fontSize: 18, color: background, fontWeight: FontWeight.w500),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Landing()));
+                },
+                child: Text(
+                  'NEXUSMUSEUM',
+                  style: GoogleFonts.playfairDisplay(fontSize: 18, color: background, fontWeight: FontWeight.w500),
+                ),
               ),
               Spacer(),
               GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/vk.svg', width: 20, height: 20)),

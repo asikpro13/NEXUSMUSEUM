@@ -12,23 +12,31 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  cupertino_icons: ^1.0.8  # Иконки в стиле iOS для Material Design
-  google_fonts: ^8.0.2     # Доступ к шрифтам Google Fonts
-  flutter_svg: ^2.2.3      # Отображение SVG (векторных) изображений
-  carousel_slider: ^5.1.2  # Карусель/слайдер для изображений и виджетов
-  flutter_slidable: ^4.0.3 # Выдвижные панели для списков
-  url_launcher: ^6.3.2     # Открытие ссылок: звонки, сайты, email, карты
-  flutter_map: ^8.2.2      # Интерактивные карты
-  latlong2: ^0.9.1         # Работа с координатами для карт
-  photo_view: ^0.15.0
-  dropdown_button2: ^3.0.0
-  calendar_date_picker2: ^2.0.1
+  cupertino_icons: ^1.0.8         # Иконки в стиле iOS для Material Design
+  google_fonts: ^8.0.2            # Доступ к шрифтам Google Fonts
+  flutter_svg: ^2.2.3             # Отображение SVG (векторных) изображений
+  carousel_slider: ^5.1.2         # Карусель/слайдер для изображений и виджетов
+  flutter_slidable: ^4.0.3        # Выдвижные панели для списков
+  url_launcher: ^6.3.2            # Открытие ссылок: звонки, сайты, email, карты
+  flutter_map: ^8.2.2             # Интерактивные карты
+  latlong2: ^0.9.1                # Работа с координатами для карт
+  photo_view: ^0.15.0             # Просмотр изображений с увеличением
+  dropdown_button2: ^3.0.0        # Кастомные выпадающие списки
+  calendar_date_picker2: ^2.0.1   # Расширенный календарь для выбора дат
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4 # Генерация иконок приложения
+
+flutter_launcher_icons:
+  android: true
+  image_path: "assets/images/logo.png"
+  adaptive_icon_background: "#000000"
+  min_sdk_android: 21
+
 
 flutter:
 
