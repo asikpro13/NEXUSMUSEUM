@@ -10,7 +10,6 @@ import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 
-import 'globals.dart';
 
 // Экран Билеты
 class TicketsPage extends StatefulWidget {
