@@ -21,7 +21,6 @@ class AboutMuseum extends StatefulWidget {
 }
 
 class _AboutMuseumPageState extends State<AboutMuseum> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +67,7 @@ class _AboutMuseumPageState extends State<AboutMuseum> {
                         SizedBox(height: 10),
                         Row(
                           children: [
-                            SvgPicture.asset('assets/icons/geo.svg', width: 15,),
+                            SvgPicture.asset('assets/icons/geo.svg', width: 15),
                             SizedBox(width: 12),
                             Text('Корпус «Античность»', style: GoogleFonts.inter(fontSize: 16)),
                           ],
@@ -98,17 +97,11 @@ class _AboutMuseumPageState extends State<AboutMuseum> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 4),
-                              child: SvgPicture.asset('assets/icons/clock.svg',  width: 15),
-                            ),
+                            Padding(padding: const EdgeInsets.only(top: 4), child: SvgPicture.asset('assets/icons/clock.svg', width: 15)),
                             const SizedBox(width: 10),
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.8,
-                              child: Text(
-                                'ВС, ВТ, СР: 10:00 — 18:00 (кассы и вход до 17:00)\nПН: выходной\nЧТ, ПТ, СБ: 10:00 — 21:00 (кассы и вход до 20:00)',
-                                style: GoogleFonts.inter(fontSize: 16),
-                              ),
+                              child: Text('ВС, ВТ, СР: 10:00 — 18:00 (кассы и вход до 17:00)\nПН: выходной\nЧТ, ПТ, СБ: 10:00 — 21:00 (кассы и вход до 20:00)', style: GoogleFonts.inter(fontSize: 16)),
                             ),
                           ],
                         ),

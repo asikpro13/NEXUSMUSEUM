@@ -135,25 +135,17 @@ class _ExhibitionPageState extends State<ExhibitionPage> {
                     ),
                   ),
                   Container(
-                    height: 100,
                     width: double.infinity,
                     color: gold,
                     margin: EdgeInsets.symmetric(vertical: 10),
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 20),
-                            Text(
-                              'Описание',
-                              style: GoogleFonts.inter(fontSize: 20, color: background, fontWeight: FontWeight.w400),
-                            ),
-                          ],
+                        Text(
+                          'Описание',
+                          style: GoogleFonts.inter(fontSize: 18, color: background, fontWeight: FontWeight.w400),
                         ),
                       ],
                     ),
@@ -200,10 +192,10 @@ class _ExhibitionPageState extends State<ExhibitionPage> {
                             return Padding(
                               padding: const EdgeInsets.all(6),
                               child: GestureDetector(
-                                onTap: () {
+                                onLongPress: () {
                                   openPhotoViewGallery(context: context, imageList: exhibitionsList, titleList: titleExhibitionsList, initialIndex: index);
                                 },
-                                onLongPress: () {},
+                                onTap: () {},
                                 child: Stack(
                                   children: [
                                     Container(

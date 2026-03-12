@@ -10,7 +10,6 @@ import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 
-
 // Экран Билеты
 class TicketsPage extends StatefulWidget {
   const TicketsPage({super.key});
@@ -68,11 +67,7 @@ class _TicketsPageState extends State<TicketsPage> {
 
   // Выбор даты
   void showDatePicker() async {
-    final DateTime? pickedDate = await DateSelectorHelper.showSimpleDatePicker(
-      context: context,
-      initialDate: selectedDate,
-      accentColor: gold,
-    );
+    final DateTime? pickedDate = await DateSelectorHelper.showSimpleDatePicker(context: context, initialDate: selectedDate, accentColor: gold);
 
     if (pickedDate != null) {
       showTimeSelector(pickedDate);
@@ -224,10 +219,11 @@ class _TicketsPageState extends State<TicketsPage> {
                           ],
                         ),
                         SizedBox(height: 10),
-                        if (selectedDate != null && selectedTime!.isNotEmpty)  Text(
-                          formatSelectedDateTime(),
-                          style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold),
-                        ),
+                        if (selectedDate != null && selectedTime!.isNotEmpty)
+                          Text(
+                            formatSelectedDateTime(),
+                            style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold),
+                          ),
                         SizedBox(height: 10),
                         Row(
                           children: [

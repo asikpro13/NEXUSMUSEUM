@@ -36,18 +36,14 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'NEXUSMUSEUM', debugShowCheckedModeBanner: false,
-        locale: const Locale('ru'),
-        supportedLocales: const [
-          Locale('ru', 'RU'),
-          Locale('en', 'US'),
-        ],
-        localizationsDelegates: [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        home: SplashScreen());
+    return MaterialApp(
+      title: 'NEXUSMUSEUM',
+      debugShowCheckedModeBanner: false,
+      locale: const Locale('ru'),
+      supportedLocales: const [Locale('ru', 'RU'), Locale('en', 'US')],
+      localizationsDelegates: [GlobalMaterialLocalizations.delegate, GlobalWidgetsLocalizations.delegate, GlobalCupertinoLocalizations.delegate],
+      home: SplashScreen(),
+    );
   }
 }
 

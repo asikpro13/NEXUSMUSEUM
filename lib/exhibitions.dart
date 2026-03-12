@@ -50,20 +50,16 @@ class _ExhibitionsState extends State<Exhibitions> {
   }
 
   // Выбор даты
-  void showDatePicker() async {
-    final DateTime? pickedDate = await DateSelectorHelper.showSimpleDatePicker(
-      context: context,
-      initialDate: selectedDate,
-      accentColor: gold,
-    );
+  void _showDatePicker() async {
+    final DateTime? pickedDate = await DateSelectorHelper.showSimpleDatePicker(context: context, initialDate: selectedDate, accentColor: gold);
 
     if (pickedDate != null) {
-      showTimeSelector(pickedDate);
+      _showTimeSelector(pickedDate);
     }
   }
 
   // Выбор времени
-  void showTimeSelector(DateTime date) {
+  void _showTimeSelector(DateTime date) {
     showSelector<String>(
       context: context,
       title: 'Выберите время',
@@ -178,7 +174,7 @@ class _ExhibitionsState extends State<Exhibitions> {
                         ),
                         Spacer(),
                         GestureDetector(
-                          onTap: showDatePicker,
+                          onTap: _showDatePicker,
                           child: Text(
                             '→',
                             style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
@@ -187,10 +183,11 @@ class _ExhibitionsState extends State<Exhibitions> {
                       ],
                     ),
                     SizedBox(height: 10),
-                    if (selectedDate != null && selectedTime!.isNotEmpty)  Text(
-                      formatSelectedDateTime(),
-                      style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold),
-                    ),
+                    if (selectedDate != null && selectedTime!.isNotEmpty)
+                      Text(
+                        formatSelectedDateTime(),
+                        style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold),
+                      ),
                     SizedBox(height: 10),
                     Row(
                       children: [
@@ -256,10 +253,10 @@ class _ExhibitionsState extends State<Exhibitions> {
                     return Padding(
                       padding: const EdgeInsets.all(6),
                       child: GestureDetector(
-                        onTap: () {
+                        onLongPress: () {
                           openPhotoViewGallery(context: context, imageList: exhibitionList.sublist(0, exhibitionList.length - 2), titleList: titleExhibitionList.sublist(0, titleExhibitionList.length - 2), initialIndex: index);
                         },
-                        onLongPress: () {
+                        onTap: () {
                           Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ExhibitionPage()));
                         },
                         child: Stack(
@@ -320,10 +317,10 @@ class _ExhibitionsState extends State<Exhibitions> {
                     return Padding(
                       padding: const EdgeInsets.all(6),
                       child: GestureDetector(
-                        onTap: () {
+                        onLongPress: () {
                           openPhotoViewGallery(context: context, imageList: futureExhibitionList, titleList: titleFutureExhibitionList, initialIndex: index);
                         },
-                        onLongPress: () {
+                        onTap: () {
                           Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ExhibitionPage()));
                         },
                         child: Stack(
@@ -384,10 +381,10 @@ class _ExhibitionsState extends State<Exhibitions> {
                     return Padding(
                       padding: const EdgeInsets.all(6),
                       child: GestureDetector(
-                        onTap: () {
+                        onLongPress: () {
                           openPhotoViewGallery(context: context, imageList: futureExhibition2List, titleList: titleFutureExhibition2List, initialIndex: index);
                         },
-                        onLongPress: () {},
+                        onTap: () {},
                         child: Stack(
                           children: [
                             Container(

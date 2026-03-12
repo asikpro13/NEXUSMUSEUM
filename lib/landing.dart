@@ -110,6 +110,7 @@ class _LandingState extends State<Landing> {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
                   foregroundColor: white,
                 ),
+
                 child: Text('Посмотреть', style: GoogleFonts.inter(fontSize: 16, color: white)),
               ),
               Container(
@@ -197,10 +198,10 @@ class _LandingState extends State<Landing> {
                     return Padding(
                       padding: const EdgeInsets.all(6),
                       child: GestureDetector(
-                        onTap: () {
+                        onLongPress: () {
                           openPhotoViewGallery(context: context, imageList: exhibitionList, titleList: titleExhibitionList, initialIndex: index);
                         },
-                        onLongPress: () {
+                        onTap: () {
                           Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ExhibitionPage()));
                         },
                         child: Stack(
@@ -317,9 +318,10 @@ class _LandingState extends State<Landing> {
                     return Padding(
                       padding: const EdgeInsets.all(6),
                       child: GestureDetector(
-                        onTap: () {
+                        onLongPress: () {
                           openPhotoViewGallery(context: context, imageList: collectionList, titleList: titleCollectionList, initialIndex: index);
                         },
+                        onTap: () {},
                         child: Stack(
                           children: [
                             Container(
