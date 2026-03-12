@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+// Основные цвета
 Color background = Color(0xffFDFDF8);
 Color error = Color(0xffE74C3C);
 Color white = Color(0xffFFFFFF);

@@ -13,6 +13,7 @@ import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/social.dart';
 
+// Экран Лендинг
 class Landing extends StatefulWidget {
   const Landing({super.key});
 

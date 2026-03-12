@@ -81,8 +81,6 @@ String? selectedVenue;
 DateTime? selectedDate;
 String? selectedTime;
 
-var date = DateTime.now();
-
 // Переменные для звонка по номеру телефона
 final String phoneNumber = '+7 (999) 123-45-67';
 final String phoneUrl = 'tel:+79991234567';
@@ -147,13 +145,6 @@ void showMuseumInfo(BuildContext context) {
       ),
     ),
   );
-}
-
-Future<void> launchURL(String url) async {
-  final uri = Uri.parse(url);
-  if (await canLaunchUrl(uri)) {
-    await launchUrl(uri);
-  }
 }
 
 // Функция показа фотографий
@@ -286,9 +277,10 @@ void showDialogSuccess(BuildContext context, String title, String comment) {
   );
 }
 
-// Функция для показа списка
+// Тип функции для обработки выбора элемента из списка
 typedef void OnItemSelected<T>(T selectedItem);
 
+// Функция для показа списка
 void showSelector<T>({required BuildContext context, required String title, required List<T> items, required T? selectedItem, required OnItemSelected<T> onSelected, String Function(T)? itemToString}) {
   showModalBottomSheet(
     context: context,

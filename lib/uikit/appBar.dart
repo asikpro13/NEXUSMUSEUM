@@ -6,6 +6,7 @@ import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/landing.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 
+// Главная панель
 class AppBarProject extends StatefulWidget {
   final bool isTitle;
 

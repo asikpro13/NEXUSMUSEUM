@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 
+// Работа с календарем
 class DateSelectorHelper {
   static const List<String> _months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 
@@ -98,6 +99,7 @@ class DateSelectorHelper {
   }
 }
 
+// Функция форматирования даты и времени
 String formatSelectedDateTime() {
   if (selectedDate == null) {
     return ''; // Значение по умолчанию

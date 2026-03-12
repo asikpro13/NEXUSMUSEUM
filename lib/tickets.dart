@@ -19,7 +19,7 @@ class TicketsPage extends StatefulWidget {
 }
 
 class _TicketsPageState extends State<TicketsPage> {
-  final ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController(); // Контроллер для скролла
   int quantity = 1; // Количество билетов
   int count = 900; // Цена билета
   int selectedCategory = 0; // Индекс категории
@@ -66,16 +66,16 @@ class _TicketsPageState extends State<TicketsPage> {
   }
 
   // Выбор даты
-  void showDatePicker() async {
+  void _showDatePicker() async {
     final DateTime? pickedDate = await DateSelectorHelper.showSimpleDatePicker(context: context, initialDate: selectedDate, accentColor: gold);
 
     if (pickedDate != null) {
-      showTimeSelector(pickedDate);
+      _showTimeSelector(pickedDate);
     }
   }
 
   // Выбор времени
-  void showTimeSelector(DateTime date) {
+  void _showTimeSelector(DateTime date) {
     showSelector<String>(
       context: context,
       title: 'Выберите время',
@@ -210,7 +210,7 @@ class _TicketsPageState extends State<TicketsPage> {
                             ),
                             Spacer(),
                             GestureDetector(
-                              onTap: showDatePicker,
+                              onTap: _showDatePicker,
                               child: Text(
                                 '→',
                                 style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
