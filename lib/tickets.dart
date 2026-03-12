@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
@@ -230,7 +231,9 @@ class _TicketsPageState extends State<TicketsPage> {
                         Row(
                           children: [
                             ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
+                              },
                               style: ElevatedButton.styleFrom(
                                 minimumSize: Size(90, 40),
                                 padding: EdgeInsets.all(10),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/landing.dart';
 import 'package:flutter/services.dart';
+import 'package:nexusmuseum/uikit/colors.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +35,34 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'NEXUSMUSEUM', debugShowCheckedModeBanner: false, home: Landing());
+    return MaterialApp(title: 'NEXUSMUSEUM', debugShowCheckedModeBanner: false, home: SplashScreen());
+  }
+}
+
+// Экран Сплэш
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Landing()));
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: background,
+      body: Center(
+        child: Text('NEXUSMUSEUM', style: GoogleFonts.playfairDisplay(fontSize: 32, color: black)),
+      ),
+    );
   }
 }

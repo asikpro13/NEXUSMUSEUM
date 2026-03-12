@@ -19,6 +19,7 @@ dependencies:
   flutter_map: ^8.2.2      # Интерактивные карты
   latlong2: ^0.9.1         # Работа с координатами для карт
   photo_view: ^0.15.0
+  dropdown_button2: ^3.0.0
 
 dev_dependencies:
   flutter_test:

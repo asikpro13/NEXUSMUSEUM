@@ -69,8 +69,6 @@ List<String> categoriesList = ['Постоянные экспозиции', 'В�
 
 List<double> categoriesButtonWidthList = [200, 95, 110, 95];
 
-
-
 // Переменные для звонка по номеру телефона
 final String phoneNumber = '+7 (999) 123-45-67';
 final String phoneUrl = 'tel:+79991234567';
@@ -95,7 +93,7 @@ void showMuseumInfo(BuildContext context) {
           Text('NEXUSMUSEUM', style: GoogleFonts.inter(fontSize: 22, fontWeight: FontWeight.bold)),
           const SizedBox(height: 16),
           ListTile(
-            leading: SvgPicture.asset('assets/icons/geo.svg', width: 20,),
+            leading: SvgPicture.asset('assets/icons/geo.svg', width: 20),
             title: Text('Лаврушинский переулок, 10', style: GoogleFonts.inter(fontSize: 16)),
           ),
           ListTile(
@@ -103,7 +101,7 @@ void showMuseumInfo(BuildContext context) {
             title: Text('Вт-Вс: 10:00-18:00', style: GoogleFonts.inter(fontSize: 16)),
           ),
           ListTile(
-            leading:  SvgPicture.asset('assets/icons/phone.svg', width: 20),
+            leading: SvgPicture.asset('assets/icons/phone.svg', width: 20),
             title: Text(phoneNumber, style: GoogleFonts.inter(fontSize: 16)),
           ),
           const SizedBox(height: 10),
@@ -120,7 +118,7 @@ void showMuseumInfo(BuildContext context) {
                 ),
                 child: Text('Закрыть', style: GoogleFonts.inter(fontSize: 16, color: white)),
               ),
-              Spacer()
+              Spacer(),
             ],
           ),
         ],
@@ -137,12 +135,7 @@ Future<void> launchURL(String url) async {
 }
 
 // Функция показа фотографий
-void openPhotoViewGallery({
-  required BuildContext context,
-  required List<String> imageList,
-  required List<String> titleList,
-  required int initialIndex,
-}) {
+void openPhotoViewGallery({required BuildContext context, required List<String> imageList, required List<String> titleList, required int initialIndex}) {
   final PageController pageController = PageController(initialPage: initialIndex);
   ValueNotifier<int> currentIndexNotifier = ValueNotifier(initialIndex);
 
@@ -164,9 +157,7 @@ void openPhotoViewGallery({
                 );
               },
               itemCount: imageList.length,
-              loadingBuilder: (context, event) => const Center(
-                child: CircularProgressIndicator(),
-              ),
+              loadingBuilder: (context, event) => const Center(child: CircularProgressIndicator()),
               backgroundDecoration: const BoxDecoration(color: Colors.black),
               pageController: pageController,
               onPageChanged: (index) {
@@ -180,14 +171,8 @@ void openPhotoViewGallery({
                 onTap: () => Navigator.pop(context),
                 child: Container(
                   padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
-                    shape: BoxShape.circle,
-                  ),
-                  child: SvgPicture.asset(
-                    'assets/icons/close.svg',
-                    color: Colors.white,
-                  ),
+                  decoration: BoxDecoration(color: Colors.black.withOpacity(0.5), shape: BoxShape.circle),
+                  child: SvgPicture.asset('assets/icons/close.svg', color: Colors.white),
                 ),
               ),
             ),
@@ -200,29 +185,16 @@ void openPhotoViewGallery({
                 builder: (context, currentIndex, child) {
                   return Container(
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.5),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
+                    decoration: BoxDecoration(color: Colors.black.withOpacity(0.5), borderRadius: BorderRadius.circular(8)),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           titleList[currentIndex],
-                          style: GoogleFonts.inter(
-                            color: white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: GoogleFonts.inter(color: white, fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 4),
-                        Text(
-                          '${currentIndex + 1} / ${imageList.length}',
-                          style: GoogleFonts.inter(
-                            color: Colors.white70,
-                            fontSize: 14,
-                          ),
-                        ),
+                        Text('${currentIndex + 1} / ${imageList.length}', style: GoogleFonts.inter(color: Colors.white70, fontSize: 14)),
                       ],
                     ),
                   );
@@ -236,7 +208,7 @@ void openPhotoViewGallery({
   );
 }
 
-//
+// Функция для показа модального окна
 void showDialogSuccess(BuildContext context, String title, String comment) {
   showDialog(
     context: context,
@@ -244,9 +216,7 @@ void showDialogSuccess(BuildContext context, String title, String comment) {
     builder: (context) {
       return AlertDialog(
         backgroundColor: background,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -255,12 +225,7 @@ void showDialogSuccess(BuildContext context, String title, String comment) {
               title,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.inter(
-                color: black,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                height: 1.2,
-              ),
+              style: GoogleFonts.inter(color: black, fontSize: 18, fontWeight: FontWeight.bold, height: 1.2),
             ),
             const SizedBox(height: 10),
             Text(
@@ -268,11 +233,7 @@ void showDialogSuccess(BuildContext context, String title, String comment) {
               maxLines: 2,
               softWrap: false,
               overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.inter(
-                color: const Color(0xff8A8C90),
-                fontSize: 14,
-                height: 1.5,
-              ),
+              style: GoogleFonts.inter(color: const Color(0xff8A8C90), fontSize: 14, height: 1.5),
             ),
             const SizedBox(height: 15),
             Row(
@@ -285,23 +246,17 @@ void showDialogSuccess(BuildContext context, String title, String comment) {
                     onPressed: () => Navigator.of(context).pop(),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: gold,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                     ),
                     child: Text(
                       'Закрыть',
-                      style: GoogleFonts.inter(
-                        color: white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: GoogleFonts.inter(color: white, fontSize: 14, fontWeight: FontWeight.w500),
                     ),
                   ),
                 ),
-                Spacer()
+                Spacer(),
               ],
-            )
+            ),
           ],
         ),
       );

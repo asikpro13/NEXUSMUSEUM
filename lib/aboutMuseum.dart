@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:nexusmuseum/globals.dart';
@@ -22,8 +21,6 @@ class AboutMuseum extends StatefulWidget {
 }
 
 class _AboutMuseumPageState extends State<AboutMuseum> {
-  final MapController mapController = MapController();
-  bool _isMapLoaded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -237,7 +234,7 @@ class _AboutMuseumPageState extends State<AboutMuseum> {
                           'Музей также укрепил свои исследовательские позиции, открыв Лабораторию цифровой гуманитаристики и Школу музейного кураторства. Ежегодная конференция "Nexus: искусство искусство в эпоху технологий" стала важной площадкой для профессионалов со всего мира.',
                           style: GoogleFonts.inter(fontSize: 16),
                         ),
-                        SizedBox(height: 50),
+                        SizedBox(height: 25),
                       ],
                     ),
                   ),

@@ -69,7 +69,7 @@ class _ExhibitionsState extends State<Exhibitions> {
                   ],
                 ),
               ),
-              SizedBox(height: 27),
+              SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
@@ -81,61 +81,76 @@ class _ExhibitionsState extends State<Exhibitions> {
                   ],
                 ),
               ),
-              SizedBox(height: 12),
+              SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
+                    Row(
                       children: [
                         Text(
                           'Аудитория',
-                          style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
+                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.w700),
                         ),
-                        SizedBox(height: 13),
-                        Text(
-                          'Место проведения',
-                          style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(height: 13),
-                        Text(
-                          'Дата',
-                          style: GoogleFonts.inter(fontSize: 14, color: black, fontWeight: FontWeight.w700),
+                        Spacer(),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Text(
+                            '→',
+                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.w700),
+                          ),
                         ),
                       ],
                     ),
-                    SizedBox(width: 15),
-                    Column(
+                    SizedBox(height: 15),
+                    Row(
                       children: [
                         Text(
-                          '→',
-                          style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
+                          'Дата',
+                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.w700),
                         ),
-                        SizedBox(height: 13),
-                        Text(
-                          '→',
-                          style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(height: 13),
-                        Text(
-                          '→',
-                          style: GoogleFonts.inter(fontSize: 15, color: black, fontWeight: FontWeight.w700),
+                        Spacer(),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Text(
+                            '→',
+                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.w700),
+                          ),
                         ),
                       ],
                     ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  children: [
+                    SizedBox(height: 10),
+                    Text(
+                      '5 октября 2025 г., 19:30',
+                      style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.w700),
+                    ),
+                    SizedBox(height: 15),
+                    Row(
+                      children: [
+                        Text(
+                          'Место проведения',
+                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.w700),
+                        ),
+                        Spacer(),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Text(
+                            '→',
+                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      'Третьяковская галерея, Новая\nТретьяковка, Крымский Вал, 10',
+                      style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.w700, height: 1.3),
+                    ),
+                    SizedBox(height: 15),
                     Text(
                       'Сбросить фильтр',
-                      style: GoogleFonts.inter(fontSize: 15, color: error, fontWeight: FontWeight.w700),
+                      style: GoogleFonts.inter(fontSize: 15, color: error, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -297,8 +312,7 @@ class _ExhibitionsState extends State<Exhibitions> {
                         onTap: () {
                           openPhotoViewGallery(context: context, imageList: futureExhibition2List, titleList: titleFutureExhibition2List, initialIndex: index);
                         },
-                        onLongPress: () {
-                        },
+                        onLongPress: () {},
                         child: Stack(
                           children: [
                             Container(
