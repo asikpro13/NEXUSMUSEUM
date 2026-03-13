@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/globals.dart';
@@ -25,7 +24,7 @@ class _AppBarProjectState extends State<AppBarProject> {
         children: [
           GestureDetector(
             onTap: () {
-              slidableController!.openStartActionPane();
+             openDrawer();
             },
             child: SvgPicture.asset('assets/icons/driver.svg', width: 28),
           ),

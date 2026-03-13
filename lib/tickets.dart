@@ -5,20 +5,20 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
-import 'package:nexusmuseum/uikit/data.dart';
+import 'package:nexusmuseum/uikit/date.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 
 // Экран Билеты
-class TicketsPage extends StatefulWidget {
-  const TicketsPage({super.key});
+class Tickets extends StatefulWidget {
+  const Tickets({super.key});
 
   @override
-  State<TicketsPage> createState() => _TicketsPageState();
+  State<Tickets> createState() => _TicketsPageState();
 }
 
-class _TicketsPageState extends State<TicketsPage> {
+class _TicketsPageState extends State<Tickets> {
   final ScrollController _scrollController = ScrollController(); // Контроллер для скролла
   int quantity = 1; // Количество билетов
   int count = 900; // Цена билета
@@ -297,7 +297,7 @@ class _TicketsPageState extends State<TicketsPage> {
                           children: [
                             ElevatedButton(
                               onPressed: () {
-                                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
+                              navToExhibitions(context);
                                 setState(() {
                                   clearSelected();
                                   selectedCategory = 0;

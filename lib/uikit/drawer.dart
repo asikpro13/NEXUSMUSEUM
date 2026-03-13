@@ -37,7 +37,7 @@ class _DrawerProjectState extends State<DrawerProject> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        slidableController!.close();
+                       closeDrawer();
                       },
                       child: SvgPicture.asset('assets/icons/close.svg', width: 20),
                     ),
@@ -46,8 +46,7 @@ class _DrawerProjectState extends State<DrawerProject> {
                 Spacer(),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AboutMuseum()));
-                    clearSelected();
+                   navToAboutMuseum(context);
                   },
                   child: Text(
                     'О музее',
@@ -57,8 +56,7 @@ class _DrawerProjectState extends State<DrawerProject> {
                 SizedBox(height: 20),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
-                    clearSelected();
+                   navToExhibitions(context);
                   },
                   child: Text(
                     'Выставки',
@@ -68,8 +66,7 @@ class _DrawerProjectState extends State<DrawerProject> {
                 SizedBox(height: 20),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
-                    clearSelected();
+                   navToTickets(context);
                   },
                   child: Text(
                     'Билеты',

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:nexusmuseum/tickets.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
@@ -12,14 +11,14 @@ import 'package:url_launcher/url_launcher_string.dart';
 import 'globals.dart';
 
 // Экран Выставка
-class ExhibitionPage extends StatefulWidget {
-  const ExhibitionPage({super.key});
+class Exhibition extends StatefulWidget {
+  const Exhibition({super.key});
 
   @override
-  State<ExhibitionPage> createState() => _ExhibitionPageState();
+  State<Exhibition> createState() => _ExhibitionPageState();
 }
 
-class _ExhibitionPageState extends State<ExhibitionPage> {
+class _ExhibitionPageState extends State<Exhibition> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -166,7 +165,7 @@ class _ExhibitionPageState extends State<ExhibitionPage> {
                         Center(
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
+                             navToTickets(context);
                             },
                             style: ElevatedButton.styleFrom(
                               splashFactory: NoSplash.splashFactory,

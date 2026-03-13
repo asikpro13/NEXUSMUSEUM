@@ -2,11 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
-import 'package:nexusmuseum/exhibition.dart';
 import 'package:nexusmuseum/globals.dart';
-import 'package:nexusmuseum/tickets.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 import 'package:nexusmuseum/uikit/const.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
@@ -45,7 +42,7 @@ class _LandingState extends State<Landing> {
                     Spacer(),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
+                       navToTickets(context);
                       },
                       style: ElevatedButton.styleFrom(
                         splashFactory: NoSplash.splashFactory,
@@ -102,7 +99,9 @@ class _LandingState extends State<Landing> {
               ),
               SizedBox(height: 10),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  openPhotoViewGallery(context: context, imageList: programsViewList, titleList: titleProgramsViewList, initialIndex: 0);
+                },
                 style: ElevatedButton.styleFrom(
                   splashFactory: NoSplash.splashFactory,
                   minimumSize: Size(135, 40),
@@ -137,7 +136,7 @@ class _LandingState extends State<Landing> {
                         SizedBox(height: 12),
                         GestureDetector(
                           onTap: () {
-                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
+                           navToTickets(context);
                           },
                           child: Text(
                             'Получить билеты  →',
@@ -175,7 +174,7 @@ class _LandingState extends State<Landing> {
                     SizedBox(height: 8),
                     GestureDetector(
                       onTap: () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
+                       navToExhibitions(context);
                       },
                       child: Text(
                         'Посмотреть календарь  →',
@@ -203,7 +202,7 @@ class _LandingState extends State<Landing> {
                           openPhotoViewGallery(context: context, imageList: exhibitionList, titleList: titleExhibitionList, initialIndex: index);
                         },
                         onTap: () {
-                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ExhibitionPage()));
+                         navToExhibition(context);
                         },
                         child: Stack(
                           children: [
@@ -265,7 +264,7 @@ class _LandingState extends State<Landing> {
                         SizedBox(height: 12),
                         GestureDetector(
                           onTap: () {
-                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TicketsPage()));
+                            navToTickets(context);
                           },
                           child: Text(
                             'Получить билеты  →',
@@ -295,7 +294,7 @@ class _LandingState extends State<Landing> {
                     SizedBox(height: 8),
                     GestureDetector(
                       onTap: () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Exhibitions()));
+                       navToExhibitions(context);
                       },
                       child: Text(
                         'Посмотреть календарь  →',

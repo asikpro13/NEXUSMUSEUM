@@ -5,7 +5,7 @@ import 'package:nexusmuseum/exhibition.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
-import 'package:nexusmuseum/uikit/data.dart';
+import 'package:nexusmuseum/uikit/date.dart';
 import 'package:nexusmuseum/uikit/drawer.dart';
 import 'package:nexusmuseum/uikit/footer.dart';
 import 'package:nexusmuseum/uikit/social.dart';
@@ -257,7 +257,7 @@ class _ExhibitionsState extends State<Exhibitions> {
                           openPhotoViewGallery(context: context, imageList: exhibitionList.sublist(0, exhibitionList.length - 2), titleList: titleExhibitionList.sublist(0, titleExhibitionList.length - 2), initialIndex: index);
                         },
                         onTap: () {
-                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ExhibitionPage()));
+                        navToExhibition(context);
                         },
                         child: Stack(
                           children: [
@@ -321,7 +321,7 @@ class _ExhibitionsState extends State<Exhibitions> {
                           openPhotoViewGallery(context: context, imageList: futureExhibitionList, titleList: titleFutureExhibitionList, initialIndex: index);
                         },
                         onTap: () {
-                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ExhibitionPage()));
+                          navToExhibition(context);
                         },
                         child: Stack(
                           children: [
