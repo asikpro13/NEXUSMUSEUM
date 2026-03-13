@@ -7,6 +7,8 @@ import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/landing.dart';
 import 'package:nexusmuseum/tickets.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
+import 'package:nexusmuseum/virtualSession.dart';
+import 'package:nexusmuseum/visualMap.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
@@ -132,6 +134,20 @@ void navToExhibition(BuildContext context) {
 // Навигация на экран "Лендинг"
 void navToLanding(BuildContext context) {
   Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Landing()));
+  clearSelected();
+  closeDrawer();
+}
+
+// Навигация на экран "Виртуальная карта"
+void navToVirtualMap(BuildContext context) {
+  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => VirtualMap()));
+  clearSelected();
+  closeDrawer();
+}
+
+// Навигация на экран "Виртуальный визит"
+void navToVirtualSession(BuildContext context) {
+  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => VirtualSession()));
   clearSelected();
   closeDrawer();
 }

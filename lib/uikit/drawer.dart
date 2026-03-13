@@ -72,7 +72,9 @@ class _DrawerProjectState extends State<DrawerProject> {
                 ),
                 SizedBox(height: 20),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    navToVirtualMap(context);
+                  },
                   child: Text(
                     'Карта',
                     style: GoogleFonts.playfairDisplay(fontSize: drawerSizeText, fontWeight: FontWeight.w500, color: white),
