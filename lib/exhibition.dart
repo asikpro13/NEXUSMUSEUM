@@ -165,7 +165,7 @@ class _ExhibitionPageState extends State<Exhibition> {
                         Center(
                           child: ElevatedButton(
                             onPressed: () {
-                             navToTickets(context);
+                              navToTickets(context);
                             },
                             style: ElevatedButton.styleFrom(
                               splashFactory: NoSplash.splashFactory,

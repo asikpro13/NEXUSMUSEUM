@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/uikit/date.dart';
@@ -297,7 +296,7 @@ class _TicketsPageState extends State<Tickets> {
                           children: [
                             ElevatedButton(
                               onPressed: () {
-                              navToExhibitions(context);
+                                navToExhibitions(context);
                                 setState(() {
                                   clearSelected();
                                   selectedCategory = 0;

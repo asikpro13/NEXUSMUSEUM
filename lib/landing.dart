@@ -42,7 +42,7 @@ class _LandingState extends State<Landing> {
                     Spacer(),
                     ElevatedButton(
                       onPressed: () {
-                       navToTickets(context);
+                        navToTickets(context);
                       },
                       style: ElevatedButton.styleFrom(
                         splashFactory: NoSplash.splashFactory,
@@ -136,7 +136,7 @@ class _LandingState extends State<Landing> {
                         SizedBox(height: 12),
                         GestureDetector(
                           onTap: () {
-                           navToTickets(context);
+                            navToTickets(context);
                           },
                           child: Text(
                             'Получить билеты  →',
@@ -174,7 +174,7 @@ class _LandingState extends State<Landing> {
                     SizedBox(height: 8),
                     GestureDetector(
                       onTap: () {
-                       navToExhibitions(context);
+                        navToExhibitions(context);
                       },
                       child: Text(
                         'Посмотреть календарь  →',
@@ -202,7 +202,7 @@ class _LandingState extends State<Landing> {
                           openPhotoViewGallery(context: context, imageList: exhibitionList, titleList: titleExhibitionList, initialIndex: index);
                         },
                         onTap: () {
-                         navToExhibition(context);
+                          navToExhibition(context);
                         },
                         child: Stack(
                           children: [
@@ -294,7 +294,7 @@ class _LandingState extends State<Landing> {
                     SizedBox(height: 8),
                     GestureDetector(
                       onTap: () {
-                       navToExhibitions(context);
+                        navToExhibitions(context);
                       },
                       child: Text(
                         'Посмотреть календарь  →',

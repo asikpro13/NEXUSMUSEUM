@@ -3,7 +3,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/globals.dart';
-import 'package:nexusmuseum/landing.dart';
 import 'package:flutter/services.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 

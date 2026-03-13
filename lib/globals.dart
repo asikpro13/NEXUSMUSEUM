@@ -20,7 +20,6 @@ List<String> programsViewList = ['assets/images/program_view1.png', 'assets/imag
 
 List<String> titleProgramsViewList = ['Цикл лекций:\nМода СССР 60-х годов', 'Искусство изготовления\nмечей и кинжалов', 'Поединки и дуэли \nот Ахилла до Лифаря'];
 
-
 List<String> exhibitionList = [
   'assets/images/exhibition_1.png',
   'assets/images/exhibition_2.png',
@@ -67,7 +66,6 @@ List<String> futureExhibition2List = [
   'assets/images/exhibition_14.png',
   'assets/images/exhibition_15.png',
 ];
-
 
 List<String> titleFutureExhibition2List = ['Симфония для ветра и\nпроводов', 'Интерьер с уходящим ухом', 'Танцующие с тишиной', 'Сон лунного геолога', 'Последний корабль к\nПолярной звезде', 'Шёпот забытых улиц'];
 
@@ -147,7 +145,6 @@ void closeDrawer() {
 void openDrawer() {
   slidableController!.openStartActionPane();
 }
-
 
 // Функции для показа карты
 void showMuseumInfo(BuildContext context) {

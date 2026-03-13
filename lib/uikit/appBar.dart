@@ -24,7 +24,7 @@ class _AppBarProjectState extends State<AppBarProject> {
         children: [
           GestureDetector(
             onTap: () {
-             openDrawer();
+              openDrawer();
             },
             child: SvgPicture.asset('assets/icons/driver.svg', width: 28),
           ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nexusmuseum/exhibition.dart';
 import 'package:nexusmuseum/globals.dart';
 import 'package:nexusmuseum/uikit/appBar.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
@@ -257,7 +256,7 @@ class _ExhibitionsState extends State<Exhibitions> {
                           openPhotoViewGallery(context: context, imageList: exhibitionList.sublist(0, exhibitionList.length - 2), titleList: titleExhibitionList.sublist(0, titleExhibitionList.length - 2), initialIndex: index);
                         },
                         onTap: () {
-                        navToExhibition(context);
+                          navToExhibition(context);
                         },
                         child: Stack(
                           children: [

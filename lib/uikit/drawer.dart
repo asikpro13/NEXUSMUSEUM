@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nexusmuseum/aboutMuseum.dart';
-import 'package:nexusmuseum/exhibitions.dart';
 import 'package:nexusmuseum/globals.dart';
-import 'package:nexusmuseum/tickets.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
 import 'package:nexusmuseum/uikit/const.dart';
 
@@ -37,7 +34,7 @@ class _DrawerProjectState extends State<DrawerProject> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                       closeDrawer();
+                        closeDrawer();
                       },
                       child: SvgPicture.asset('assets/icons/close.svg', width: 20),
                     ),
@@ -46,7 +43,7 @@ class _DrawerProjectState extends State<DrawerProject> {
                 Spacer(),
                 GestureDetector(
                   onTap: () {
-                   navToAboutMuseum(context);
+                    navToAboutMuseum(context);
                   },
                   child: Text(
                     'О музее',
@@ -56,7 +53,7 @@ class _DrawerProjectState extends State<DrawerProject> {
                 SizedBox(height: 20),
                 GestureDetector(
                   onTap: () {
-                   navToExhibitions(context);
+                    navToExhibitions(context);
                   },
                   child: Text(
                     'Выставки',
@@ -66,7 +63,7 @@ class _DrawerProjectState extends State<DrawerProject> {
                 SizedBox(height: 20),
                 GestureDetector(
                   onTap: () {
-                   navToTickets(context);
+                    navToTickets(context);
                   },
                   child: Text(
                     'Билеты',
