@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/aboutMuseum.dart';
 import 'package:nexusmuseum/landing.dart';
 import 'package:nexusmuseum/uikit/colors.dart';
+import 'package:nexusmuseum/uikit/social.dart';
 
 // Футер
 class FooterProject extends StatefulWidget {
@@ -56,13 +57,13 @@ class _FooterProjectAppState extends State<FooterProject> {
                 ),
               ),
               Spacer(),
-              GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/vk.svg', width: 20, height: 20)),
+              GestureDetector(onTap: () => openUrl('https://vk.com/tretyakovgallery'), child: SvgPicture.asset('assets/icons/vk.svg', width: 20, height: 20)),
               SizedBox(width: 20),
-              GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/classmates.svg', width: 20, height: 25)),
+              GestureDetector(onTap: () => openUrl('https://ok.ru/group/68885515403324'), child: SvgPicture.asset('assets/icons/classmates.svg', width: 20, height: 25)),
               SizedBox(width: 20),
-              GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/telegram.svg', width: 20, height: 22)),
+              GestureDetector(onTap: () => openUrl('https://t.me/s/GT_Gallery'), child: SvgPicture.asset('assets/icons/telegram.svg', width: 20, height: 22)),
               SizedBox(width: 20),
-              GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/rutube.svg', width: 30, height: 30)),
+              GestureDetector(onTap: () => openUrl('https://rutube.ru/channel/25592111/'), child: SvgPicture.asset('assets/icons/rutube.svg', width: 30, height: 30)),
             ],
           ),
           SizedBox(height: 20),

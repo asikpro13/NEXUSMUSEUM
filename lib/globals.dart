@@ -203,7 +203,7 @@ void showMuseumInfo(BuildContext context) {
                   minimumSize: Size(250, 45),
                   backgroundColor: error,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
-                  elevation: 5,
+                  elevation: 0,
                 ),
                 child: Text('Закрыть', style: GoogleFonts.inter(fontSize: 16, color: white)),
               ),
@@ -328,6 +328,7 @@ void showDialogSuccess(BuildContext context, String title, String comment) {
                     onPressed: () => Navigator.of(context).pop(),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: gold,
+                      elevation: 0,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                     ),
                     child: Text(
