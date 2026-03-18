@@ -2,13 +2,13 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nexusmuseum/uikit/appBar.dart';
-import 'package:nexusmuseum/globals.dart';
-import 'package:nexusmuseum/uikit/colors.dart';
-import 'package:nexusmuseum/uikit/const.dart';
-import 'package:nexusmuseum/uikit/drawer.dart';
-import 'package:nexusmuseum/uikit/footer.dart';
-import 'package:nexusmuseum/uikit/social.dart';
+import 'package:nexusmuseum/presentation/uikit/appBar.dart';
+import 'package:nexusmuseum/domain/globals.dart';
+import 'package:nexusmuseum/presentation/uikit/colors.dart';
+import 'package:nexusmuseum/presentation/uikit/const.dart';
+import 'package:nexusmuseum/presentation/uikit/drawer.dart';
+import 'package:nexusmuseum/presentation/uikit/footer.dart';
+import 'package:nexusmuseum/presentation/uikit/social.dart';
 
 // Экран Лендинг
 class Landing extends StatefulWidget {
@@ -198,11 +198,8 @@ class _LandingState extends State<Landing> {
                     return Padding(
                       padding: const EdgeInsets.all(6),
                       child: GestureDetector(
-                        onLongPress: () {
-                          openPhotoViewGallery(context: context, imageList: exhibitionList, titleList: titleExhibitionList, initialIndex: index);
-                        },
                         onTap: () {
-                          navToExhibition(context);
+                          openPhotoViewGallery(context: context, imageList: exhibitionList, titleList: titleExhibitionList, initialIndex: index);
                         },
                         child: Stack(
                           children: [
@@ -318,10 +315,9 @@ class _LandingState extends State<Landing> {
                     return Padding(
                       padding: const EdgeInsets.all(6),
                       child: GestureDetector(
-                        onLongPress: () {
+                        onTap: () {
                           openPhotoViewGallery(context: context, imageList: collectionList, titleList: titleCollectionList, initialIndex: index);
                         },
-                        onTap: () {},
                         child: Stack(
                           children: [
                             Container(

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:nexusmuseum/globals.dart';
+import 'package:nexusmuseum/domain/globals.dart';
 import 'package:flutter/services.dart';
-import 'package:nexusmuseum/uikit/colors.dart';
+import 'package:nexusmuseum/presentation/pages/splash.dart';
 
+// Точка входа в приложение
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
@@ -22,12 +22,14 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   @override
+  // Инициализация контроллера
   void initState() {
     super.initState();
     slidableController ??= SlidableController(this);
   }
 
   @override
+  // Освобождение ресурсов контроллера
   void dispose() {
     super.dispose();
     slidableController.dispose();
@@ -46,30 +48,3 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   }
 }
 
-// Экран Сплэш
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
-
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(Duration(seconds: 2), () {
-      navToLanding(context);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: background,
-      body: Center(
-        child: Text('NEXUSMUSEUM', style: GoogleFonts.playfairDisplay(fontSize: 32, color: black)),
-      ),
-    );
-  }
-}

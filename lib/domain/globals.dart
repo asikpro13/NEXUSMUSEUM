@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nexusmuseum/aboutMuseum.dart';
-import 'package:nexusmuseum/exhibition.dart';
-import 'package:nexusmuseum/exhibitions.dart';
-import 'package:nexusmuseum/landing.dart';
-import 'package:nexusmuseum/tickets.dart';
-import 'package:nexusmuseum/uikit/colors.dart';
-import 'package:nexusmuseum/virtualSession.dart';
-import 'package:nexusmuseum/visualMap.dart';
+import 'package:nexusmuseum/presentation/pages/aboutMuseum.dart';
+import 'package:nexusmuseum/presentation/pages/exhibition.dart';
+import 'package:nexusmuseum/presentation/pages/exhibitions.dart';
+import 'package:nexusmuseum/presentation/pages/landing.dart';
+import 'package:nexusmuseum/presentation/pages/tickets.dart';
+import 'package:nexusmuseum/presentation/uikit/colors.dart';
+import 'package:nexusmuseum/presentation/pages/virtualSession.dart';
+import 'package:nexusmuseum/presentation/pages/visualMap.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // Контроллер для драйвера
 dynamic slidableController;
@@ -162,6 +163,9 @@ void openDrawer() {
   slidableController!.openStartActionPane();
 }
 
+// Открытие ссылок
+void openUrl(String url) => launchUrl(Uri.parse(url));
+
 // Функции для показа карты
 void showMuseumInfo(BuildContext context) {
   showModalBottomSheet(
@@ -259,7 +263,28 @@ void openPhotoViewGallery({required BuildContext context, required List<String> 
               ),
             ),
             Positioned(
-              bottom: 40,
+              bottom: 90,
+              right: 20,
+              child: ValueListenableBuilder<int>(
+                valueListenable: currentIndexNotifier,
+                builder: (context, currentIndex, _) {
+                  return Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(color: Colors.white.withOpacity(0.3)),
+                    ),
+                    child: Text(
+                      '${currentIndex + 1} / ${imageList.length}',
+                      style: GoogleFonts.inter(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Positioned(
+              bottom: 50,
               left: 20,
               right: 20,
               child: ValueListenableBuilder<int>(
@@ -275,8 +300,14 @@ void openPhotoViewGallery({required BuildContext context, required List<String> 
                           titleList[currentIndex],
                           style: GoogleFonts.inter(color: white, fontSize: 16, fontWeight: FontWeight.bold),
                         ),
-                        const SizedBox(height: 4),
-                        Text('${currentIndex + 1} / ${imageList.length}', style: GoogleFonts.inter(color: Colors.white70, fontSize: 14)),
+                        const SizedBox(height: 8),
+                        GestureDetector(
+                          onTap: () => navToExhibition(context),
+                          child: Text(
+                            'Перейти на выставку →',
+                            style: GoogleFonts.inter(color: Colors.lightBlueAccent, fontSize: 16, fontWeight: FontWeight.w600, decoration: TextDecoration.underline),
+                          ),
+                        ),
                       ],
                     ),
                   );

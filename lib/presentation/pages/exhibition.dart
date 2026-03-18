@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:nexusmuseum/uikit/appBar.dart';
-import 'package:nexusmuseum/uikit/drawer.dart';
-import 'package:nexusmuseum/uikit/footer.dart';
-import 'package:nexusmuseum/uikit/colors.dart';
-import 'package:nexusmuseum/uikit/social.dart';
+import 'package:nexusmuseum/domain/globals.dart';
+import 'package:nexusmuseum/presentation/uikit/appBar.dart';
+import 'package:nexusmuseum/presentation/uikit/colors.dart';
+import 'package:nexusmuseum/presentation/uikit/drawer.dart';
+import 'package:nexusmuseum/presentation/uikit/footer.dart';
+import 'package:nexusmuseum/presentation/uikit/social.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'globals.dart';
 
 // Экран Выставка
 class Exhibition extends StatefulWidget {
