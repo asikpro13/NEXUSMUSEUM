@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:nexusmuseum/domain/globals.dart';
@@ -47,9 +46,9 @@ class _AboutMuseumPageState extends State<AboutMuseum> {
                     Spacer(),
                     Text(
                       'О МУЗЕЕ',
-                      style: GoogleFonts.inter(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    Text('NEXUSMUSEUM — Мост между временами и культуры', style: GoogleFonts.inter(color: Colors.white, fontSize: 11)),
+                    Text('NEXUSMUSEUM — Мост между временами и культуры', style: GoogleFonts.inter(color: Colors.white, fontSize: 13)),
                     SizedBox(height: 20),
                     SocialNetworks(),
                   ],
@@ -64,7 +63,7 @@ class _AboutMuseumPageState extends State<AboutMuseum> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Адрес и часы работы', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
+                        Text('Адрес и часы работы', style: GoogleFonts.inter(fontSize: sizeTitleH1, fontWeight: FontWeight.bold)),
                         SizedBox(height: 10),
                         Row(
                           children: [
@@ -113,7 +112,7 @@ class _AboutMuseumPageState extends State<AboutMuseum> {
                           ],
                         ),
                         SizedBox(height: 30),
-                        Text('Как добраться', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
+                        Text('Как добраться', style: GoogleFonts.inter(fontSize: sizeTitleH1, fontWeight: FontWeight.bold)),
                         SizedBox(height: 20),
                         Text('На общественном транспорте', style: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.bold)),
                         SizedBox(height: 20),
@@ -131,7 +130,7 @@ class _AboutMuseumPageState extends State<AboutMuseum> {
                         SizedBox(height: 20),
                         Text('Стоимость парковки: 100 рублей/час, для посетителей музея — первые 2 часа бесплатно', style: GoogleFonts.inter(fontSize: 16)),
                         SizedBox(height: 30),
-                        Text('Где мы находимся', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
+                        Text('Где мы находимся', style: GoogleFonts.inter(fontSize: sizeTitleH1, fontWeight: FontWeight.bold)),
                         SizedBox(height: 10),
                       ],
                     ),
@@ -187,7 +186,7 @@ class _AboutMuseumPageState extends State<AboutMuseum> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('История музея', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
+                        Text('История музея', style: GoogleFonts.inter(fontSize: sizeTitleH1, fontWeight: FontWeight.bold)),
                         SizedBox(height: 10),
                         Text('ПРОЛОГ: РОЖДЕНИЕ ЗАМЫСЛА (2010-2014)', style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600)),
                         SizedBox(height: 10),

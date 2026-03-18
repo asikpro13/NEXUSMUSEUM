@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nexusmuseum/domain/globals.dart';
 import 'package:nexusmuseum/presentation/uikit/appBar.dart';
 import 'package:nexusmuseum/presentation/uikit/colors.dart';
+import 'package:nexusmuseum/presentation/uikit/const.dart';
 import 'package:nexusmuseum/presentation/uikit/date.dart';
 import 'package:nexusmuseum/presentation/uikit/drawer.dart';
 import 'package:nexusmuseum/presentation/uikit/footer.dart';
@@ -114,7 +115,7 @@ class _ExhibitionsState extends State<Exhibitions> {
                               style: GoogleFonts.inter(fontSize: 15, color: background, fontWeight: FontWeight.bold),
                             ),
                             SizedBox(height: 10),
-                            Text('От античных амфор до современных\nарт-объектов', style: GoogleFonts.inter(fontSize: 13, color: background)),
+                            Text('От античных амфор до современных\nарт-объектов', style: GoogleFonts.inter(fontSize: 14, color: background)),
                             SizedBox(height: 35),
                           ],
                         ),
@@ -131,7 +132,7 @@ class _ExhibitionsState extends State<Exhibitions> {
                   children: [
                     Text(
                       'Выставки',
-                      style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(fontSize: sizeTitleH1, color: black, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -142,21 +143,21 @@ class _ExhibitionsState extends State<Exhibitions> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Text(
-                          'Аудитория',
-                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
-                        ),
-                        Spacer(),
-                        GestureDetector(
-                          onTap: _showAudienceSelector,
-                          child: Text(
-                            '→',
-                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
+                    GestureDetector(
+                      onTap: _showAudienceSelector,
+                      child: Row(
+                        children: [
+                          Text(
+                            'Аудитория',
+                            style: GoogleFonts.inter(fontSize: 18, color: black, fontWeight: FontWeight.bold),
                           ),
-                        ),
-                      ],
+                          Spacer(),
+                          Text(
+                            '→',
+                            style: GoogleFonts.inter(fontSize: 18, color: black, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(height: 10),
                     if (selectedAudience != null && selectedAudience!.isNotEmpty)
@@ -165,21 +166,23 @@ class _ExhibitionsState extends State<Exhibitions> {
                         style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold, height: 1.3),
                       ),
                     SizedBox(height: 10),
-                    Row(
-                      children: [
-                        Text(
-                          'Дата',
-                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
-                        ),
-                        Spacer(),
-                        GestureDetector(
-                          onTap: _showDatePicker,
-                          child: Text(
-                            '→',
-                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
+                    GestureDetector(
+                      onTap: _showDatePicker,
+                      child: Row(
+                        children: [
+                          Text(
+                            'Дата',
+                            style: GoogleFonts.inter(fontSize: 18, color: black, fontWeight: FontWeight.bold),
                           ),
-                        ),
-                      ],
+                          Spacer(),
+                          GestureDetector(
+                            child: Text(
+                              '→',
+                              style: GoogleFonts.inter(fontSize: 18, color: black, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(height: 10),
                     if (selectedDate != null && selectedTime!.isNotEmpty)
@@ -188,22 +191,24 @@ class _ExhibitionsState extends State<Exhibitions> {
                         style: GoogleFonts.inter(fontSize: 14, color: light_gray, fontWeight: FontWeight.bold),
                       ),
                     SizedBox(height: 10),
-                    Row(
-                      children: [
-                        Text(
-                          'Локация',
-                          overflow: TextOverflow.ellipsis,
-                          style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
-                        ),
-                        Spacer(),
-                        GestureDetector(
-                          onTap: _showVenueSelector,
-                          child: Text(
-                            '→',
-                            style: GoogleFonts.inter(fontSize: 16, color: black, fontWeight: FontWeight.bold),
+                    GestureDetector(
+                      onTap: _showVenueSelector,
+                      child: Row(
+                        children: [
+                          Text(
+                            'Локация',
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.inter(fontSize: 18, color: black, fontWeight: FontWeight.bold),
                           ),
-                        ),
-                      ],
+                          Spacer(),
+                          GestureDetector(
+                            child: Text(
+                              '→',
+                              style: GoogleFonts.inter(fontSize: 18, color: black, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(height: 10),
                     if (selectedVenue != null && selectedVenue!.isNotEmpty)
@@ -220,7 +225,7 @@ class _ExhibitionsState extends State<Exhibitions> {
                       },
                       child: Text(
                         'Сбросить фильтр',
-                        style: GoogleFonts.inter(fontSize: 15, color: error, fontWeight: FontWeight.bold),
+                        style: GoogleFonts.inter(fontSize: 16, color: error, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
@@ -233,7 +238,7 @@ class _ExhibitionsState extends State<Exhibitions> {
                   children: [
                     Text(
                       'Выставки в корпусах',
-                      style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(fontSize: sizeTitleH1, color: black, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -294,7 +299,7 @@ class _ExhibitionsState extends State<Exhibitions> {
                   children: [
                     Text(
                       'Будущие выставки',
-                      style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(fontSize: sizeTitleH1, color: black, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -355,7 +360,7 @@ class _ExhibitionsState extends State<Exhibitions> {
                   children: [
                     Text(
                       'Будущие коллекции',
-                      style: GoogleFonts.inter(fontSize: 20, color: black, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(fontSize: sizeTitleH1, color: black, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),

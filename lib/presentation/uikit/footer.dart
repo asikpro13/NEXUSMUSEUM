@@ -24,28 +24,6 @@ class _FooterProjectAppState extends State<FooterProject> {
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AboutMuseum()));
-                },
-                child: Text('О МУЗЕЕ', style: GoogleFonts.inter(fontSize: 12, color: background)),
-              ),
-              SizedBox(height: 5),
-              GestureDetector(
-                onTap: () {},
-                child: Text('ДЛЯ СМИ', style: GoogleFonts.inter(fontSize: 12, color: background)),
-              ),
-              SizedBox(height: 5),
-              GestureDetector(
-                onTap: () {},
-                child: Text('КОНТАКТЫ', style: GoogleFonts.inter(fontSize: 12, color: background)),
-              ),
-            ],
-          ),
-          SizedBox(height: 40),
-          Row(
             children: [
               GestureDetector(
                 onTap: () {

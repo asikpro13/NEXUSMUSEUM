@@ -244,7 +244,10 @@ class _LandingState extends State<Landing> {
                   children: [
                     SizedBox(
                       width: 130,
-                      child: Text(textPromo, style: GoogleFonts.inter(fontSize: 10, color: background)),
+                      child: Text(
+                        textPromo,
+                        style: GoogleFonts.inter(fontSize: sizeTextPromo, color: background),
+                      ),
                     ),
                     Spacer(),
                     Column(
@@ -255,7 +258,7 @@ class _LandingState extends State<Landing> {
                           width: 170,
                           child: Text(
                             'Бесплатный вход в рамках UNIQLO Nights',
-                            style: GoogleFonts.inter(fontSize: 11, color: background, fontWeight: FontWeight.bold),
+                            style: GoogleFonts.inter(fontSize: 14, color: background, fontWeight: FontWeight.bold),
                           ),
                         ),
                         SizedBox(height: 12),
@@ -265,7 +268,7 @@ class _LandingState extends State<Landing> {
                           },
                           child: Text(
                             'Получить билеты  →',
-                            style: GoogleFonts.inter(fontSize: 13, color: background, fontWeight: FontWeight.bold),
+                            style: GoogleFonts.inter(fontSize: 14, color: background, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],

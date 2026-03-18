@@ -5,6 +5,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:nexusmuseum/domain/globals.dart';
 import 'package:nexusmuseum/presentation/uikit/appBar.dart';
 import 'package:nexusmuseum/presentation/uikit/colors.dart';
+import 'package:nexusmuseum/presentation/uikit/const.dart';
 import 'package:nexusmuseum/presentation/uikit/drawer.dart';
 import 'package:nexusmuseum/presentation/uikit/footer.dart';
 import 'package:nexusmuseum/presentation/uikit/social.dart';
@@ -60,7 +61,7 @@ class _ExhibitionPageState extends State<Exhibition> {
                               style: GoogleFonts.inter(fontSize: 15, color: background, fontWeight: FontWeight.bold),
                             ),
                             SizedBox(height: 10),
-                            Text('Какой была жизнь до появления человека?', style: GoogleFonts.inter(fontSize: 13, color: background)),
+                            Text('Какой была жизнь до появления человека?', style: GoogleFonts.inter(fontSize: 14, color: background)),
                             SizedBox(height: 35),
                           ],
                         ),
@@ -79,7 +80,10 @@ class _ExhibitionPageState extends State<Exhibition> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Адрес и часы работы', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
+                        Text(
+                          'Адрес и часы работы',
+                          style: GoogleFonts.inter(fontSize: sizeTitleH1, fontWeight: FontWeight.bold),
+                        ),
                         SizedBox(height: 10),
                         Row(
                           children: [
@@ -122,7 +126,10 @@ class _ExhibitionPageState extends State<Exhibition> {
                           ],
                         ),
                         SizedBox(height: 30),
-                        Text('Стоимость билетов', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
+                        Text(
+                          'Стоимость билетов',
+                          style: GoogleFonts.inter(fontSize: sizeTitleH1, fontWeight: FontWeight.bold),
+                        ),
                         SizedBox(height: 15),
                         Text('Взрослый — 800 ₽', style: GoogleFonts.inter(fontSize: 15.5)),
                         SizedBox(height: 10),
@@ -155,7 +162,10 @@ class _ExhibitionPageState extends State<Exhibition> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('О мероприятии', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
+                        Text(
+                          'О мероприятии',
+                          style: GoogleFonts.inter(fontSize: sizeTitleH1, fontWeight: FontWeight.bold),
+                        ),
                         SizedBox(height: 10),
                         Text(
                           'Когда Земля была молодой, ими правили гиганты. Приготовьтесь встретиться лицом к лицу с самыми могущественными существами, когда-либо ходившими по планете! Наша масштабная выставка перенесёт вас на миллионы лет назад, в эпоху, когда воздух дрожал от рёва тираннозавра, а земля содрогалась под тяжестью шагов брахиозавров. Вас ждут полномасштабные скелеты и реконструкции легендарных динозавров в натуральную величину, интерактивные зоны где вы почувствуете себя палеонтологом проводя раскопки в специальной песочнице, дополненная реальность которая оживит древних гигантов с помощью вашего смартфона, а также уникальные экспонаты — череп трицератопса, когти велоцираптора и окаменелости найденные в нашем регионе. Это путешествие во времени которое перевернёт ваше представление о мире. Осмелитесь ли вы заглянуть в прошлое?',
@@ -178,7 +188,10 @@ class _ExhibitionPageState extends State<Exhibition> {
                           ),
                         ),
                         SizedBox(height: 35),
-                        Text('Фотогалерея', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
+                        Text(
+                          'Фотогалерея',
+                          style: GoogleFonts.inter(fontSize: sizeTitleH1, fontWeight: FontWeight.bold),
+                        ),
                         SizedBox(height: 20),
                         GridView.builder(
                           padding: EdgeInsets.zero,

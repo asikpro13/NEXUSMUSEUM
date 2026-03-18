@@ -36,7 +36,10 @@ class _AppBarProjectState extends State<AppBarProject> {
             child: Text('NEXUSMUSEUM', style: GoogleFonts.playfairDisplay(fontSize: 26, color: widget.isTitle ? background : Colors.transparent)),
           ),
           Spacer(),
-          GestureDetector(onTap: () {}, child: SvgPicture.asset('assets/icons/profile.svg', width: 22)),
+          GestureDetector(
+            onTap: () {},
+            child: SvgPicture.asset('assets/icons/profile.svg', width: 22, color: Colors.transparent),
+          ),
         ],
       ),
     );
