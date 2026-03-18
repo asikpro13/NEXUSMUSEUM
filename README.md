@@ -1,5 +1,8 @@
 ## NEXUSMUSEUM
 
+**Ссылка на архив проекта:**  
+`https://github.com/asikpro13/NEXUSMUSEUM`
+
 # Документация
 ### Команда запуска проекта
 ```bash
