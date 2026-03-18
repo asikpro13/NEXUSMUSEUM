@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:nexusmuseum/globals.dart';
@@ -67,7 +68,7 @@ class _AboutMuseumPageState extends State<AboutMuseum> {
                         SizedBox(height: 10),
                         Row(
                           children: [
-                            SvgPicture.asset('assets/icons/geo.svg', width: 15),
+                            SvgPicture.asset('assets/icons/geo.svg', width: 15,),
                             SizedBox(width: 12),
                             Text('Корпус «Античность»', style: GoogleFonts.inter(fontSize: 16)),
                           ],
@@ -97,11 +98,17 @@ class _AboutMuseumPageState extends State<AboutMuseum> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(padding: const EdgeInsets.only(top: 4), child: SvgPicture.asset('assets/icons/clock.svg', width: 15)),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 4),
+                              child: SvgPicture.asset('assets/icons/clock.svg',  width: 15),
+                            ),
                             const SizedBox(width: 10),
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.8,
-                              child: Text('ВС, ВТ, СР: 10:00 — 18:00 (кассы и вход до 17:00)\nПН: выходной\nЧТ, ПТ, СБ: 10:00 — 21:00 (кассы и вход до 20:00)', style: GoogleFonts.inter(fontSize: 16)),
+                              child: Text(
+                                'ВС, ВТ, СР: 10:00 — 18:00 (кассы и вход до 17:00)\nПН: выходной\nЧТ, ПТ, СБ: 10:00 — 21:00 (кассы и вход до 20:00)',
+                                style: GoogleFonts.inter(fontSize: 16),
+                              ),
                             ),
                           ],
                         ),
@@ -227,7 +234,7 @@ class _AboutMuseumPageState extends State<AboutMuseum> {
                           'Музей также укрепил свои исследовательские позиции, открыв Лабораторию цифровой гуманитаристики и Школу музейного кураторства. Ежегодная конференция "Nexus: искусство искусство в эпоху технологий" стала важной площадкой для профессионалов со всего мира.',
                           style: GoogleFonts.inter(fontSize: 16),
                         ),
-                        SizedBox(height: 25),
+                        SizedBox(height: 50),
                       ],
                     ),
                   ),

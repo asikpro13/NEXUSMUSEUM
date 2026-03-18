@@ -191,10 +191,9 @@ class _ExhibitionPageState extends State<Exhibition> {
                             return Padding(
                               padding: const EdgeInsets.all(6),
                               child: GestureDetector(
-                                onLongPress: () {
+                                onTap: () {
                                   openPhotoViewGallery(context: context, imageList: exhibitionsList, titleList: titleExhibitionsList, initialIndex: index);
                                 },
-                                onTap: () {},
                                 child: Stack(
                                   children: [
                                     Container(
