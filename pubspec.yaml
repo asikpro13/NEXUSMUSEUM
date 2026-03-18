@@ -23,7 +23,7 @@ dependencies:
   photo_view: ^0.15.0             # Просмотр изображений с увеличением
   dropdown_button2: ^3.0.0        # Кастомные выпадающие списки
   calendar_date_picker2: ^2.0.1   # Расширенный календарь для выбора дат
-  video_player: ^2.11.1           #
+  video_player: ^2.11.1           # Видео-проигрыватель
 
 dev_dependencies:
   flutter_test:

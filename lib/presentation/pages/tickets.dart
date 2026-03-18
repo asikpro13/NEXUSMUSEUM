@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:nexusmuseum/globals.dart';
-import 'package:nexusmuseum/uikit/appBar.dart';
-import 'package:nexusmuseum/uikit/date.dart';
-import 'package:nexusmuseum/uikit/drawer.dart';
-import 'package:nexusmuseum/uikit/footer.dart';
-import 'package:nexusmuseum/uikit/colors.dart';
+import 'package:nexusmuseum/domain/globals.dart';
+import 'package:nexusmuseum/presentation/uikit/appBar.dart';
+import 'package:nexusmuseum/presentation/uikit/colors.dart';
+import 'package:nexusmuseum/presentation/uikit/date.dart';
+import 'package:nexusmuseum/presentation/uikit/drawer.dart';
+import 'package:nexusmuseum/presentation/uikit/footer.dart';
 
 // Экран Билеты
 class Tickets extends StatefulWidget {

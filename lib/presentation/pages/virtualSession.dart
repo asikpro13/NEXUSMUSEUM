@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nexusmuseum/globals.dart';
-import 'package:nexusmuseum/uikit/appBar.dart';
-import 'package:nexusmuseum/uikit/colors.dart';
-import 'package:nexusmuseum/uikit/drawer.dart';
-import 'package:nexusmuseum/uikit/footer.dart';
+import 'package:nexusmuseum/domain/globals.dart';
+import 'package:nexusmuseum/presentation/uikit/appBar.dart';
+import 'package:nexusmuseum/presentation/uikit/colors.dart';
+import 'package:nexusmuseum/presentation/uikit/drawer.dart';
+import 'package:nexusmuseum/presentation/uikit/footer.dart';
 import 'package:video_player/video_player.dart';
 
 // Экран Виртуальный визит

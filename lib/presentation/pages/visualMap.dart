@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nexusmuseum/globals.dart';
-import 'package:nexusmuseum/uikit/appBar.dart';
-import 'package:nexusmuseum/uikit/colors.dart';
-import 'package:nexusmuseum/uikit/drawer.dart';
-import 'package:nexusmuseum/uikit/footer.dart';
+import 'package:nexusmuseum/domain/globals.dart';
+import 'package:nexusmuseum/presentation/uikit/appBar.dart';
+import 'package:nexusmuseum/presentation/uikit/colors.dart';
+import 'package:nexusmuseum/presentation/uikit/drawer.dart';
+import 'package:nexusmuseum/presentation/uikit/footer.dart';
 
 // Экран Визуальная карта
 class VirtualMap extends StatefulWidget {
@@ -103,7 +103,7 @@ class _VirtualMapState extends State<VirtualMap> {
                           openPhotoViewGallery(context: context, imageList: exhibitionList.sublist(0, exhibitionList.length - 2), titleList: titleExhibitionList.sublist(0, titleExhibitionList.length - 2), initialIndex: index);
                         },
                         onTap: () {
-                        navToVirtualSession(context);
+                          navToVirtualSession(context);
                         },
                         child: Stack(
                           children: [
